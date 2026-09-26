@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-shipping_manifest.py (v0.2) -- what ships for a 10-house village, two scenarios.
+shipping_manifest.py (v0.3) -- what ships for a 10-house village, two scenarios.
 Run: python3 shipping_manifest.py
 All weights/volumes are first-order [TO-MEASURE].
 """
@@ -8,7 +8,8 @@ import math
 C20_M3, C20_KG = 33, 28000
 
 RIG = {"batch kiln": (300, 1.5), "mill": (250, 0.8), "soil prep": (150, 0.6),
-       "mixer": (150, 0.8), "forms / CSEB press": (800, 4.0), "compaction": (150, 0.5),
+       "mixer": (150, 0.8), "pit liners, chairs, spreader bar": (150, 0.8),
+       "tilt gear: A-frame, hoist, braces": (400, 2.5), "compaction": (150, 0.5),
        "instruments": (50, 0.3), "QA kit": (200, 0.6), "tools & PPE": (300, 1.5)}
 POWER = {"solar 20 kW": (1150, 4.5), "inverters": (150, 0.6), "LFP 50 kWh": (500, 0.9),
          "racking & BOS": (500, 2.5), "distribution cable": (600, 1.5)}
@@ -26,7 +27,7 @@ def report(label, parts):
 
 if __name__ == "__main__":
     print("=" * 62)
-    print("VILLAGE SHIPPING MANIFEST v0.2 (10 houses)")
+    print("VILLAGE SHIPPING MANIFEST v0.3 (10 houses)")
     print("=" * 62)
     everything = report("ship everything (rig + power + 10 houses)",
                         [tot(RIG), tot(POWER), tot(PER_HOUSE, 10)])

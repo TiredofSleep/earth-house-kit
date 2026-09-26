@@ -6,9 +6,9 @@ Route B = electrokinetics: steel driven into the clay is used as electrodes; low
 (straight from solar panels) pulls water out (electro-osmosis), pulls stabilizing ions in
 (electromigration), and warms the soil (Joule heating). All values [TO-MEASURE] in a bench box.
 """
-import numpy as np
-
-V_PANEL = 1.22 * 2.44 * 0.152          # 8x4 ft x 6 in treated zone, m^3
+from common import (PANEL_M3 as V_PANEL, PANEL_H, PANEL_W, PANEL_T, RHO_LIFT, G, IMPACT as IMP,
+                    F_C, BAR4_AREA, lift_moments, flexural_capacity)
+# V_PANEL: the 8x4 ft x 6 in treated zone, m^3
 F, R, T = 96485, 8.314, 298
 D_CA = 7.9e-10                          # Ca2+ diffusion in water, m^2/s
 TORT = (0.1, 0.4)                       # tortuosity factor in clay
@@ -45,22 +45,22 @@ print(f"\n3 reagent passes at 0.5 V/cm: {t_lo/86400:.0f}-{t_hi/86400:.0f} days, 
 print("  (current rises as ions enter; dry zones near electrodes self-limit it)")
 
 # ---- tilt with the steel on TOP (grid pressed into the treated surface) ----
-RHO, G, IMP = 1900, 9.81, 1.5
-L, b, h = 2.44, 1.22, 0.152
-w = RHO * L * b * h * G / L
+L, b, h = PANEL_H, PANEL_W, PANEL_T
+w = RHO_LIFT * L * b * h * G / L
 S = b * h**2 / 6
 def sag_hog(a):
-    x = np.linspace(0, L, 4001)
-    R0 = w * (a**2 - (L - a)**2) / (2 * a)
-    M = np.where(x <= a, R0 * x - w * x**2 / 2, -w * (L - x)**2 / 2)
-    return M.max() * IMP / S / 1e6, -M.min() * IMP / S / 1e6
+    sag, hog = lift_moments(w, L, a)
+    return sag * IMP / S / 1e6, hog * IMP / S / 1e6
 print("\nTILT with the grid on the TOP face (earth-only face is now the bottom):")
 print(f"{'pick at':>8} {'bottom (earth only)':>20} {'top (steel face)':>18}")
 for frac in (0.71, 0.65, 0.60, 0.55):
     s_, h_ = sag_hog(frac * L)
     print(f"{frac:>8.2f} {s_:>17.2f} MPa {h_:>15.2f} MPa")
 print("-> with steel on top, lift LOW (~0.6 of height) so the bare face stays unstressed")
-# bars driven horizontally at mid-depth from edge trenches
-Mn = 4 * 129e-6 * 420e6 * 0.9 * (h / 2)
-print(f"\nbars driven in at mid-depth (from edge trenches): carry {Mn/1e3:.1f} kN*m "
-      f"vs ~1.3-3 kN*m lift demand -> enough, in either direction")
+# bars driven horizontally at mid-depth from edge trenches: near the neutral axis, and the
+# compression side is earth -> capacity is set by the earth crushing, not the steel yielding
+Md = max(lift_moments(w, L, 0.60 * L)) * IMP
+caps = [flexural_capacity(4 * BAR4_AREA, h / 2, b, fc * 1e6)[0] for fc in F_C]
+print(f"\nbars driven in at mid-depth (from edge trenches): carry {caps[0]/1e3:.1f}-{caps[1]/1e3:.1f} kN*m "
+      f"(earth f'c {F_C[0]}-{F_C[1]} MPa) vs {Md/1e3:.1f} kN*m lift demand at 0.60 "
+      f"-> {caps[0]/Md:.1f}-{caps[1]/Md:.1f}x: thin margin; prefer the grid pressed into the top face")

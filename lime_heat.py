@@ -5,14 +5,14 @@ cure energy it saves. Run: python3 lime_heat.py
 CaO + H2O -> Ca(OH)2 releases ~65 kJ/mol. The heat is a PULSE at mixing (minutes to hours),
 not a sustained cure. It was paid for at the lime kiln; slaking returns part of it.
 """
+from common import PANEL_KG, MOISTURE
+
 DH = 65e3                    # J per mol CaO slaked
 M_CAO, M_H2O = 0.05608, 0.018
 Q_PER_KG = DH / M_CAO        # J per kg CaO
-PANEL_KG = 860               # 8x4 ft x 6 in stabilized earth panel
-MOISTURE = 0.10              # compaction water fraction
-LIME_FRAC = (0.05, 0.07)     # quicklime as fraction of panel mass (Roman binder)
+LIME_FRAC = (0.05, 0.07)     # quicklime as fraction of dry panel mass (Roman binder)
 USEFUL = (0.3, 0.6)          # fraction of the pulse still in the panel once it's cast [TO-MEASURE]
-GRID_CURE = (22, 43)         # kWh per panel for a 20->70 C warm cure incl. ground losses
+GRID_CURE = (20, 41)         # kWh per panel for a 20->70 C warm cure incl. ground losses (tiltup_check.py)
 KWH = 3.6e6
 
 if __name__ == "__main__":
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     print("=" * 62)
     print(f"slaking heat: {Q_PER_KG/1e6:.2f} MJ per kg quicklime = {Q_PER_KG/KWH:.2f} kWh/kg")
     water = PANEL_KG * MOISTURE
-    heat_cap = water * 4186 + (PANEL_KG - water) * 850          # J/K
+    heat_cap = water * 4186 + PANEL_KG * 850                    # J/K
     for i in (0, 1):
         cao = PANEL_KG * LIME_FRAC[i]
         q = cao * Q_PER_KG

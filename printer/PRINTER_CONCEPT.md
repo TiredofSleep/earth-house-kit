@@ -16,7 +16,7 @@ speed is set by drying, not by the machine. And steel can't easily run across st
 |---|---|---|
 | **strength** | wet, uncompacted, lower density | **compacted at optimum moisture** by a floating vibrating shoe — rammed-earth density [TO-MEASURE] |
 | **waiting to dry** | each layer must stiffen first | **none**: compacted earth stands up immediately (why rammed-earth forms come off right after ramming); flat panels don't stack height anyway |
-| **drying the panel** | air only | **quicklime hot-mixed at the head** binds 24–44% of the mix water chemically or boils it off within hours, and heats the lift for the lime-pozzolan reaction — the way road crews dry wet clay |
+| **drying the panel** | air only | **quicklime hot-mixed at the head** binds 16–22% of the mix water chemically and warms the lift ~45–65 °C for the lime-pozzolan reaction — the way road crews dry wet clay; extra evaporation from thin lifts [TO-MEASURE] |
 | **steel** | hard to place across layers | **grid laid on the bed first**, printed onto; it ends up on the bottom face = the interior face after tilting (exoskeleton, anchors) |
 | **stiffness per kg** | solid walls | **printed ribs**: 3 in skin + ribs to 8 in = ~30% less earth, same stiffness, 40% lower lift stress; ribs to 12 in = 3.5× stiffer for tall walls |
 | **insulation** | straw in the mix | **rice husk packed between the ribs**, lime-capped: thermal mass inside, insulation outside |
@@ -34,7 +34,9 @@ speed is set by drying, not by the machine. And steel can't easily run across st
   light and cheap.
 - **Tool changer:** the same gantry can carry a **tiller head** over native ground. That makes it
   the no-dig machine too (MISSION §15 Route A): spread binder, till in place, compact, press the
-  grid, wire-cut, tilt — with one frame.
+  grid, wire-cut, tilt — with one frame. With a **hoist trolley** on the same beam it is also the
+  tilt-up gantry (MISSION §14): the pick point travels ~5.7 ft during a tilt, and a rolling
+  gantry keeps the line vertical.
 - **Power:** motors + vibrator ~1–3 kW; runs off the kit's solar system during the day.
 - **Control:** open-source CNC controller; the "print" is a simple raster of lifts plus rib and
   void paths.
@@ -64,6 +66,8 @@ reusable across villages, replacing forms and most of the spreading/compacting l
   (ramming) head before building anything else.
 - Hot mix sets faster than lifts can be placed (cold joints between lifts) → reduce quicklime,
   or scarify and wet between lifts.
+- Compacted hot-mix cubes swell or crack when soaked at 7 days (quicklime slaking *after*
+  compaction) → mellow the mix before it reaches the shoe, or switch to hydrated lime at the head.
 - Ribs crack at the skin junction during the tilt → add fillets or run grid bars up into the ribs.
 
 ## Relationship to WASP

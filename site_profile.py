@@ -7,10 +7,12 @@ A new region = a new JSON file in sites/. A new material = an entry in data/mate
 No code changes needed for either.
 """
 import json, glob, sys, os
+from common import WALL_KG
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-LIB = json.load(open(os.path.join(HERE, "data", "materials.json")))
-WALL = LIB["wall_kg_per_house"]
+with open(os.path.join(HERE, "data", "materials.json"), encoding="utf-8") as fh:
+    LIB = json.load(fh)
+WALL = round(WALL_KG)                                         # geometry lives in common.py
 P = [WALL * f for f in LIB["pozzolan_frac_of_wall"]]          # pozzolan kg per house (low, high)
 
 def has(av, k):
@@ -58,6 +60,10 @@ FIRED = ("calcined_clay", "rice_husk_ash", "bagasse_ash")
 def recipes(site, cls, pz):
     s, av, pr = site["soil"], site["available"], site.get("priorities", [])
     lime = "hot-mixed quicklime" if has(av, "quicklime") else "hydrated lime"
+    if s.get("clay_type") == "expansive":
+        return ["walls: none from this soil as dug -- blend >=50% sand (then re-run as a new site file)"
+                " or use another pit",
+                "lime 5-10% for footings, floors and paths"]
     sure = [d for k, d, c in pz if not c]
     maybe = [d for k, d, c in pz if c]
     clay_sure = any(k == "calcined_clay" and not c for k, d, c in pz)
@@ -143,8 +149,19 @@ def hazards(recs, pz):
         h.add("kiln ~700 C and milling dust: heat PPE, respirator")
     return sorted(h)
 
+def validate(site, path):
+    s = site["soil"]
+    for k in ("sand_gravel", "silt", "clay"):
+        if k not in s:
+            raise SystemExit(f"{path}: soil.{k} missing")
+    total = s["sand_gravel"] + s["silt"] + s["clay"]
+    if abs(total - 100) > 2:
+        raise SystemExit(f"{path}: sand_gravel + silt + clay = {total}%, should be ~100%")
+
 def profile(path):
-    site = json.load(open(path))
+    with open(path, encoding="utf-8") as fh:
+        site = json.load(fh)
+    validate(site, path)
     cls, notes = bulk(site["soil"])
     print("\n" + "=" * 70 + f"\n{site['name']}\n" + "=" * 70)
     s = site["soil"]

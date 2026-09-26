@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-system_sizing.py (v0.2) -- energy sizing for the earth house-kit.
+system_sizing.py (v0.3) -- energy sizing for the earth house-kit.
 Run: python3 system_sizing.py
 Keeps the killed design on record, shows why the in-wall binder design was
 superseded, and sizes the v0.2 batch-kiln build phase and the village run phase.
 """
+from common import PANEL_KG, PANELS_PER_HOUSE as PANELS
+
 C_WATER, L_VAP, C_CLAY = 4186, 2.26e6, 900
 KWH = lambda j: j / 3.6e6
-PANEL_KG = 1.22 * 2.44 * 0.152 * 1800
-PANELS = 17
 
 def in_wall_fire(fraction, moisture=0.15, loss=3.0):
     fired = PANEL_KG * fraction
@@ -18,7 +18,7 @@ def in_wall_fire(fraction, moisture=0.15, loss=3.0):
 
 if __name__ == "__main__":
     print("=" * 62)
-    print("EARTH HOUSE-KIT ENERGY SIZING v0.2")
+    print("EARTH HOUSE-KIT ENERGY SIZING v0.3")
     print("=" * 62)
     full = in_wall_fire(1.0) * PANELS
     print(f"\n(1) fire the WHOLE wall in place [KILLED]: {full:,.0f} kWh/house,"
@@ -32,8 +32,9 @@ if __name__ == "__main__":
     print("    -> fire by day straight off a 20 kW array; the battery only smooths clouds.")
     print("       no 133-888 kWh battery, no in-wall injection, no in-wall shrinkage cracking.")
 
-    load = 3.1          # kWh/day per finished house (thermal mass handles heating/cooling)
-    array_day = 20 * 5 * 0.8
+    load = 3.1          # kWh/day per finished house: lights, fans, phone, fridge share [TO-VERIFY per
+                        # site; no air conditioning -- thermal mass softens heat, it does not remove humidity]
+    array_day = 20 * 5 * 0.8   # 5 peak-sun hours x 80% system efficiency [TO-VERIFY per site]
     batt_usable = 50 * 0.8
     print(f"\n(4) village RUN phase: {load} kWh/day/house; 20 kW array ~{array_day:.0f} kWh/sunny day")
     print(f"    energy supports ~{array_day/load:.0f} houses on sunny days;")

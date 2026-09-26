@@ -1,7 +1,8 @@
-# HANDOFF — earth-house-kit (new repo) → Claude Code
+# HANDOFF — earth-house-kit → Claude Code (and any contributor)
 
 ## Start here
 ```
+python3 check_numbers.py        # runs everything below and checks MISSION.md against it
 python3 system_sizing.py
 python3 shipping_manifest.py
 python3 costs_estimate.py
@@ -13,18 +14,20 @@ python3 nodig_check.py
 python3 printer/print_check.py
 python3 earth-panel/energy_estimate.py
 ```
-All four run clean. They are the repo's honesty layer: any new number in MISSION.md needs a line
-in a script or a cited quote.
+All of them run clean (`pip install -r requirements.txt` first). They are the repo's honesty
+layer: any new number in MISSION.md needs a line in a script or a cited quote, and a headline
+number should get a line in `check_numbers.py`. Shared geometry and material values live in
+`common.py` — change them there, never by copying a constant into a script.
 
 ## What this repo is
 A charity/grant project: an open method plus a small reusable kit that turns local soil into
 reinforced, thermally massive walls, with a solar system that powers the build and then stays as
-the village mini-grid. Read MISSION.md (v0.2) and GRAVEYARD.md first.
+the village mini-grid. Read MISSION.md (v0.3.1) and GRAVEYARD.md first.
 
 ## The core idea (do not lose it again)
-The wall is **cast flat in a pit dug from the site's own soil and tilted up.** The pit is the form; the grid is rebar + lift frame + optional cure heater. Read MISSION §00 and §1.
+The wall is **cast flat in a pit dug from the site's own soil and tilted up.** The pit is the form; the grid is rebar + lift frame + optional cure heater. Read MISSION §0 and §1.
 
-## Do not regress (the v0.2 corrections)
+## Do not regress (the v0.2 and v0.3.1 corrections)
 - Binder is fired in a **batch kiln**, not in the wall. The grid is plain rebar.
 - The kit supports **both binders**: calcined clay (kaolinite-rich soils, scarce cement) and
   6–8% cement (everywhere else). Only the kiln and mill are binder-specific.
@@ -32,10 +35,17 @@ The wall is **cast flat in a pit dug from the site's own soil and tilted up.** T
 - The binder saves hundreds, not thousands, per house. Don't pitch it as the cost advantage.
 - It is a **charity** deployed **through partners**. No venture framing.
 - `earth-panel/` (in-situ grid firing, cooldown injection) is a **research branch**, not the kit.
+- Steel capacity is **limited by the earth crushing** (`common.flexural_capacity`), not As·fy·0.9d.
+- Lift checks use the **moist** panel, a 1.5 margin on cracking, and a separate breakaway
+  (suction) case. Lift from the steel, never from the earth. Openings go between panels.
 
 ## Task list (priority order)
-0. **Tilt-up detailing** in `making-system/`: pick points (~0.7 height), insert design, spreader bar, A-frame/hoist spec, temporary bracing, panel-to-panel and panel-to-footing connections, bond beam. Extend `tiltup_check.py` for openings (doors/windows) and wind load while braced.
-1. **Phase A protocol** in `chemistry/`: the nine tests in MISSION §8 (incl. beam bending, pull-out, Roman hot-mix, erosion) (incl. beam bending and rebar pull-out), sample prep, kiln schedule,
+0. ~~**Tilt-up detailing**~~ — v0.1 done: `making-system/TILTUP_DETAILING.md`; `tiltup_check.py`
+   now covers breakaway suction, openings, hoist/setting loads and wind while braced. Remaining:
+   base shear/uplift at the plinth, out-of-plane capacity of the finished wall, member sizes
+   from an engineer, surface-grid variant for openings (task 14).
+1. **Phase A protocol** in `chemistry/`: every test in MISSION §8 (incl. beam bending at lift age, pull-out + insert proof load,
+   Roman hot-mix and its late-slaking expansion check, erosion), sample prep, kiln schedule,
    cube casting at 10%/15% binder and 6–8% cement, curing, lab submission, pass/fail thresholds
    (propose a minimum compressive strength with a cited basis). Add a results template.
 2. **Replace [TO-VERIFY] with real quotes** in `bom/`: US prices for the Phase A and demo kit;

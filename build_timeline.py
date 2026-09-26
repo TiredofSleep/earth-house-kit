@@ -5,20 +5,14 @@ Run: python3 build_timeline.py   (first-order; [TO-MEASURE] on the demo build)
 Binder options: geopolymer (calcined clay + activator) or Roman-style lime-pozzolan
 (calcined clay + hot-mixed quicklime; less clay to fire, longer cure).
 """
-WALL_KG = 13_846
+from common import WALL_KG, CREW_DAYS, CREW_SIZE
+
 KILN_KWH_DAY = 60                                 # per kiln, from a 20 kW array's midday output
 BINDERS = {
     # calcined-clay fraction of wall mass, kWh/kg (fire+mill), cure days before tilt
     "geopolymer (clay + activator)":   ((0.10, 0.15), (0.43, 0.85), (7, 14)),
     "Roman lime-pozzolan (hot mixed)": ((0.05, 0.08), (0.43, 0.85), (14, 28)),
     "cement fallback (6-8%)":          ((0.0, 0.0),   (0.0, 0.0),   (7, 7)),
-}
-CREW_DAYS = {  # crew of ~6, working days per house
-    "site + footing":                     (3, 5),
-    "dig pits + cast 17 panels":          (4, 6),
-    "tilt, brace, connect":               (2, 4),
-    "bond beam + roof":                   (5, 10),
-    "openings, wiring, water, render":    (7, 12),
 }
 
 def kiln_days(frac, spec, kilns):
@@ -27,7 +21,7 @@ def kiln_days(frac, spec, kilns):
 if __name__ == "__main__":
     work = tuple(sum(v[i] for v in CREW_DAYS.values()) for i in (0, 1))
     print("=" * 64)
-    print("BUILD TIMELINE (crew of ~6)")
+    print(f"BUILD TIMELINE (crew of ~{CREW_SIZE})")
     print("=" * 64)
     print(f"crew working days per house: {work[0]}-{work[1]}")
     for k, v in CREW_DAYS.items():

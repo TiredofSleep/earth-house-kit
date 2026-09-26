@@ -1,48 +1,75 @@
-# EARTH HOUSE-KIT — Mission v0.3
+# EARTH HOUSE-KIT — Mission v0.3.1
 ## Build and power a village from the dirt on site. Charity and grant model.
-### Brayden Sanders — Hot Springs, AR. Supersedes MISSION v0.2.
+### Brayden Sanders — Hot Springs, AR. Supersedes MISSION v0.3.
 
 > **The mission.** Give communities that need housing a small reusable kit and an open
 > method that turn their own soil into durable, reinforced, thermally massive walls — with a
 > solar system that powers the build and then stays behind as the village's mini-grid.
 >
-> **The discipline.** Every number is first-order and tagged [TO-VERIFY] or [TO-MEASURE].
+> **The discipline.** Every number is computed in a script, cited, or tagged [TO-VERIFY] or
+> [TO-MEASURE]; `python3 check_numbers.py` fails if this document drifts from the scripts.
 > Every failed gate changes the plan. Killed ideas go in `GRAVEYARD.md` so nobody rebuilds
-> them. v0.1 already killed one design by arithmetic; v0.2 corrects four more things
-> (§0). That is the method working, not the mission failing.
+> them. v0.1 killed one design by arithmetic, v0.2 corrected four more things, and v0.3.1
+> corrects v0.3's own numbers (§0). That is the method working, not the mission failing.
+
+> **⚠ Not yet tested, not engineered, not code-approved.** This is a research program. No wall
+> has been built with this method. Structural earth needs a licensed engineer's review; kilns,
+> quicklime, caustic activators, milling dust and suspended loads can injure or kill. Don't
+> build from this document.
 
 ---
 
-## 00. WHAT CHANGED IN v0.3 — the core idea, restored
+## 0. WHAT CHANGED
 
+### 0.1 v0.3.1 — v0.3's numbers, checked (owned)
+A line-by-line review of the scripts found these, all now fixed in the code:
+1. **"The rebar carries 16× the lift" was wrong.** The formula let the steel yield, but with
+   earth on the compression side the *earth crushes first*. Counting that, the steel carries
+   **3.0–5.7×** the lift (earth at 1–2 MPa) — still plenty, not 16×. The same correction applies
+   to the surface grid and the no-dig mid-depth bars (§10, §15).
+2. **No safety margin on cracking.** v0.3 accepted a 0.28 MPa lift stress against a 0.3 MPa
+   crack threshold. The lift now uses the moist panel's weight and a 1.5 margin: the panel needs
+   a modulus of rupture **≥ 0.45 MPa at lift age**.
+3. **Bed suction was missing.** A panel cast in a soil pit sticks to it; at breakaway that adds
+   **0.23–0.33 MPa**, which can govern. Detailing now breaks the bed before the hoist loads up.
+4. **Quicklime doesn't "boil off" the mix water.** Its heat warms the panel ~45–65 °C; the
+   certain gain is the **16–22%** of the water it binds chemically. Unslaked lime compacted into
+   a panel can also swell later — now a Phase A gate.
+5. **Costs:** the binder (cement or quicklime) wasn't costed, and labor used 80–150 person-days
+   when the build schedule implies **126–222 person-days**. Phase A grew from ~7 tests to 17, so
+   its budget grew too. All totals below are regenerated.
+6. **The hoist is sized for setting, not tilting.** After the tilt the panel is lifted onto a
+   raised plinth, so the hoist takes its full weight. Detailing: `making-system/TILTUP_DETAILING.md`.
+
+### 0.2 v0.3 — the core idea, restored
 **The point is to make the wall from the ground and stand it up.** v0.2 drifted into
 "compress earth into forms," and put tilt-up in the graveyard on an unchecked one-liner
-("earth is weak in the tension a crane lift demands"). `tiltup_check.py` overturns that:
+("earth is weak in the tension a crane lift demands"). `tiltup_check.py` overturns that
+(moist panel at lift, ×1.5 impact):
 
 | panel | lift stress, pick at top edge | lift stress, pick at ~0.71 of height |
 |---|---|---|
-| 8×4 ft × 6 in (~860 kg) | 0.82 MPa | **0.28 MPa** |
-| 8×4 ft × 8 in (~1,150 kg) | 0.61 MPa | **0.21 MPa** |
-| 8×16 ft × 6 in (~3,440 kg) | 0.82 MPa | **0.28 MPa** |
+| 8×4 ft × 6 in (~897 kg) | 0.85 MPa | **0.30 MPa** |
+| 8×4 ft × 8 in (~1,196 kg) | 0.64 MPa | **0.22 MPa** |
+| 8×16 ft × 6 in (~3,588 kg) | 0.85 MPa | **0.30 MPa** |
 
-(×1.5 impact factor included.) Stabilized earth cracks somewhere around 0.3–1.0 MPa
-[TO-MEASURE], so with correct pick points the panel stays uncracked through the tilt. Even if
-it cracks, four #4 bars per 4 ft carry **16×** the lift moment; the earth only has to grip the
-bars at ~0.14 MPa. Stress depends on height and thickness, not width, so wide panels are fine
-with a spreader bar. **The open questions are cracking and bond — two cheap tests, added to
-Phase A.** Precedent that earth elements can be precast and craned exists (prefabricated
-rammed-earth walls from Martin Rauch's workshop, e.g. the Ricola Herb Center) [TO-VERIFY];
-casting flat and tilting is the new part to prove.
+Stabilized earth cracks somewhere around 0.3–1.0 MPa [TO-MEASURE]. With the pick at ~0.71 and a
+1.5 margin, the panel needs a modulus of rupture ≥ 0.45 MPa at lift age to stay uncracked. If it
+cracks anyway, four #4 bars per 4 ft carry **3.0–5.7×** the lift moment, and the earth only has
+to grip the bars at **~0.24 MPa**. Stress depends on height and thickness, not width, so wide
+panels are fine with a spreader bar. **The open questions are cracking strength, bed suction and
+bond — three cheap tests in Phase A.** Precedent that earth elements can be precast and craned
+exists (prefabricated rammed-earth walls from Martin Rauch's workshop, e.g. the Ricola Herb
+Center) [TO-VERIFY]; casting flat and tilting is the new part to prove.
 
-## 0. WHAT CHANGED IN v0.2 (corrections, owned)
-
+### 0.3 v0.2 — corrections, owned
 1. **The binder is fired in a batch kiln, not in the wall.** v0.1 showed only ~10–15% of the
    clay needs calcining (the binder). Heating a whole wall to fire 15% of it is pointless, so
    the binder is calcined in a small insulated kiln, milled, and mixed with raw soil and a
    one-part activator before compaction. This removes the 133–888 kWh battery, the in-wall
    activator-injection problem, and in-wall calcination shrinkage cracking in one move. The
-   steel grid becomes plain rebar (optionally a low-temperature cure heater, 60–80 °C). The
-   in-situ grid-firing process stays alive as a research branch in `earth-panel/`.
+   steel grid becomes plain rebar (optionally a low-temperature cure heater). The in-situ
+   grid-firing process stays alive as a research branch in `earth-panel/`.
 2. **CSEB overstatement corrected.** v0.1 said compressed stabilized earth block (CSEB) walls
    are non-structural without a frame. That's wrong: CSEB is used for load-bearing walls,
    including multi-storey buildings (the Auroville Earth Institute is the classic example).
@@ -64,26 +91,30 @@ casting flat and tilting is the new part to prove.
 
 ---
 
-## 1. THE SYSTEM (v0.3) — cast it in the ground, stand it up
+## 1. THE SYSTEM — cast it in the ground, stand it up
 
 1. **Dig a panel-shaped pit** 6–8 in deep beside where the wall will stand. **The pit is the
-   form; its soil is the panel.** No formwork, no hauling.
-2. **Line it** with a bond breaker (plastic sheet or sand) so the panel releases.
+   form; its soil is the panel.** No hauling. Removable edge boards keep the panel from bonding
+   to the pit walls.
+2. **Line it** with a bond breaker (sand + plastic sheet) so the panel releases.
 3. **Set the steel grid** on chairs: rebar mesh with a welded perimeter, lift inserts at ~0.7
-   of the panel height, and connection plates for joining neighbours and the footing.
+   of the panel height and on the top edge, and connection plates for joining neighbours and
+   the footing.
 4. **Backfill with the pit's own soil** mixed with binder and activator; **vibrate and
    compact in lifts** around the grid.
 5. **Cover and cure.** Ambient in warm climates, or run current through the grid for a
-   60–80 °C cure (~22–43 kWh per 4×8 panel) — the heater idea survives at low temperature.
-6. **Tilt it up** with an A-frame or gantry and a hoist (an 8×4 ft panel is ~860 kg; no crane
-   needed), set it on a footing with starter bars, brace it, weld or bolt it to its neighbours,
-   tie the tops with a bond beam and roof.
+   warm cure (~20–41 kWh per 4×8 panel; the grid needs a low-voltage, high-current supply,
+   ~200 A) — the heater idea survives at low temperature.
+6. **Tilt it up** with a trolley beam or gantry and a 2 t hoist (an 8×4 ft panel is ~897 kg
+   moist; no crane needed), set it on a raised plinth, brace it, weld or bolt it to its
+   neighbours, tie the tops with a bond beam and roof. Details: §14.
 
 - **Bulk:** the pit soil, compacted around the grid. Zero firing energy. This is the structure
   and the thermal mass.
 - **Binder:** 10–15% of the clay, sun-dried, fired to ~700 °C in a batch kiln by day
-  straight off the solar array, milled fine, mixed in with a one-part activator. Fallback:
-  6–8% cement where the soil fails the mineralogy test or cement is cheap.
+  straight off the solar array, milled fine, mixed in with a one-part activator. Or the Roman
+  version (fired clay or husk ash + hot-mixed quicklime, §10). Fallback: 6–8% cement where the
+  soil fails the mineralogy test or cement is cheap.
 - **Power:** one ~20 kW array + ~50 kWh LFP battery. Build phase: runs the kiln, mill, mixer,
   and tools. Run phase: becomes the village mini-grid.
 - **Finish parts:** roof, doors, windows, wiring, water catchment — dirt can't make these.
@@ -100,12 +131,13 @@ casting flat and tilting is the new part to prove.
 | **batch-kiln binder, 10–15%** | **~600–1,800 kWh** | **baseline** |
 
 - On a 20 kW array (~60 kWh/sunny day available to the kiln): **10–29 sunny days of firing per
-  house**, 100–300 sunny days for a 10-house village. A second kiln plus ~10 kW of panels
+  house**, ~100–300 sunny days for a 10-house village. A second kiln plus ~10 kW of panels
   roughly halves that; panels are the cheapest lever in the kit.
-- **Run phase:** each finished house needs ~3.1 kWh/day because thermal mass handles heating
-  and cooling. The array makes ~80 kWh on a sunny day, enough energy for ~26 houses; the
-  battery is the real limit — 50 kWh gives 10 houses ~1.3 days of autonomy. **Size the battery
-  to the cloudiest week of the site, not the average day.**
+- **Run phase:** each finished house is budgeted at ~3.1 kWh/day (lights, fans, phones, a
+  fridge share; no air conditioning) [TO-VERIFY per site]. Thermal mass softens heat swings;
+  it does not remove humidity. The array makes ~80 kWh on a sunny day, enough energy for ~26
+  houses; the battery is the real limit — 50 kWh gives 10 houses ~1.3 days of autonomy. **Size
+  the battery to the cloudiest week of the site, not the average day.**
 
 ---
 
@@ -113,14 +145,14 @@ casting flat and tilting is the new part to prove.
 
 | scenario | ships | containers |
 |---|---|---|
-| ship everything (rig + power + 10 houses of finish parts) | ~21 t, ~75 m³ | **3 × 20 ft** |
-| **regional sourcing** (ship the rig; buy solar, battery, rebar, roofing, activator in-country) | ~2.4 t, ~11 m³ | **1 × 20 ft, room to spare** |
+| ship everything (rig + power + 10 houses of finish parts) | ~21 t, ~74 m³ | **3 × 20 ft** |
+| **regional sourcing** (ship the rig; buy solar, battery, rebar, roofing, binder in-country) | ~2.1 t, ~10 m³ | **1 × 20 ft, room to spare** |
 
 Regional sourcing is the default: cheaper freight in a volatile 2026 market (the Drewry World
-Container Index hit $4,639 per 40 ft in July 2026, its highest since September 2024), local
-warranties on batteries and inverters, and no corrosive-goods paperwork for the activator.
-**The honest slogan is "a village in one crate" — the rig ships; the commodities are bought
-near the site; the walls ship as zero.**
+Container Index hit $4,639 per 40 ft in July 2026, its highest since September 2024)
+[TO-VERIFY: primary source], local warranties on batteries and inverters, and no
+corrosive-goods paperwork for the activator. **The honest slogan is "a village in one crate" —
+the rig ships; the commodities are bought near the site; the walls ship as zero.**
 
 ---
 
@@ -128,28 +160,29 @@ near the site; the walls ship as zero.**
 
 | bucket | range | note |
 |---|---|---|
-| per house, excluding roof | $1,450–5,200 | labor is the largest swing item |
+| per house, excluding roof | $1,760–7,500 | labor (126–222 person-days at $5–15) and binder choice swing it most |
 | roof per house | $900–2,000 steel · $150–500 earth vault | biggest per-house lever |
-| reusable rig (once) | $8,600–32,500 | kiln, mill, forms/press, QA kit |
-| power system (village keeps it) | $14,000–39,000 | ~17–19% of the budget, becomes the mini-grid |
+| reusable rig (once) | $8,400–32,500 | kiln, mill, mixer, tilt gear, compaction, QA kit |
+| power system (village keeps it) | $14,000–39,000 | ~16–18% of the budget, becomes the mini-grid |
 | field program | $12,300–39,500 | site lead, engineering, lab tests, local review |
+| options, not in totals | print-and-tilt printer $3.6–10.5k; grid-cure supply $0.3–1.5k | |
 
 **First 10-house village (+15% contingency):**
 
 | scenario | village total | per house (incl. power) |
 |---|---|---|
-| steel roofs, regional sourcing | $73k–225k | **$7.3k–22.5k** |
-| steel roofs, ship everything | $86k–254k | $8.6k–25.4k |
-| earth vaults, regional sourcing | $65k–208k | $6.5k–20.8k |
-| next village (rig reused) | $64k–187k | $6.4k–18.7k |
+| steel roofs, regional sourcing | $77k–251k | $7.7k–25.1k |
+| steel roofs, ship everything | $89k–280k | $8.9k–28.0k |
+| earth vaults, regional sourcing | $68k–234k | $6.8k–23.4k |
+| next village (rig reused) | $67k–214k | $6.7k–21.4k |
 
 **What the number means:** a permanent, reinforced house with a share of a solar mini-grid,
-somewhere in the mid-four to low-five figures. Whether that is good depends on one comparison
+somewhere in the high-four to mid-five figures. Whether that is good depends on one comparison
 only a partner can supply: **what they pay today per permanent house, plus what they pay per
 electricity connection.** [TO-VERIFY per region.] The kit wins if it matches that on cost and
 beats it on supply-chain independence or power.
 
-**Phase A (the gate everything hangs on): $1,900–5,800.** Details in §8.
+**Phase A (the gate everything hangs on): $3.2k–9.7k.** Details in §8.
 
 ---
 
@@ -158,8 +191,8 @@ beats it on supply-chain independence or power.
 ### As a business: weak
 - **Customers can't pay or pay slowly.** Buyers are NGOs and governments (track-record
   procurement, 6–24 month cycles, budgets down about a third since 2023) or low-income
-  households (can't pay $6–20k upfront without housing microfinance).
-- **Thin, lumpy margins.** Integrating a $65–225k village kit at 15–25% margin is $10–50k
+  households (can't pay $7–25k upfront without housing microfinance).
+- **Thin, lumpy margins.** Integrating a $68–280k village kit at 15–25% margin is $10–70k
   gross per deal, a few deals a year, with heavy field support and structural liability.
 - **No moat.** The techniques are established and the work is published openly (which makes
   it prior art). Fine for a charity; fatal for a venture.
@@ -175,9 +208,9 @@ beats it on supply-chain independence or power.
   money using the open method. The charity stays a charity; the method still scales.
 - **Headwind to plan around:** international humanitarian funding contracted by nearly a third
   since 2023, with a 20% drop in 2025 alone; the US and Germany account for nearly nine in ten
-  dollars lost, while Gulf donors increased giving. A newcomer competes for a smaller pot, so
-  **lead with evidence: a measured strength number, a built demonstration, and a cost-per-house
-  comparison from a partner.**
+  dollars lost, while Gulf donors increased giving [TO-VERIFY: primary source]. A newcomer
+  competes for a smaller pot, so **lead with evidence: a measured strength number, a built
+  demonstration, and a cost-per-house comparison from a partner.**
 
 ### Recommended structure
 1. **Start under a fiscal sponsor or as a small 501(c)(3)** (the streamlined IRS 1023-EZ
@@ -185,10 +218,11 @@ beats it on supply-chain independence or power.
    independent board of at least three is what funders expect.
 2. **Founder-volunteer until a pilot is funded.** No salaries in Year 1.
 3. **Optional, only if a commercial arm is ever wanted:** SBIR was reauthorized in April 2026
-   through September 2031, and NSF Phase I awards now go up to $305,000 — but SBIR is for
-   for-profit small businesses with a commercial market, not charities. If an existing LLC
-   ever pursues it (e.g., for US low-carbon earth building), keep it arm's-length from the
-   nonprofit: written conflict-of-interest policy, independent board approval of any dealings.
+   through September 2031, and NSF Phase I awards now go up to $305,000 [TO-VERIFY: primary
+   source] — but SBIR is for for-profit small businesses with a commercial market, not
+   charities. If an existing LLC ever pursues it (e.g., for US low-carbon earth building), keep
+   it arm's-length from the nonprofit: written conflict-of-interest policy, independent board
+   approval of any dealings.
 
 ---
 
@@ -196,9 +230,9 @@ beats it on supply-chain independence or power.
 
 | stage | budget | typical sources | gate to pass |
 |---|---|---|---|
-| **Year 1a — Phase A** | $1.9k–5.8k | self-funded, crowdfunding, local Rotary/community grant | strength + mineralogy (§8) |
+| **Year 1a — Phase A** | $3.2k–9.7k | self-funded, crowdfunding, local Rotary/community grant | strength + mineralogy (§8) |
 | **Year 1b — demonstration** | $10k–40k | small foundation grants, crowdfunding, in-kind | a built, tested, engineer-reviewed structure |
-| **Year 2 — pilot village** | $65k–225k | private/corporate foundations, Rotary Global Grants, Gulf-linked donors, innovation challenges, the partner's own program budget | cost/house ≤ partner's incumbent, or clearly better on supply chain or power |
+| **Year 2 — pilot village** | $68k–280k | private/corporate foundations, Rotary Global Grants, Gulf-linked donors, innovation challenges, the partner's own program budget | cost/house ≤ partner's incumbent, or clearly better on supply chain or power |
 | **Year 3+ — scale** | via partners | partners' budgets and local social enterprises | replication by someone other than you |
 
 Year 1b budget: demo structure $5–20k, professional engineer review $2–8k, entity and
@@ -218,10 +252,13 @@ letter, the cost-per-house comparison. Build them in that order.
 - **Kill / pivot conditions:**
   - Phase A fails on both binders → the soil can't make structural walls this way; stop.
   - Calcined-clay binder fails but cement works → keep going, cement-stabilized kit.
+  - Modulus of rupture at lift age stays below ~0.45 MPa → thicker panels (8 in needs ≥ 0.33
+    MPa), smaller panels, or a strongback during the lift before anything else.
   - Cost per house can't approach a partner's incumbent → publish the open method only.
   - No partner will deploy after a successful demo → publish, don't self-deploy abroad.
 - **Safety:** ~700 °C kiln, caustic activator (even the one-part form needs gloves and eye
-  protection), dust from milling (respirators). The training package is part of the kit.
+  protection), quicklime (exothermic, caustic), dust from milling (respirators), and suspended
+  panels (exclusion zone, rated rigging, §14). The training package is part of the kit.
 - **Engineering sign-off:** structural earth needs a licensed engineer's review at the demo
   and in-country. ASTM E2392 (earthen wall systems) is the natural starting reference.
 - **Partner countries:** a US charity working abroad must screen partners and locations for
@@ -229,7 +266,7 @@ letter, the cost-per-house comparison. Build them in that order.
 
 ---
 
-## 8. PHASE A — the $2–6k test that decides everything
+## 8. PHASE A — the $3–10k test that decides everything
 
 Two variables, tested separately so a failure points at its cause:
 
@@ -240,12 +277,13 @@ Two variables, tested separately so a failure points at its cause:
 | **control: commercial metakaolin + native soil** | does the native soil work as the bulk? |
 | **native calcined clay + native soil** | does the native clay work as the binder? |
 | **cement 6–8% + native soil** | the fallback baseline — always run it |
-| **beam bending (modulus of rupture)** | will a panel stay uncracked during the tilt? (need ≥ ~0.3 MPa) |
-| **rebar pull-out** | does the earth grip the steel? (need ≥ ~0.14 MPa with margin) |
+| **beam bending (modulus of rupture) at lift age** | will a panel stay uncracked during the tilt? (need ≥ 0.45 MPa for 8×4×6) |
+| **rebar pull-out + lift-insert proof load** | does the earth grip the steel (≥ ~0.24 MPa with margin), and does the insert hold 2× its load? |
 | **Roman binder: calcined clay + quicklime, hot-mixed** | does the lime-pozzolan version reach tilt strength, and do cracked cubes self-heal when wetted? |
+| **hot-mix expansion** | soak compacted hot-mix cubes at 7 days: any swelling cracks from late-slaking lime? |
 | **erosion spray + wet–dry cycling** | how fast does the panel face wear, per binder? (durability, §10) |
 | **jar test + shrinkage box** | what is the home site's sand/silt/clay split, and does it need sand blended in? |
-| **galvanized vs plain bar in wet earth** | corrosion coupons buried in cast cubes, inspected at 6 and 12 months |
+| **galvanized vs plain bar in wet earth** | corrosion coupons buried in cast cubes, inspected at 6 and 12 months (doesn't hold up the gate) |
 | **surface-grid pull-off** | cast bars half-buried on a cube face, with and without anchor legs; pull them off |
 | **electrokinetic box** (Route B, <$200) | tub of red clay, two electrode rows, lime water at the anode, 12–24 V from a small solar panel for 2–4 weeks; measure water removed, pH and strength across the section, temperature, energy used |
 | **till-in-place slab** (Route A) | till binder into a 4×4 ft patch of native ground, compact, cure, wire-cut, pull cores for strength |
@@ -254,9 +292,28 @@ Two variables, tested separately so a failure points at its cause:
 | **rice husk test burn** | burn husks at 600–700 °C in the test kiln; ash colour, lime + ash cube strength vs lime + fired clay |
 
 Fire native clay samples in a small test kiln (a 120 V model runs off an ordinary outlet or
-an existing home inverter), mill, cast cubes at 10% and 15% binder, cure, and send ~40 cubes to
-a materials lab for compressive strength. Red clays in the southeastern US are often
-kaolinite-bearing — a hopeful sign for the home site, confirmed only by the XRD. [TO-MEASURE]
+an existing home inverter), mill, cast cubes at 10% and 15% binder plus every other mix above,
+cure, and send ~80 cubes and cores to a materials lab for compressive strength. Red clays in
+the southeastern US are often kaolinite-bearing — a hopeful sign for the home site, confirmed
+only by the XRD. [TO-MEASURE] Protocol to be written in `chemistry/` (HANDOFF task 1).
+
+---
+
+## 9. BUILD TIME (see `build_timeline.py`)
+
+Crew of ~6, 17 panels per house: **21–37 crew working days per house** (126–222 person-days:
+site/footing 3–5, dig + cast 4–6, tilt/brace/connect 2–4, bond beam + roof 5–10,
+openings/wiring/water/render 7–12). The kiln runs ahead of the crew; curing is waiting, not work.
+
+| binder | cure before tilt | one house, elapsed | 10-house village, 2 crews |
+|---|---|---|---|
+| cement fallback | ~7 days | ~4–6 weeks | ~4–6 months |
+| geopolymer | 7–14 days | ~5–11 weeks | ~4–10 months |
+| Roman lime-pozzolan | 14–28 days | ~5–12 weeks | ~4–7 months |
+
+House #0 will take longer (first build, learning, testing every step) — plan 3–4 months.
+Bigger panels (8×16 ft, five per house) cut tilt and connection work if the lift gear allows.
+Every panel still passes the strength gate before it's lifted (§14).
 
 ---
 
@@ -280,24 +337,27 @@ overhang so rain never runs down the face. Those two details matter more than th
 **The Roman lesson (two parts):**
 1. **Roman concrete had no rebar.** Modern concrete's main killer is rusting steel; Roman
    concrete worked in compression (arches, vaults, thick walls) and had nothing to rust. The
-   kit needs steel to survive the tilt, so protect it: a **galvanized** grid (zinc is fine at the
-   60–80 °C cure temperature), ≥2 in of earth cover, an alkaline (lime or cement) binder, and dry
-   walls. Non-corroding basalt-fiber bar is an option for the body, but it can't double as the
-   heater.
+   kit needs steel to survive the tilt, so protect it: a **galvanized** grid, ≥2 in of earth
+   cover, an alkaline (lime or cement) binder, and dry walls. Zinc corrodes faster in warm
+   water and may stop protecting steel above ~60 °C [TO-VERIFY], so keep a galvanized grid's
+   warm cure at or below ~60 °C. Non-corroding basalt-fiber bar is an option for the body,
+   but it can't double as the heater.
 2. **Roman concrete is lime + pozzolan, and calcined clay is a pozzolan.** The Romans even used
    crushed fired brick with lime (cocciopesto). MIT's 2023 work, confirmed at a Pompeii
-   construction site in a December 2025 study, showed they **hot-mixed**: dry quicklime blended
-   with the ash before water, leaving reactive lime clasts that later dissolve into cracks and
-   heal them. So the kit gets a **third binder**: kiln-fired native clay + hot-mixed quicklime.
-   It halves the clay you must fire (lime supplies the rest), replaces the caustic sodium
-   activator with lime (available almost everywhere), and may self-heal. The costs: quicklime
-   is its own handling hazard, and lime-pozzolan cures slower — the grid's warm cure earns its
-   keep here. **Self-healing in *earth* panels is unproven; Phase A tests it.**
+   construction site in a December 2025 study [TO-VERIFY: primary source], showed they
+   **hot-mixed**: dry quicklime blended with the ash before water, leaving reactive lime clasts
+   that later dissolve into cracks and heal them. So the kit gets a **third binder**:
+   kiln-fired native clay + hot-mixed quicklime. It halves the clay you must fire (lime
+   supplies the rest), replaces the caustic sodium activator with lime (available almost
+   everywhere), and may self-heal. The costs: quicklime is its own handling hazard, lime left
+   unslaked in a compacted panel can swell later (§8 gate), and lime-pozzolan cures slower —
+   the grid's warm cure earns its keep here. **Self-healing in *earth* panels is unproven;
+   Phase A tests it.**
    **Lime heat (see `lime_heat.py`):** slaking quicklime releases ~0.32 kWh per kg, so a 5–7%
-   dose puts ~14–19 kWh into each 8×4 ft panel — enough to lift it ~50–70 °C if none escaped.
+   dose puts ~13–18 kWh into each 8×4 ft panel — enough to lift it ~45–65 °C if none escaped.
    But it arrives as a pulse during mixing and casting, not over the days of curing, and much of
-   it escapes first. Realistically it keeps ~4–12 kWh per panel and replaces ~10–50% of the
-   grid's warm-cure energy (~70–200 kWh per house), roughly the first day of heating. To keep
+   it escapes first. Realistically it keeps ~4–11 kWh per panel and replaces ~10–55% of the
+   grid's warm-cure energy (~70–190 kWh per house), roughly the first day of heating. To keep
    more of it: mix dry, add the water at the pit, compact while warm, cover immediately
    [TO-MEASURE]. The heat was paid for at the lime kiln (slaking returns ~36% of the energy it
    took to make the quicklime), so buy the lime rather than burning your own.
@@ -308,7 +368,7 @@ overhang so rain never runs down the face. Those two details matter more than th
 |---|---|---|---|
 | weathering steel (Cor-Ten, what containers are made of) | its protective rust only forms with wet–dry cycles in open air; sealed in a damp wall it rusts like plain steel | yes | **no** |
 | plain steel | rusts unless lime/cement keeps it alkaline and the wall stays dry | yes | only with alkaline binder |
-| **galvanized steel** | the zinc corrodes first, on purpose, protecting the steel | yes (fine at 60–80 °C) | **baseline** |
+| **galvanized steel** | the zinc corrodes first, on purpose, protecting the steel | yes (cure ≤ ~60 °C) | **baseline** |
 | stainless steel | best; several times the price [TO-VERIFY] | yes | connections and splash zone |
 | basalt/glass-fiber bar | can't rust | no (doesn't conduct) | body bars where warm cure isn't needed |
 | protective current through the already-wired grid (impressed-current cathodic protection) | the solar system pushes a tiny current that stops corrosion; used on bridges and marine concrete | — | research option, not baseline |
@@ -320,14 +380,14 @@ inspectable, and repaintable. `tiltup_check.py` (surface-grid section):
 
 | lift point | steel face | earth-only face |
 |---|---|---|
-| top edge | 0.82 MPa | 0.00 |
-| **0.90 of height** | **0.65 MPa (steel carries it, 9× margin)** | **0.03 MPa** |
-| 0.71 of height | 0.29 MPa | 0.28 MPa — too close to cracking with no steel |
+| top edge | 0.85 MPa | 0.00 |
+| **0.90 of height** | **0.67 MPa (steel carries it, 3.0–5.6× margin)** | **0.03 MPa** |
+| 0.71 of height | 0.30 MPa | 0.29 MPa — too close to cracking with no steel |
 
 - **Lift near the top edge (~0.90), not at 0.71.** The pit floor is the face that stretches during
   the tilt, so the steel is exactly where it's needed; lifting high keeps the steel-free face
-  almost unstressed.
-- **Anchors, not grip.** A half-buried bar needs ~0.48 MPa of grip in the lift — too much to trust
+  almost unstressed. Expect hairline cracks on the steel face — the steel carries them.
+- **Anchors, not grip.** A half-buried bar needs ~0.67 MPa of grip in the lift — too much to trust
   to earth. Weld short anchor legs (stainless or galvanized, 2–3 in deep) every foot or so. They
   are the only buried steel, small enough that stainless is affordable.
 - **Pick which face gets the steel by where you cast.** Tilting about the footing turns the pit
@@ -348,7 +408,7 @@ holding the wall up. If the steel ever fails at year 70, the wall shouldn't.
 
 ---
 
-## 12. SOILS — clay isn't required (see `site_profile.py`, `data/`, `sites/`)
+## 11. SOILS — clay isn't required (see `site_profile.py`, `data/`, `sites/`)
 
 **The best wall soil is sandy with some clay** — roughly 8–20% clay, the rest sand, gravel and
 some silt [TO-VERIFY per guide]. Pure clay shrinks and cracks; it gets sand blended in. And
@@ -379,7 +439,7 @@ clay that goes in the kiln.
 
 ---
 
-## 13. THE ARKANSAS RECIPE — red clay + rice husks + lime
+## 12. THE ARKANSAS RECIPE — red clay + rice husks + lime
 
 Arkansas is the largest rice-growing state in the US, and husks change the kiln more than the
 binder:
@@ -403,25 +463,25 @@ binder:
 
 ---
 
-## 14. PRECEDENTS, WHAT'S NEW, AND THE LONGEVITY CLAIM
+## 13. PRECEDENTS, WHAT'S NEW, AND THE LONGEVITY CLAIM
 
 **Closest cousins (so nobody can say we didn't look):**
-- **Concrete tilt-up** — cast flat, tilt up, brace; about 15% of North American commercial and
-  industrial buildings. The lifting, bracing, and connection engineering is mature; borrow it.
+- **Concrete tilt-up** — cast flat, tilt up, brace; widely used for North American commercial and
+  industrial buildings [TO-VERIFY share]. The lifting, bracing, and connection engineering is
+  mature; borrow it (§14).
 - **Prefabricated rammed earth (Martin Rauch / Lehm Ton Erde)** — the Ricola Herb Center (2014)
   used ~670 factory-made earth elements of 4–6 t each, set like giant stones on mortar, made from
   local marl with volcanic tuff added for durability. His later unstabilized (cement-free)
   prefab system won a New European Bauhaus prize and claims ~50% lower cost and ~65% less
-  production time than conventional rammed earth.
+  production time than conventional rammed earth [TO-VERIFY].
 - **Rice husk ash, calcined clay, lime-pozzolan binders** — each studied and used on its own.
-
 - **3D-printed earth (WASP, Italy)** — the closest thing to this whole mission, and it uses the
   Arkansas recipe. Gaia (2018): a site-soil mix with chopped rice straw, rice husk and 10%
   hydraulic lime, 40 cm walls, ~30 m² of wall printed in about 10 days for ~€900 of materials.
   TECLA (2021, with Mario Cucinella Architects): two synchronized arms, ~200 hours of printing,
   soil + water + rice husk with only ~5% binder, a double dome that is wall, roof and cladding at
   once. WASP pitches a "maker economy starter kit" for local self-build — overlap with this kit is
-  real: **partner or reference, don't pretend it doesn't exist.**
+  real: **partner or reference, don't pretend it doesn't exist.** [TO-VERIFY figures]
 
 **Printing vs tilt-up, honestly:**
 - Printing kills formwork and most crew labor, and gives shape freedom — **domes and vaults mean an
@@ -455,6 +515,29 @@ hand-heavy work, and concrete won on labor and codes. Prefab and tilt-up attack 
 
 ---
 
+## 14. TILT-UP DETAILING (see `making-system/TILTUP_DETAILING.md`, `tiltup_check.py`)
+
+- **Start with 8×4 ft × 6 in panels.** Tilting puts ~948 kg on the hoist line with impact;
+  *setting* the panel onto the raised plinth takes its full weight, ~1,346 kg. A 2 t manual
+  chain hoist on a trolley beam or rolling gantry does both. 8×16 ft panels need >5 t gear —
+  later.
+- **Break the bed before lifting.** Removable edge boards, sand + plastic bond breaker, jack the
+  free edge 10–20 mm. Suction at breakaway can put 0.23–0.33 MPa on the panel [TO-MEASURE with
+  a load cell on the first panels].
+- **Lift from the steel, never from the earth.** Rebar hairpin inserts tied to the grid: two on
+  the face at ~0.71 of height for tilting, two on the top edge for setting. Inserts ≥ 2× their
+  load, rigging ≥ 5× [TO-VERIFY: OSHA 1926.704].
+- **Openings go between panels, not in them** — a 2 ft window cut into a 4 ft panel nearly
+  doubles the lift stress. Doors and windows are one-module gaps with short sill and lintel
+  panels, spanned by the bond beam.
+- **Brace every panel** at 2/3 height to a ground anchor rated ≥ 2× the brace force (3.7–5.8 kN
+  at 40–50 m/s wind [TO-VERIFY site wind speed]) until the bond beam and roof are on.
+- **Connections:** panel bottom welded or bolted to a steel angle on the plinth; embedded edge
+  plates welded across each joint; a continuous bond beam (reinforced concrete, or a steel ring
+  where cement-free) ties the tops and anchors the roof.
+
+---
+
 ## 15. NO-DIG ROUTES — drive the steel in, treat it in place, dry it, stand it up
 
 The pit route (§1: dig, mix, backfill onto the steel) is the baseline because every step is
@@ -468,14 +551,15 @@ and injection in `earth-panel/`. They come back here. Every route first scrapes 
 2. Till it 6–8 in deep with a rear-tine tiller. In heavy clay, let it **mellow** 1–2 days (lime
    breaks the clods down), then till again with water.
 3. Compact with the vibratory plate.
-4. Steel: press the grid into the top surface, or drive bars horizontally at mid-depth from the
-   edge trenches (they carry ~15 kN·m vs ~1.3–3 needed for the lift).
+4. Steel: press the grid into the top surface. (Bars driven horizontally at mid-depth from the
+   edge trenches carry only 1.1–2.0× the lift demand once the earth's crushing is counted — too
+   thin a margin to rely on.)
 5. Cover and cure (grid heat or ambient).
 6. **Cut it free underneath** with a wire drawn through from the edge trenches — the way a
    potter cuts clay off the wheel — and tilt it up.
 
 With the grid on the **top** face, lift **low (~0.6 of height)**: the bare bottom face then sees
-~0.09 MPa while the steel face takes ~0.53 MPa (`nodig_check.py`). Equipment added: a tiller and a
+~0.09 MPa while the steel face takes ~0.55 MPa (`nodig_check.py`). Equipment added: a tiller and a
 wire saw.
 
 ### Route B — electrokinetic (no mixing at all; research track, fits clay best)
@@ -517,79 +601,78 @@ A low gantry builds each panel **flat, on its steel grid, in the casting bed, by
 lifts of near-dry mix** — not by extruding wet mud upward — then the panel is tilted up.
 - **Strength:** compacted, not extruded, so rammed-earth density instead of wet-mix density.
 - **No drying wait:** compacted earth stands up immediately; flat panels don't stack height.
-- **Self-drying:** quicklime hot-mixed at the head binds or boils off ~24–44% of the mix water.
+- **Lime at the head:** hot-mixed quicklime binds 16–22% of the mix water chemically and warms
+  each lift; extra evaporation from thin uncovered lifts is [TO-MEASURE]. Gate: no late swelling
+  from unslaked lime (§8).
 - **Stiffness per kg:** printed ribs cut ~30% of the earth for the same stiffness, and lower the
   lift stress by 40%; rice husk packed between the ribs makes an insulated wall.
 - **Throughput:** the mixer (~2 panels/hour of material) is the bottleneck, not the machine.
-- **Same frame, tiller head:** it is also the no-dig machine for Route A.
+- **Same frame, two more jobs:** a tiller head makes it the no-dig machine for Route A, and a
+  hoist trolley makes it the tilt-up gantry (§14).
 - **Cost:** ~$3.6–10.5k DIY [TO-VERIFY], reusable. **Build it hand-towed first**; motorize only
   after the shoe proves it can reach rammed-earth density.
 
 ---
 
-## 11. BUILD TIME (see `build_timeline.py`)
-
-Crew of ~6, 17 panels per house: **21–37 crew working days per house** (site/footing 3–5,
-dig + cast 4–6, tilt/brace/connect 2–4, bond beam + roof 5–10, openings/wiring/water/render 7–12).
-The kiln runs ahead of the crew; curing is waiting, not work.
-
-| binder | cure before tilt | one house, elapsed | 10-house village, 2 crews |
-|---|---|---|---|
-| cement fallback | ~7 days | ~4–6 weeks | ~4–6 months |
-| geopolymer | 7–14 days | ~5–11 weeks | ~4–10 months |
-| Roman lime-pozzolan | 14–28 days | ~5–12 weeks | ~4–7 months |
-
-House #0 will take longer (first build, learning, testing every step) — plan 3–4 months.
-Bigger panels (8×16 ft, five per house) cut tilt and connection work if the lift gear allows.
-
----
-
-## 9. REPO STRUCTURE
+## 17. REPO STRUCTURE
 
 ```
 earth-house-kit/
-  MISSION.md              # this document (v0.2)
+  README.md               # start here
+  MISSION.md              # this document (v0.3.1)
   GRAVEYARD.md            # killed and superseded designs, with the arithmetic
+  HANDOFF_TO_CLAUDE_CODE.md  # task list, priority order
+  common.py               # shared geometry, materials, beam helpers (one place to change a number)
+  check_numbers.py        # runs every script; fails if MISSION.md disagrees with them
   system_sizing.py        # energy: killed / superseded / baseline designs; run phase
   shipping_manifest.py    # ship-everything vs regional-sourcing
   costs_estimate.py       # per house, rig, power, field, village, Phase A
-  tiltup_check.py         # lift stress, rebar margin, bond demand for tilt-up panels
+  tiltup_check.py         # lift, breakaway, steel, bond, openings, hoist, bracing
   build_timeline.py       # crew days, kiln days, cure waits, village schedule by binder
   site_profile.py         # portable site analysis: soil + local materials -> recipes, kiln fuel, hazards
-  data/materials.json     # materials library (soils rules, pozzolans, binders, kiln fuels)
-  sites/*.json            # one file per site (home site + 8 examples)
   lime_heat.py            # quicklime slaking heat per panel vs grid cure energy
   nodig_check.py          # no-dig routes: electrokinetic time/voltage/energy, tilt with steel on top
+  data/materials.json     # materials library (soils rules, pozzolans, binders, kiln fuels)
+  sites/*.json            # one file per site (home site + 8 examples)
+  making-system/          # TILTUP_DETAILING.md; kiln, mill, compaction, QA (planned)
   printer/                # print-and-tilt compaction printer: concept + print_check.py
-  chemistry/              # Phase A protocol, lab results, binder choice per site
-  making-system/          # kiln, mill, forms/press, compaction, QA protocol
-  energy-system/          # array/battery sizing per site climate, village mini-grid
-  bom/                    # real quotes by region (replace every [TO-VERIFY])
-  training/               # safety, build manual, QA for local crews
-  partners/               # partner criteria, MOUs, cost comparisons
-  grant/                  # funding pipeline, applications, evidence pack
   earth-panel/            # sibling research branch: in-situ grid firing (not the kit baseline)
+  chemistry/              # (planned) Phase A protocol, lab results, binder choice per site
+  energy-system/          # (planned) array/battery sizing per site climate, village mini-grid
+  bom/                    # (planned) real quotes by region (replace every [TO-VERIFY])
+  training/               # (planned) safety, build manual, QA for local crews
+  partners/               # (planned) partner criteria, MOUs, cost comparisons
+  grant/                  # (planned) funding pipeline, applications, evidence pack
 ```
 
 ---
 
-## 10. SOURCES (verify before citing externally)
+## 18. SOURCES (verify before citing externally)
+
+Secondary sources below are placeholders: **replace each with the primary source before any
+external use** (grant, press, public page).
 
 - Battery prices: BloombergNEF 2025 survey (stationary packs ~$70/kWh; all packs $108/kWh), via
   ess-news.com/?p=7552; US installed $700–1,300/kWh (EnergySage data, via jouleio.com).
 - Solar modules: US median $0.28/W Q1 2026 (Anza, via pv-magazine-india.com/?p=14706); China
   FOB quotes ~$0.086/W for Q1 2026 loading (pv-magazine-india.com/?p=9622).
-- Freight: Drewry WCI $4,639/40 ft on 9 July 2026 (shipuniverse.com/?p=16195).
+- Freight: Drewry WCI $4,639/40 ft on 9 July 2026 (via shipuniverse.com/?p=16195) — cite Drewry.
 - SBIR: reauthorized 13 April 2026 through 30 Sept 2031 (Crowell & Moring via mondaq.com); NSF
-  Phase I $305k (grantedai.com).
+  Phase I $305k (via grantedai.com) — cite the statute and NSF's solicitation.
 - Humanitarian funding: Global Humanitarian Assistance Report 2026 summary (alnap.org); OCHA
-  2026 appeal funding via developmentaid.org.
+  2026 appeal funding via developmentaid.org — cite the GHA report and OCHA FTS.
 - ShelterTech eligibility (for-profit, validated customers): habitat.org 2022 call; regional
   transition 2026 (Columbia SIPA capstone listing).
+- Roman hot mixing: Seymour et al., *Science Advances* (2023), MIT; the December 2025 Pompeii
+  follow-up [TO-VERIFY citation].
+- Tilt-up practice: OSHA 29 CFR 1926.704 (lift inserts and rigging); ACI 551 tilt-up guides; the
+  Tilt-Up Concrete Association (TCA) bracing and lifting guidance [TO-VERIFY editions].
 - From domain knowledge, verify before external use: calcined-clay kaolinite threshold (LC3
   research, EPFL); Auroville Earth Institute load-bearing CSEB; Association la Voûte Nubienne
-  (earth vault roofs); ASTM E2392.
+  (earth vault roofs); ASTM E2392; NZS 4299 and Peru E.080 (earth building, ring beams); zinc
+  behaviour in warm water above ~60 °C.
 
-*v0.3 — the wall is cast in the ground and stood up. The kit is buildable and honestly costed at ~$6.5k–22.5k per powered house for the
-first village. As a business it is weak; as an open-method charity deployed through partners
-it has the right shape. Everything still gates on one cheap test: Phase A.*
+*v0.3.1 — the wall is cast in the ground and stood up, and v0.3's numbers are now checked by a
+script. First-order cost: ~$6.8k–25.1k per powered house for the first village. As a business
+it is weak; as an open-method charity deployed through partners it has the right shape.
+Everything still gates on one cheap test: Phase A.*

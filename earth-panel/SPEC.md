@@ -2,6 +2,11 @@
 ## In-situ grid-calcined, cooldown-injected, rebar-integrated earth panels from native red clay
 ### Brayden Sanders — Hot Springs, AR. Founding document for the engineering repo.
 
+> **⚠ Research branch, partly superseded (see MISSION.md §0).** The kit fires its binder in a
+> batch kiln instead (v0.2), and v0.3 overturned §7's "cast-in-place beats tilt-up": with the
+> pick at ~0.7 of height the lift stress is ~0.30 MPa (`tiltup_check.py`). The in-situ firing
+> questions below are still open research.
+
 > **What this is.** A build spec for turning native red clay into structural wall panels by:
 > (1) a steel heater-grid pushed into a clay panel that doubles as reinforcement,
 > (2) a solar-fed slow dry-out, (3) a battery-fed calcination spike to metakaolin,
@@ -182,7 +187,7 @@ full four-phase cycle. Inject **four test channels at four measured cooldown tem
   clay will do **less** and the number is [TO-MEASURE] on your clay. Tension is weak (it's a
   stone) — that's why the steel grid and (recommended) **chopped fiber** (basalt/steel) in
   the mix, to bridge shrinkage microcracks.
-- **Cast-in-place beats tilt-up** for earth panels: a fired stone is strong in compression,
+- *(Superseded by MISSION v0.3 — tilt-up works with the pick at ~0.7 of height.)* **Cast-in-place beats tilt-up** for earth panels: a fired stone is strong in compression,
   weak in the tension a crane-lift demands. Build the panel *in its final orientation* (or
   handle small segments) before attempting anything tilt-up.
 - **Nothing here is permitted or code-approved.** A structural earth wall needs engineering

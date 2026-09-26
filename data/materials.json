@@ -1,6 +1,5 @@
 {
   "_note": "Portable materials library. Numbers are first-order; everything tagged TO-VERIFY/TO-MEASURE in the site outputs. Add a material here and every site can use it.",
-  "wall_kg_per_house": 13846,
   "soil_rules": {"sandy_below_clay_pct": 8, "ideal_max_clay_pct": 20, "clayey_max_clay_pct": 35, "silty_above_pct": 40},
   "pozzolans": {
     "volcanic_ash":  {"rank": 1, "firing": "none", "note": "natural pozzolan; the original Roman ingredient"},
