@@ -1,17 +1,22 @@
 {
-  "_note": "Precast bio-lime blocks for NON-STRUCTURAL interior partitions, slotted between treated bamboo posts (rock/BIO_MATERIALS.md). DRAFT values pending the literature review; every value [TO-VERIFY].",
-  "block": {"face_w": 0.50, "face_h": 0.25, "thick": 0.20},
+  "_note": "Precast bio-lime blocks for NON-STRUCTURAL interior partitions, keyed between treated bamboo posts with a head plate (rock/BIO_MATERIALS.md). Values from the literature review (Sep 2026); UNSOURCED marked. Commercial systems glue blocks with ~3 mm lime adhesive; ours key between posts, which keeps them within IRC Appendix BL's 'infill between framing' scope.",
+  "block": {"face_w": 0.60, "face_h": 0.30, "thick": 0.12},
   "materials": {
-    "hemp_lime": {"name": "hemp-lime block", "rho": [300, 400], "lambda": [0.07, 0.11], "fc_mpa": [0.3, 1.0],
-                  "binder_frac": [0.55, 0.65], "fibre_frac": [0.35, 0.45], "co2_stored_kg_m3": [80, 150],
-                  "usd_m3": [180, 350], "mbv": [2.0, 2.5]},
-    "husk_lime": {"name": "rice-husk-lime block (husk ash pozzolan)", "rho": [450, 650], "lambda": [0.09, 0.15], "fc_mpa": [0.5, 2.0],
-                  "binder_frac": [0.55, 0.70], "fibre_frac": [0.30, 0.45], "co2_stored_kg_m3": [40, 100],
-                  "usd_m3": [120, 250], "mbv": [1.5, 2.5]}
+    "hemp_lime": {"name": "hemp-lime block", "rho": [330, 380], "lambda": [0.07, 0.09], "fc_mpa": [0.15, 0.40], "mor_mpa": [0.10, 0.20],
+                  "binder_frac": [0.60, 0.68], "fibre_frac": [0.32, 0.40], "co2_stored_kg_m3": [35, 108],
+                  "usd_m2": [50, 70], "mbv": [2.0, 2.8],
+                  "mix": "hemp 1 : binder 1.8-2.2 : water 2.5-3 by mass; binder 60-70% CL90 lime + 30-40% ground fired brick (our kiln rejects: best pozzolan in PMC7664188)",
+                  "src": "IsoHemp TDS 2025, Hemplith TDS, Tradical TDS, PMC12608674, PMC7664188, Walker 2014, Arehart 2020; price benchmark IsoHemp 20 cm EUR 81/m2; our sell price UNSOURCED"},
+    "husk_lime": {"name": "rice-husk-lime block", "rho": [550, 700], "lambda": [0.10, 0.14], "fc_mpa": [0.30, 1.0], "mor_mpa": [0.10, 0.25],
+                  "binder_frac": [0.60, 0.67], "fibre_frac": [0.33, 0.40], "co2_stored_kg_m3": [20, 60],
+                  "usd_m2": [30, 45], "mbv": [2.5, 3.3],
+                  "mix": "husk soaked 24 h in lime water; husk 1 : binder 1.5-2 : water ~1.2-1.8; binder ~50% CL90 + 30% rice-husk ash from a SEPARATE <=700 C burn (amorphous by XRD) + 20% NHL 3.5; pressed 0.3-1 MPa",
+                  "src": "Chabannes 2014/2016 (0.33 MPa at 60 d, 640 kg/m3, lambda 0.10-0.14), RHC hollow blocks T&F 2025 (MBV 3.27), lime-RHA mortars KEM 517; flexural and CO2 UNSOURCED"}
   },
   "posts": {"spacing_m": 1.2, "od_m": 0.09, "wall_m": 0.009, "mor_mpa": 50, "usd_each": [15, 35],
-            "_note": "treated whole bamboo (borate + oil heat), dry, visible, replaceable; slotted blocks between posts"},
+            "_note": "treated whole bamboo (borate + oil heat), dry, visible, replaceable; blocks tongue-and-groove into slotted posts; ties 4-5 per m2 per IsoHemp/Hemplith practice"},
   "head_plate_usd_m": [4, 10],
   "lateral_pa": 240,
-  "_lateral_src": "IBC 1607.15: interior walls 5 psf lateral"
+  "_lateral_src": "IBC 1607.15: interior partitions over 6 ft resist 5 psf; ASCE 7 13.5.8 bracing; SDC D sites (NE Arkansas) need an engineer",
+  "fixings": "IsoHemp: 8x80 wood screw 15 kg, 10x80 25 kg, chemical anchor 50 kg; cabinets on embedded nailers or through-bolts"
 }

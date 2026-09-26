@@ -260,3 +260,15 @@ calculation. Many publisher pages were paywalled.
   https://dps.arkansas.gov/emergency-management/adem/plan-prepare/community-safe-rooms/
 - Oklahoma SoonerSafe $3,000 or 75%; Mississippi 75% up to $3,500; Alabama credit $3,000/50%; Kansas inactive.
 - Competitors: Atlas steel $4,995-7,795; Torshel 4x8 $8,699; Texas above-ground $4-7.5k installed.
+
+## Bio-lime partition blocks
+- IsoHemp TDS 2025: 320-355 kg/m3, lambda 0.071-0.075, 0.2 MPa, B-s1,d0, Rw 37-44 dB, 3 mm lime adhesive.
+  https://www.isohemp.com/sites/default/files/2025-05/ISH_technical_data_sheet_hemp_blocks_EN_2025_0.pdf
+- Hemplith: 318 kg/m3, lambda 0.069, 150-300 kPa; ~-35 kg CO2e/m3. https://www.vonhanf.de/wp-content/uploads/2026/03/Hemplith-Block.pdf
+- Tradical: 330 kg/m3, lambda 0.085, 108 kg CO2e/m3 captured, drying 20-60 days (cast 300 mm).
+- Hemp-lime 1:1, 290-372 kg/m3: 0.09-0.57 MPa at 90 d, MBV ~2.78; lime + 10% crushed brick best. https://pmc.ncbi.nlm.nih.gov/articles/PMC7664188/
+- Walker 2014: most strength 5-28 d; 0.29-0.39 MPa at 1 yr; no biodeterioration after 7 months.
+- Arehart 2020 LCA: carbonation recovers 18.5-38.4% of binder emissions; net can be negative. https://par.nsf.gov/servlets/purl/10174020
+- Hempitecture E84 0/0; IRC 2027 BL: 1-h E119 assemblies. IRC 2024 BL: precast >=3 in, 12.5-25 pcf, infill between framing.
+- Chabannes 2014/2016: rice-husk-lime lambda 0.10-0.14, 0.33 MPa at 60 d (640 kg/m3), lime-water pre-soak fixes bond. https://hal.science/hal-02906420/file/effect-of-curing-conditions.pdf
+- Lime-RHA mortars 6-18 MPa at 28 d; RHA must be burned <=700 C (cristobalite ~800 C+). https://www.scientific.net/KEM.517.495

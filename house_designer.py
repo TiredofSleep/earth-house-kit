@@ -68,7 +68,7 @@ def interior_walls(spec, parts):
             out["binder"][i] += mass * m["binder_frac"][i]
             out["fibre"][i] += mass * m["fibre_frac"][i]
             out["co2"][i] += vol * m["co2_stored_kg_m3"][i]
-            out["usd"][i] += vol * m["usd_m3"][i] + posts * BIO["posts"]["usd_each"][i] + L * BIO["head_plate_usd_m"][i]
+            out["usd"][i] += area * m["usd_m2"][i] + posts * BIO["posts"]["usd_each"][i] + L * BIO["head_plate_usd_m"][i]
     # lateral check: blocks span between posts; posts span floor to head plate
     q = BIO["lateral_pa"]
     s = BIO["posts"]["spacing_m"]
@@ -81,7 +81,7 @@ def interior_walls(spec, parts):
     M_post = q * s * H**2 / 8
     sig_post = M_post / (I / (D / 2)) / 1e6
     free_w = min(BIO["materials"][w.get("material", "hemp_lime")]["rho"][0] for w in walls) * 9.81 * b["thick"] * H
-    out["check"] = dict(sig_block=sig_block, fc=min(BIO["materials"][w.get("material", "hemp_lime")]["fc_mpa"][0] for w in walls),
+    out["check"] = dict(sig_block=sig_block, fc=min(BIO["materials"][w.get("material", "hemp_lime")]["mor_mpa"][0] for w in walls),
                         sig_post=sig_post, mor_post=po["mor_mpa"],
                         freestanding=(free_w * b["thick"] / 2) / (q * H**2 / 2))
     return out
@@ -332,7 +332,7 @@ def report(path):
             print(f"  interior bio-lime walls ({', '.join(sorted(iw['materials']))}): {iw['length']:.1f} m long,"
                   f" {iw['area']:.1f} m2, {iw['mass'][0]/1e3:.2f}-{iw['mass'][1]/1e3:.2f} t, carbon held"
                   f" {iw['co2'][0]:.0f}-{iw['co2'][1]:.0f} kg CO2, cost ${iw['usd'][0]:,.0f}-${iw['usd'][1]:,.0f}")
-            print(f"    blocks between bamboo posts at {BIO['posts']['spacing_m']} m: {ck['sig_block']:.4f} MPa vs"
+            print(f"    blocks between bamboo posts at {BIO['posts']['spacing_m']} m: {ck['sig_block']:.4f} MPa vs flexural"
                   f" {ck['fc']} MPa ({ck['fc']/ck['sig_block']:.0f}x); posts {ck['sig_post']:.1f} MPa vs {ck['mor_post']} MPa;"
                   f" free-standing without posts would resist only {ck['freestanding']*100:.0f}% of the 5 psf load")
         print(f"  dome dry-build: {r['keyed'][1]*100:.0f}-{r['keyed'][0]*100:.0f}% of the dome has beds too steep for dry friction"
