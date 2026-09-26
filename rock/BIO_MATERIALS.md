@@ -18,6 +18,22 @@
 | bacterial additive in the cocciopesto render | optional **TEST**, low priority | bacteria helped cement-lime masonry recover up to 33% of bond strength (TU Delft); plain lime already heals fine cracks, and the render is renewed on schedule anyway | render panels with and without, cracked and wetted |
 | mycelium panels, interior acoustic | optional **TEST** | light, λ ~0.03–0.05, but 0.17–1.1 MPa, absorbs 40–580% water, combustible; fine only dry, visible, replaceable | E84 fire, mould at 80–90% RH, water uptake |
 
+### Decision: bio-lime for INTERIOR walls first
+Interior partitions carry no load (the dome and outer ring do), see no weather and take no missiles.
+That is the job IRC Appendix BL already accepts hemp-lime for.
+
+- **Build:** precast **hemp-lime** or **husk-lime** blocks (rice-husk aggregate, lime, and husk ash
+  from our own kiln as the pozzolan), factory-cured, dry-laid and keyed like the clay units, so they
+  stay movable and replaceable with no site drying wait.
+- **Buffers indoor humidity** (lime and plant fibre take up and release moisture; fired clay barely
+  does), **quiets rooms**, **stores carbon**, and the lime keeps carbonating and hardening for years.
+- **No mycelium in the mix:** live fungi eat the fibre, and dead mycelium is weak when wet.
+- **Later option, not yet:** bio-lime infill between fired-clay columns in the *outer* walls, behind
+  the siding. By a first parallel-path estimate it would use ~80% less wall clay and pass ~20–40% less
+  heat (U ≈ 0.25–0.35 vs 0.42) [TO-TEST]. The **storm-shelter core stays all fired clay.**
+- **Test:** block λ (ASTM C518), density, compressive strength at 28/90/365 days (does it really
+  gain?), moisture buffer value, E84 fire, mould at 80–90% RH; husk-lime against hemp-lime.
+
 **In short:** hemp joins the kit as a better kiln fuel, a render fibre and a pit crop worth trialling.
 Bamboo joins as the roof framing and verandahs of a building whose shell is fired clay, visible and on a
 replacement schedule, never as its steel. Mycelium stays out of the structure. The clay shell doesn't
