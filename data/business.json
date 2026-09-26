@@ -217,6 +217,14 @@
   "siding batten ($/m)": [
    1.5,
    4
+  ],
+  "rib tendon, stainless wire rope ($/m)": [
+   6,
+   12
+  ],
+  "rib tendon terminals + nuts ($ per tendon)": [
+   40,
+   90
   ]
  },
  "freight": {

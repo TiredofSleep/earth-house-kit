@@ -45,6 +45,8 @@ def group(kind):
 def annual_fixed(stage, i):
     s = B["plant_stages"][stage]
     capex = sum(v[i] for v in s["capex"].values()) * (LEAN["capex_factor"] if SCEN["lean"] else 1)
+    if SCEN["lean"]:
+        capex += LEAN.get("extra_capex", {}).get(stage, [0, 0])[i]
     r, n = B["capital"]["interest"], B["capital"]["life_yr"]
     crf = r * (1 + r) ** n / ((1 + r) ** n - 1)                  # capital recovery factor
     fixed = sum(v[i] for v in s["fixed_annual"].values()) * (LEAN["fixed_factor"] if SCEN["lean"] else 1)
@@ -68,7 +70,8 @@ def kit(path):
     s = hd.summarize(parts)
     printed = s["by_method"]["print"]
     ground = sum(c for k, c in parts.units.items() if k.startswith("wall") or k.startswith("dome.voussoir"))
-    steel = {"rod_kg": 0.0, "channel_kg": 0.0, "panels": 0, "keys": 0, "splices": 0, "rail_m": 0.0, "batten_m": 0.0}
+    steel = {"rod_kg": 0.0, "channel_kg": 0.0, "channel_m": 0.0, "panels": 0, "keys": 0, "splices": 0,
+             "rail_m": 0.0, "batten_m": 0.0, "tendon_m": 0.0, "tendons": 0}
     for (kind, unit), count in parts.other.items():
         m = re.search(r"x ([\d.]+) m", unit)
         L = float(m.group(1)) if m else 0
@@ -76,6 +79,10 @@ def kit(path):
             steel["rod_kg"] += count * L * 1.58
         elif kind.startswith("steel end channel"):
             steel["channel_kg"] += count * L * 8.0
+            steel["channel_m"] += count * L
+        elif kind.startswith("rib tendon"):
+            steel["tendon_m"] += count * L
+            steel["tendons"] += count
         elif kind.startswith("panels:"):
             steel["panels"] += count
         elif "wedge pair" in kind:
@@ -101,20 +108,41 @@ def fired_t(k):
     return sum(t * LEAN["mass_factor"].get(g, 1.0) for g, t in k["by_group"].items())
 
 
+def steel_now(k):
+    """the kit's steel under the current scenario (lean = flat bars, 1 key per fold, clay siding rails)"""
+    st = dict(k["steel"])
+    if SCEN["lean"]:
+        sd = LEAN["steel_design"]
+        st["channel_kg"] = st["channel_m"] * sd["channel_kg_per_m"]
+        st["keys"] = round(st["keys"] * sd["keys_factor"])
+    return st
+
+
 def price(k, stage, i, tonnes_sold, miles, stainless=False):
     h = {key: val("hardware", key) for key in B["hardware"]}
     husk_ratio = k["husk_t"][i] / k["fired_t"]
     ft = fired_t(k)
+    if SCEN["lean"]:                                    # fired-clay siding rails replace steel rails + battens
+        ft += k["steel"]["rail_m"] * LEAN["steel_design"]["clay_rail_kg_per_m"] / 1000
     parts = ft * variable_per_t(i, husk_ratio)
     parts += k["printed"] * val("per_part", "printed part extra ($ each: machine + labor)")[i]
     parts += k["ground"] * val("per_part", "ground unit extra ($ each)")[i]
-    st = k["steel"]
+    st = steel_now(k)
     rod_rate = h["rod stainless 316 ($/kg)"][i] if stainless else h["rod M16 8.8 galvanized ($/kg)"][i]
     parts += (st["rod_kg"] * rod_rate + st["channel_kg"] * h["steel channel C100 galvanized ($/kg)"][i]
               + st["panels"] * h["hardware per panel (disc springs, nuts, plates, dowels) ($)"][i]
               + st["keys"] * h["fold key + wedge pair, stainless ($ each)"][i]
               + st["splices"] * h["ring splice plate + bolts ($ each)"][i]
-              + st["rail_m"] * h["siding rail ($/m)"][i] + st["batten_m"] * h["siding batten ($/m)"][i])
+              + st["rail_m"] * h["siding rail ($/m)"][i] + st["batten_m"] * h["siding batten ($/m)"][i]
+              + st["tendon_m"] * h["rib tendon, stainless wire rope ($/m)"][i]
+              + st["tendons"] * h["rib tendon terminals + nuts ($ per tendon)"][i])
+    steel_cost = (st["rod_kg"] * rod_rate + st["channel_kg"] * h["steel channel C100 galvanized ($/kg)"][i]
+                  + st["panels"] * h["hardware per panel (disc springs, nuts, plates, dowels) ($)"][i]
+                  + st["keys"] * h["fold key + wedge pair, stainless ($ each)"][i]
+                  + st["splices"] * h["ring splice plate + bolts ($ each)"][i]
+                  + st["rail_m"] * h["siding rail ($/m)"][i] + st["batten_m"] * h["siding batten ($/m)"][i]
+                  + st["tendon_m"] * h["rib tendon, stainless wire rope ($/m)"][i]
+                  + st["tendons"] * h["rib tendon terminals + nuts ($ per tendon)"][i])
     _, fixed_yr = annual_fixed(stage, i)
     fixed = ft * fixed_yr / tonnes_sold
     ex_works = (parts + fixed) * (1 + B["margin"])
@@ -122,7 +150,7 @@ def price(k, stage, i, tonnes_sold, miles, stainless=False):
     trucks = ceil((ft + (st["rod_kg"] + st["channel_kg"]) / 1000) / f["payload_t"])
     freight = trucks * max(f["min_charge_per_truck"], miles * f["rate_per_mile"][i]) + trucks * f["loading_per_truck"]
     return dict(parts=parts, fixed=fixed, ex_works=ex_works, trucks=trucks, freight=freight,
-                delivered=ex_works + freight, fired_t=ft)
+                delivered=ex_works + freight, fired_t=ft, steel=steel_cost)
 
 
 def money(x):
@@ -187,8 +215,9 @@ if __name__ == "__main__":
     print("\n" + "=" * 110)
     print("LEAN vs BASELINE (production plant, 90% full, 300 miles): same kits, less clay, less handling")
     print("=" * 110)
-    print("lean = graded 6 in walls (-35%), solid domes swapped for the ribbed design (-35%, dome_ribbed.py), gravel trench for fired")
-    print("       drainage parts, extrusion-first labor 1.5-4 h/t, capital-light plant (capex x0.5, fixed x0.8)")
+    print("lean = graded 6 in walls (-35%), ribbed domes (-35%, dome_ribbed.py), gravel trench for fired drainage parts,")
+    print("       daylight robotic line 1.9-4.9 h/t (production_line.py, +$280-940k robotics), capital-light plant,")
+    print("       lean steel: flat bars not channels, 1 key per fold, fired-clay siding rails (no steel rails/battens)")
     print(f"  {'kit':44s} {'tonnes':>13} {'ex-works (low case)':>23} {'$/ft2':>11} {'lean delivered':>21}")
     for k in kits:
         rows = []
@@ -202,9 +231,12 @@ if __name__ == "__main__":
               f"  {b[0]['ex_works']/k['area_ft2']:4.0f} -> {l[0]['ex_works']/k['area_ft2']:3.0f}"
               f"  {money(l[0]['delivered'])}-{money(l[1]['delivered'])}")
     SCEN["lean"] = True
-    k16 = next(k for k in kits if "Ring 16" in k["name"])
+    k16 = next(k for k in kits if "RIBBED" in k["name"] and "Ring 16" in k["name"])
     for i, label in ((0, "low"), (1, "high")):
         p = price(k16, "production", i, 5400, 300)
-        print(f"LEAN Ring 16, {label} case: parts {money(p['parts'])}, fixed {money(p['fixed'])},"
-              f" margin {money((p['parts']+p['fixed'])*B['margin'])}, freight {money(p['freight'])}")
+        SCEN["lean"] = False
+        pb = price(k16, "production", i, 5400, 300)
+        SCEN["lean"] = True
+        print(f"LEAN Ring 16, {label} case: parts {money(p['parts'])} (steel {money(p['steel'])}, was {money(pb['steel'])}),"
+              f" fixed {money(p['fixed'])}, margin {money((p['parts']+p['fixed'])*B['margin'])}, freight {money(p['freight'])}")
     SCEN["lean"] = False

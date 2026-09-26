@@ -14,8 +14,8 @@
  },
  "variable": {
   "production labor (h per t fired)": [
-   1.5,
-   4
+   1.9,
+   4.9
   ],
   "kiln, die, printer wear + consumables ($/t fired)": [
    6,
@@ -42,19 +42,41 @@
  },
  "hardware": {
   "fold key + wedge pair, stainless ($ each)": [
-   8,
+   10,
    20
   ],
   "siding rail ($/m)": [
-   3,
-   6
+   0,
+   0
   ],
   "siding batten ($/m)": [
-   1,
-   2.5
+   0,
+   0
+  ],
+  "hardware per panel (disc springs, nuts, plates, dowels) ($)": [
+   12,
+   25
+  ],
+  "ring splice plate + bolts ($ each)": [
+   6,
+   15
   ]
  },
  "capex_factor": 0.5,
  "capex_factor_src": "used extruders/forklifts, open sheds, a zigzag/Hoffmann kiln built from the plant's own bricks, owner-built solar [UNSOURCED -> quotes]",
- "fixed_factor": 0.8
+ "fixed_factor": 0.8,
+ "variable_src": "labor: robotic line 1.9 h/t .. semi-automated 4.9 h/t (production_line.py)",
+ "steel_design": {
+  "channel_kg_per_m": 3.8,
+  "keys_factor": 0.3334,
+  "clay_rail_kg_per_m": 6.0,
+  "_src": "60x8 flat bar instead of C100 (ring 20 kN vs ~120 kN capacity); one wedged key per fold (top bar + base slider tie the rest); extruded fired-clay siding rails with cut notches replace steel rails + battens"
+ },
+ "extra_capex": {
+  "production": [
+   280000,
+   940000
+  ]
+ },
+ "extra_capex_src": "robotics semi -> robotic (production_line.py)"
 }
