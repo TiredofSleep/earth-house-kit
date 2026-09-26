@@ -60,6 +60,17 @@ That is the job IRC Appendix BL already accepts hemp-lime for.
 - Production: pan mixer → mould/press (0.3–1 MPa) → air-dry 6–10 weeks, or faster with gentle kiln
   waste heat at 50–70% RH and CO₂ curing.
 
+### The husk-ash side module (founder's idea)
+The 1,000 °C clay kiln makes crystalline, cristobalite-rich husk ash: useless as a pozzolan and a
+silicosis hazard. So a **separate husk combustor held at 600–700 °C** (thermocouple-controlled,
+forced draft) sits beside the kiln:
+- it makes **amorphous, reactive rice-husk ash**, the pozzolan for husk-lime blocks and cocciopesto
+  (lime–RHA mortars reach 6–18 MPa at 28 days);
+- its **flue heat feeds the kiln's green-ware dryer and preheat**, so none of the burn is wasted;
+- **QA:** XRD amorphous content and cristobalite on every batch, loss on ignition, strength activity
+  index (ASTM C311/C618), a respirable-silica check for workers;
+- yield: ~200 kg of husk per tonne of rice gives ~40 kg of ash.
+
 **In short:** hemp joins the kit as a better kiln fuel, a render fibre and a pit crop worth trialling.
 Bamboo joins as the roof framing and verandahs of a building whose shell is fired clay, visible and on a
 replacement schedule, never as its steel. Mycelium stays out of the structure. The clay shell doesn't
