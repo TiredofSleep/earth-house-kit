@@ -20,6 +20,7 @@ Roman-style recipe), or 6–8% cement where that's simpler.
 
 | read | why |
 |---|---|
+| [FOUNDER_PACKET.md](FOUNDER_PACKET.md) | **the whole thing in plain words + the staged to-do list, starting from Malvern clay and rice husks** |
 | [SYNTHESIS.md](SYNTHESIS.md) | **start here:** the whole house, layer by layer, and where each proven idea comes from |
 | [business/BUSINESS_CASE.md](business/BUSINESS_CASE.md) | the kit-factory business: costs, prices vs market, break-even, site, sequence |
 | [business/SHELTER_PLAN.md](business/SHELTER_PLAN.md) | the first product: a certified above-ground tornado safe room |
