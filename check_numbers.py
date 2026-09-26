@@ -17,7 +17,8 @@ SCRIPTS = ["system_sizing.py", "shipping_manifest.py", "costs_estimate.py", "til
            "printer/print_check.py", "earth-panel/energy_estimate.py",
            "rock_options.py", "brick_panel_check.py",
            "thermal_check.py", "form_check.py",
-           "dome_check.py", "dome_thrust.py", "house_designer.py"]
+           "dome_check.py", "dome_thrust.py", "house_designer.py",
+           "cladding_check.py", "drainage_check.py"]
 
 
 def run_all():

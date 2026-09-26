@@ -79,11 +79,11 @@ def truss(t, P=60, shell=10, web=6, n=1, diamond=False, **k):
     return m, row_h
 
 
-def lam_eq(mask, lam_cells):
+def lam_eq(mask, lam_cells, kclay=None):
     """2-D steady conduction, 1 mm cells, T=1 on the outer face, 0 on the inner, periodic sides.
     lam_cells: conductivity of non-clay cells (array or scalar). Returns W/mK of the section."""
     ny, nx = mask.shape
-    k = np.where(mask, LAM_CLAY, lam_cells).astype(float)
+    k = np.where(mask, LAM_CLAY if kclay is None else kclay, lam_cells).astype(float)
     idx = np.arange(ny * nx).reshape(ny, nx)
     rows, cols, vals = [], [], []
     b = np.zeros(ny * nx)
@@ -133,13 +133,20 @@ def dynamic(layers):
     return U, lag, f, kappa / 1000
 
 
-def section_layer(fn, t, fill="air", **kw):
+def section_layer(fn, t, fill="air", graded=None, **kw):
+    """graded = (lam_outer_skin, lam_core_webs, lam_inner_skin): a multi-material print --
+    dense fluxed outer skin, porous (pore-former) core webs, dense smooth inner skin"""
     mask, cell_h = fn(t, **kw)
+    kclay = None
+    if graded:
+        shell = kw.get("shell", 10)
+        y = np.mgrid[0:mask.shape[0], 0:mask.shape[1]][0] + 0.5
+        kclay = np.where(y < shell, graded[0], np.where(y > t - shell, graded[2], graded[1]))
     lam_cells = lam_air_cell(cell_h) if fill == "air" else (LAM_HUSK if fill == "husk" else LAM_SAND)
     rho_f, c_f = {"air": (1.2, 1000), "husk": (RHO_HUSK, C_HUSK), "sand": (RHO_SAND, C_SAND)}[fill]
     solid_share = mask.mean()
-    lam = lam_eq(mask, lam_cells)
-    rho = solid_share * RHO_CLAY + (1 - solid_share) * rho_f
+    lam = lam_eq(mask, lam_cells, kclay)
+    rho = solid_share * RHO_CLAY * (0.75 if graded else 1.0) + (1 - solid_share) * rho_f
     c = (solid_share * RHO_CLAY * C_CLAY + (1 - solid_share) * rho_f * c_f) / rho
     return dict(d=t / 1000, lam=lam, rho=rho, c=c, solid=solid_share, kg_m2=rho * t / 1000)
 
@@ -163,6 +170,9 @@ CASES = [
     ("8 in: 3-row truss, husk",               [(truss, 200, "husk", dict(n=3))]),
     ("8 in: truss husk OUT + staggered sand IN", [(truss, 100, "husk", dict(n=2)),
                                                   (staggered, 100, "sand", dict(n=3))]),
+    ("8 in GRADED: dense skins, porous 0.30 core", [(staggered, 200, "husk", dict(n=6, graded=(1.0, 0.30, 0.8)))]),
+    ("8 in GRADED: dense skins, porous 0.20 core", [(staggered, 200, "husk", dict(n=6, graded=(1.0, 0.20, 0.8)))]),
+    ("6 in GRADED: dense skins, porous 0.20 core", [(staggered, 152, "husk", dict(n=5, graded=(1.0, 0.20, 0.8)))]),
 ]
 
 
