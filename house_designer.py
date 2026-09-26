@@ -69,7 +69,36 @@ def wall_panel(parts, rows, wall_unit, label):
     parts.add_other(f"panels: {label}", 1)
 
 
+LINK = dict(panels=4, roof_m2=5.0)      # gallery between pavilions: 2 panels a side + a short vault [TO-DESIGN]
+
+
+def design_cluster(spec):
+    """a compound of pavilions (trulli / Cal-Earth style): each pavilion is its own checked
+    structure; galleries link them; the parts lists add up"""
+    parts = Parts()
+    area, pav_checks = 0.0, []
+    for item in spec["cluster"]:
+        sub = load(os.path.join(HERE, "houses", item["design"]))
+        sp, si = design(sub)
+        for _ in range(item.get("count", 1)):
+            for k, c in sp.units.items():
+                parts.add(k, c)
+            for k, c in sp.other.items():
+                parts.other[k] = parts.other.get(k, 0) + c
+            area += si["area_ft2"]
+        pav_checks.append((sub["name"], item.get("count", 1), si["checks"]))
+    links = spec.get("links", 0)
+    for _ in range(links):
+        for _ in range(LINK["panels"]):
+            wall_panel(parts, rows_for(8 * FT), "wall8in", "gallery")
+        parts.add("dome.voussoir 16 in deep dome", ceil(LINK["roof_m2"] / (0.295 * dc.COURSE)))
+        area += LINK["roof_m2"] / 0.0929
+    return parts, dict(area_ft2=area, span_m=0, checks={"pavilions": pav_checks}, links=links)
+
+
 def design(spec):
+    if "cluster" in spec:
+        return design_cluster(spec)
     parts = Parts()
     n = spec["plan"]["modules"]
     wall_unit = spec["wall"]["unit"]
@@ -180,8 +209,12 @@ def report(path):
     s = summarize(parts)
     print("=" * 96)
     print(f"{spec['name']}   ({os.path.basename(path)})")
-    print(f"{spec['plan']['modules']}-gon, {info['area_ft2']:.0f} ft^2 ({info['area_ft2']*0.0929:.0f} m^2),"
-          f" span {info['span_m']:.2f} m; walls: {spec['wall']['unit']}; roof: {spec.get('roof', {}).get('type', 'none')}")
+    if "cluster" in spec:
+        print(f"compound: {sum(i.get('count', 1) for i in spec['cluster'])} pavilions + {info['links']} galleries,"
+              f" {info['area_ft2']:,.0f} ft^2 ({info['area_ft2']*0.0929:,.0f} m^2)")
+    else:
+        print(f"{spec['plan']['modules']}-gon, {info['area_ft2']:.0f} ft^2 ({info['area_ft2']*0.0929:.0f} m^2),"
+              f" span {info['span_m']:.2f} m; walls: {spec['wall']['unit']}; roof: {spec.get('roof', {}).get('type', 'none')}")
     print("=" * 96)
     print("FIRED UNITS")
     for kind, count in sorted(parts.units.items()):
@@ -199,6 +232,13 @@ def report(path):
     print(f"  printer: {s['nozzle_h']:,.0f} nozzle-hours (8 nozzles x 20 h/day: {s['nozzle_h']/160:.1f} days);"
           f" die: {s['die_h'][0]:.0f}-{s['die_h'][1]:.0f} machine-hours")
     c = info["checks"]
+    if "pavilions" in c:
+        print("\nCHECKS (each pavilion is its own structure; galleries [TO-DESIGN]: short vault check pending)")
+        for name, count, pc in c["pavilions"]:
+            worst = min(pc["uneven"]) if "uneven" in pc else None
+            ok = worst and worst[0] >= 1.5
+            print(f"  {count} x {name}: worst uneven-load GSF {worst[0]:.2f} -> {'OK' if ok else 'CHECK'}")
+        return
     p = c["panel"]
     need = max(p["p_lift"], p["p_wind"])
     after = p["p_set"] * (1 - bp.PT_LOSS[1])

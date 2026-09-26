@@ -20,25 +20,42 @@ import house_designer as hd
 HERE = os.path.dirname(os.path.abspath(__file__))
 with open(os.path.join(HERE, "data", "business.json"), encoding="utf-8") as fh:
     B = json.load(fh)
+with open(os.path.join(HERE, "data", "business_lean.json"), encoding="utf-8") as fh:
+    LEAN = json.load(fh)
+SCEN = {"lean": False}
+
+
+def val(section, key):
+    if SCEN["lean"] and key in LEAN.get(section, {}):
+        return LEAN[section][key]
+    return B[section][key]
+
+
+def group(kind):
+    for g in ("wall", "dome", "siding", "plinth"):
+        if kind.startswith(g):
+            return g
+    return "drainage"
 
 
 def annual_fixed(stage, i):
     s = B["plant_stages"][stage]
-    capex = sum(v[i] for v in s["capex"].values())
+    capex = sum(v[i] for v in s["capex"].values()) * (LEAN["capex_factor"] if SCEN["lean"] else 1)
     r, n = B["capital"]["interest"], B["capital"]["life_yr"]
     crf = r * (1 + r) ** n / ((1 + r) ** n - 1)                  # capital recovery factor
-    return capex, capex * crf + sum(v[i] for v in s["fixed_annual"].values())
+    fixed = sum(v[i] for v in s["fixed_annual"].values()) * (LEAN["fixed_factor"] if SCEN["lean"] else 1)
+    return capex, capex * crf + fixed
 
 
 def variable_per_t(i, husk_t_per_t):
-    v = B["variable"]
-    labor = v["production labor (h per t fired)"][i] * v["labor rate ($/h, loaded)"][i]
-    energy = v["electricity (kWh per t fired)"][i] * v["electricity ($/kWh)"][i]
-    base = (v["clay dig, haul, prep ($/t fired)"][i] + labor + energy
-            + v["kiln, die, printer wear + consumables ($/t fired)"][i]
-            + v["pallets, strapping, loading ($/t)"][i]
-            + husk_t_per_t * v["rice husk ($/t husk, delivered)"][i])
-    return base / (1 - v["rejects (share of fired mass)"][i])
+    v = lambda k: val("variable", k)[i]
+    labor = v("production labor (h per t fired)") * v("labor rate ($/h, loaded)")
+    energy = v("electricity (kWh per t fired)") * v("electricity ($/kWh)")
+    base = (v("clay dig, haul, prep ($/t fired)") + labor + energy
+            + v("kiln, die, printer wear + consumables ($/t fired)")
+            + v("pallets, strapping, loading ($/t)")
+            + husk_t_per_t * v("rice husk ($/t husk, delivered)"))
+    return base / (1 - v("rejects (share of fired mass)"))
 
 
 def kit(path):
@@ -65,17 +82,28 @@ def kit(path):
             steel["rail_m"] += count * L
         elif kind.startswith("siding batten"):
             steel["batten_m"] += count
-    return dict(name=spec["name"], area_ft2=info["area_ft2"], fired_t=s["clay_kg"] / 1000,
+    by_group = {}
+    for kind, count in parts.units.items():
+        g = group(kind)
+        by_group[g] = by_group.get(g, 0) + count * hd.KIT[kind]["clay_kg"] / 1000
+    return dict(name=spec["name"], area_ft2=info["area_ft2"], fired_t=s["clay_kg"] / 1000, by_group=by_group,
                 husk_t=(s["husks"][0] / 1000, s["husks"][1] / 1000), printed=printed, ground=ground,
                 steel=steel, checks=info["checks"])
 
 
+def fired_t(k):
+    if not SCEN["lean"]:
+        return k["fired_t"]
+    return sum(t * LEAN["mass_factor"].get(g, 1.0) for g, t in k["by_group"].items())
+
+
 def price(k, stage, i, tonnes_sold, miles, stainless=False):
-    h = B["hardware"]
+    h = {key: val("hardware", key) for key in B["hardware"]}
     husk_ratio = k["husk_t"][i] / k["fired_t"]
-    parts = k["fired_t"] * variable_per_t(i, husk_ratio)
-    parts += k["printed"] * B["per_part"]["printed part extra ($ each: machine + labor)"][i]
-    parts += k["ground"] * B["per_part"]["ground unit extra ($ each)"][i]
+    ft = fired_t(k)
+    parts = ft * variable_per_t(i, husk_ratio)
+    parts += k["printed"] * val("per_part", "printed part extra ($ each: machine + labor)")[i]
+    parts += k["ground"] * val("per_part", "ground unit extra ($ each)")[i]
     st = k["steel"]
     rod_rate = h["rod stainless 316 ($/kg)"][i] if stainless else h["rod M16 8.8 galvanized ($/kg)"][i]
     parts += (st["rod_kg"] * rod_rate + st["channel_kg"] * h["steel channel C100 galvanized ($/kg)"][i]
@@ -84,13 +112,13 @@ def price(k, stage, i, tonnes_sold, miles, stainless=False):
               + st["splices"] * h["ring splice plate + bolts ($ each)"][i]
               + st["rail_m"] * h["siding rail ($/m)"][i] + st["batten_m"] * h["siding batten ($/m)"][i])
     _, fixed_yr = annual_fixed(stage, i)
-    fixed = k["fired_t"] * fixed_yr / tonnes_sold
+    fixed = ft * fixed_yr / tonnes_sold
     ex_works = (parts + fixed) * (1 + B["margin"])
     f = B["freight"]
-    trucks = ceil((k["fired_t"] + (st["rod_kg"] + st["channel_kg"]) / 1000) / f["payload_t"])
+    trucks = ceil((ft + (st["rod_kg"] + st["channel_kg"]) / 1000) / f["payload_t"])
     freight = trucks * max(f["min_charge_per_truck"], miles * f["rate_per_mile"][i]) + trucks * f["loading_per_truck"]
     return dict(parts=parts, fixed=fixed, ex_works=ex_works, trucks=trucks, freight=freight,
-                delivered=ex_works + freight)
+                delivered=ex_works + freight, fired_t=ft)
 
 
 def money(x):
@@ -131,8 +159,48 @@ if __name__ == "__main__":
     p = price(k16, "production", 0, 5400, 300)
     print(f"\nwhere the money goes (Ring 16, production plant 90% full, low case): parts {money(p['parts'])},"
           f" fixed {money(p['fixed'])}, margin {money((p['parts']+p['fixed'])*B['margin'])}, freight {money(p['freight'])}")
-    print("\ncompare (shell or kit, $/ft2, DRAFT):")
+    MARKET = 65.0      # $/ft2 shell: SIP shells ~$58 typical, log $50-100, site-built structure share ~$65 (NAHB)
+    print(f"\nBREAK-EVEN if kits sell at ${MARKET:.0f}/ft2 (shell-kit market), freight paid by the buyer:")
+    for stage in B["plant_stages"]:
+        cap = B["plant_stages"][stage]["capacity_t_per_yr"]
+        for kname in ("Studio 12", "Ring 16"):
+            kk = next(k for k in kits if kname in k["name"])
+            price_kit = MARKET * kk["area_ft2"]
+            out = []
+            for i in (0, 1):
+                parts = price(kk, stage, i, cap, 0)["parts"]
+                contrib = price_kit - parts
+                n = annual_fixed(stage, i)[1] / contrib if contrib > 0 else float("inf")
+                out.append((n, n * kk["fired_t"] / cap * 100, parts))
+            print(f"  {stage:10s} {kname:9s}: sells ${price_kit:,.0f}, parts ${out[0][2]:,.0f}-${out[1][2]:,.0f}"
+                  f" -> break-even {out[0][0]:,.0f}-{out[1][0]:,.0f} kits/yr ({out[0][1]:.0f}-{out[1][1]:.0f}% of capacity)")
+    print("\ncompare (shell or kit, $/ft2):")
     for name, (a, b) in B["compare_per_ft2"].items():
         print(f"  {name:36s} ${a}-{b}")
     print("\nNOTE: the kit is the SHELL (walls, dome, skin, siding, plinth, drainage). Not included: site work,")
     print("rubble trench stone, doors, windows, wiring, plumbing, finishes, assembly labor, permits.")
+
+    print("\n" + "=" * 110)
+    print("LEAN vs BASELINE (production plant, 90% full, 300 miles): same kits, less clay, less handling")
+    print("=" * 110)
+    print("lean = graded 6 in walls (-35%), ribbed dome (-40%, TO-DESIGN), gravel drip trench instead of fired")
+    print("       drainage parts, extrusion-first labor 1.5-4 h/t, capital-light plant (capex x0.5, fixed x0.8)")
+    print(f"  {'kit':44s} {'tonnes':>13} {'ex-works (low case)':>23} {'$/ft2':>11} {'lean delivered':>21}")
+    for k in kits:
+        rows = []
+        for lean in (False, True):
+            SCEN["lean"] = lean
+            rows.append([price(k, "production", i, 5400, 300) for i in (0, 1)])
+        SCEN["lean"] = False
+        b, l = rows
+        print(f"  {k['name'][:44]:44s} {b[0]['fired_t']:5.1f} -> {l[0]['fired_t']:5.1f}"
+              f"  {money(b[0]['ex_works']):>9} -> {money(l[0]['ex_works']):>9}"
+              f"  {b[0]['ex_works']/k['area_ft2']:4.0f} -> {l[0]['ex_works']/k['area_ft2']:3.0f}"
+              f"  {money(l[0]['delivered'])}-{money(l[1]['delivered'])}")
+    SCEN["lean"] = True
+    k16 = next(k for k in kits if "Ring 16" in k["name"])
+    for i, label in ((0, "low"), (1, "high")):
+        p = price(k16, "production", i, 5400, 300)
+        print(f"LEAN Ring 16, {label} case: parts {money(p['parts'])}, fixed {money(p['fixed'])},"
+              f" margin {money((p['parts']+p['fixed'])*B['margin'])}, freight {money(p['freight'])}")
+    SCEN["lean"] = False

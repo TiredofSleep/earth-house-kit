@@ -21,6 +21,7 @@ Roman-style recipe), or 6–8% cement where that's simpler.
 | read | why |
 |---|---|
 | [SYNTHESIS.md](SYNTHESIS.md) | **start here:** the whole house, layer by layer, and where each proven idea comes from |
+| [business/BUSINESS_CASE.md](business/BUSINESS_CASE.md) | the kit-factory business: costs, prices vs market, break-even, site, sequence |
 | [MISSION.md](MISSION.md) | the whole plan: system, energy, costs, tests, kill-conditions |
 | [GRAVEYARD.md](GRAVEYARD.md) | ideas that were killed or corrected, with the arithmetic that killed them |
 | [making-system/TILTUP_DETAILING.md](making-system/TILTUP_DETAILING.md) | how a panel gets from the pit to a braced wall |
@@ -51,6 +52,7 @@ python dome_thrust.py              # dome under half snow, wind, earthquake (thr
 python house_designer.py           # every design in houses/: full parts list + checks
 python cladding_check.py           # hung fired siding: weight, wind lock, solar gain
 python drainage_check.py           # fluted drainage foundation vs NOAA design storms
+python business_model.py           # kit prices: plant size, utilization, lean vs baseline, freight, break-even
 ```
 
 A new site is a new JSON file in `sites/`, and a new material is an entry in

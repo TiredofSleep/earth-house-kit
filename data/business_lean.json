@@ -1,0 +1,60 @@
+{
+ "_note": "LEAN scenario overrides: less clay doing the same job, less handling, capital-light plant. Mass factors marked TO-DESIGN are design targets, not yet checked structures.",
+ "mass_factor": {
+  "wall": 0.65,
+  "dome": 0.6,
+  "drainage": 0.0,
+  "siding": 1.0,
+  "plinth": 1.0
+ },
+ "mass_factor_src": {
+  "wall": "graded 6 in unit meets U target at ~86 vs 133 kg/m2 (thermal_check.py)",
+  "dome": "ribbed dome: deep ribs + thin shell between, ~40% less clay [TO-DESIGN + dome_thrust check]",
+  "drainage": "fired apron/collector/drain tile replaced by a gravel drip trench dug on site (buyer's site work)"
+ },
+ "variable": {
+  "production labor (h per t fired)": [
+   1.5,
+   4
+  ],
+  "kiln, die, printer wear + consumables ($/t fired)": [
+   6,
+   15
+  ],
+  "pallets, strapping, loading ($/t)": [
+   5,
+   12
+  ],
+  "rejects (share of fired mass)": [
+   0.04,
+   0.08
+  ]
+ },
+ "per_part": {
+  "printed part extra ($ each: machine + labor)": [
+   1.0,
+   2.5
+  ],
+  "ground unit extra ($ each)": [
+   0.15,
+   0.5
+  ]
+ },
+ "hardware": {
+  "fold key + wedge pair, stainless ($ each)": [
+   8,
+   20
+  ],
+  "siding rail ($/m)": [
+   3,
+   6
+  ],
+  "siding batten ($/m)": [
+   1,
+   2.5
+  ]
+ },
+ "capex_factor": 0.5,
+ "capex_factor_src": "used extruders/forklifts, open sheds, a zigzag/Hoffmann kiln built from the plant's own bricks, owner-built solar [UNSOURCED -> quotes]",
+ "fixed_factor": 0.8
+}
