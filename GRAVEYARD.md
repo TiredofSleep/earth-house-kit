@@ -33,6 +33,9 @@ Kept on purpose so nobody rebuilds them. Each entry: the idea, what killed it, t
 | A steep cone/pyramid shelter 'deflects' the debris missile | ICC 500 fires the 2x4 perpendicular, and every surface >= 30 deg takes the full 100 mph missile; ASCE 7 has no coefficients for steep cones | round drum + shallow cap under 30 deg (`shelter_check.py`) |
 | Dry-stacked or sand-filled clay alone as a shelter wall | 4 in solid brick shattered at ~76 mph (9 lb missile); only grouted/reinforced masonry and cavity walls have passed 100 mph | sacrificial fired skin + cavity + grouted cellular core (SHELTER_PLAN.md) |
 | Arkansas residential safe-room rebates as the first funding | Arkansas's program ended in 2016; Arkansas FEMA money funds community safe rooms | community/school safe rooms in Arkansas; residential rebates in OK and MS |
+| Bamboo in place of steel rods, tendons or hoop bands | ~1/13 the stiffness of steel, creep and moisture movement can't hold prestress; joints ~30-50% of the culm | steel/stainless in tension; bamboo only as visible, replaceable roof framing (rock/BIO_MATERIALS.md) |
+| Mycelium or bacteria as self-healing agents inside the structure | dry-stacked fired clay has no mortar joints to heal; living agents need water and nutrients in walls meant to stay dry | replaceable parts + self-healing lime renders renewed on schedule |
+| 'Petrified' or ceramized whole bamboo | mineralization is lab-scale on small samples; silicate leaches; biomorphic SiC needs >1,400 C and is brittle | revisit when research reaches whole culms |
 | Concrete from clayey site soil | clay fines: 10–14% cement on clay soil gave only 1.5–3.4 MPa | only with screened sand/gravel |
 
 ## Overturned (kills that were wrong)

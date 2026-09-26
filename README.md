@@ -30,6 +30,7 @@ Roman-style recipe), or 6–8% cement where that's simpler.
 | [making-system/BRICK_PANEL.md](making-system/BRICK_PANEL.md) | **the lead design:** printed fired units, dry-stacked, clamped by rods, tilted up |
 | [making-system/KIT_OF_PARTS.md](making-system/KIT_OF_PARTS.md) | **design houses from interlocking parts:** Japanese-joinery locking in fired clay, the dome, the house designer |
 | [making-system/ENVELOPE.md](making-system/ENVELOPE.md) | the coat (hung fired siding), the boots (fluted drainage foundation), units graded like bone |
+| [rock/BIO_MATERIALS.md](rock/BIO_MATERIALS.md) | hemp, bamboo, mycelium: where living materials fit, adopt / test / avoid |
 | [printer/PRINTER_CONCEPT.md](printer/PRINTER_CONCEPT.md) | a gantry that compacts panels flat instead of extruding wet mud |
 | [HANDOFF_TO_CLAUDE_CODE.md](HANDOFF_TO_CLAUDE_CODE.md) | the prioritized task list |
 

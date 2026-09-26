@@ -35,6 +35,7 @@
 | **interior finish** | thin unfired clay plaster over the fired units (humidity buffering, MBV > 1) | earth plasters | sourced |
 | **climate: hot-humid** | shade + reflective skin, cross-ventilation through low windward inlets, rain-capped closable cupola at the oculus, ceiling fan, a small solar dehumidifier holding 50–60% RH | CBE Berkeley fan studies (+2.7 °C comfort at 0.5 m/s); EPA mold guidance | sourced |
 | **climate: hot-dry** | the same shell plus night flushing, courtyards, jaali, windcatchers with evaporative cooling (10 °C+ drops) | Iranian and Middle Eastern vernacular | sourced |
+| **living materials** (`rock/BIO_MATERIALS.md`) | hemp shiv briquettes as cleaner kiln fuel; hemp fibre in renders (test); hemp cover crop on pit benches (test); treated whole bamboo for verandahs, shade and interior roof framing, visible and replaceable; mycelium only as optional interior acoustic panels | hemp and bamboo building traditions; fibre-lime renders | sourced, TO-TEST |
 | **floor** | gravel capillary break, barrier, insulating layer, site-fired floor tiles in lime | earthen and tile floor practice | sourced |
 | **water** | drip-ring gutter at the dome base, 1–2 L/m² first flush, partly buried 5–10 m³ ferrocement or lime-lined cistern, ceramic pot filter from the same kiln | Texas A&M rainwater guidance; ferrocement tanks (50–100 year life) | sourced |
 | **cooking & sanitation** | induction on the microgrid; urine-diverting dry toilet in an annex, 12-month vault storage | WHO household air pollution; Eawag sanitation compendium | sourced |
