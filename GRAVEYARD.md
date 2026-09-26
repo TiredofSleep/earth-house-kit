@@ -16,6 +16,11 @@ Kept on purpose so nobody rebuilds them. Each entry: the idea, what killed it, t
 | "0.28 MPa lift stress vs ~0.3 MPa cracking = uncracked" (v0.3) | no safety margin, dry weight instead of the moist panel, no bed suction | moist panel 0.30 MPa × 1.5 → MOR ≥ 0.45 MPa at lift age; suction checked separately (0.23–0.33 MPa at breakaway) |
 | "Quicklime at the head boils off the mix water" (v0.3) | energy: the slaking heat only warms the mix ~45–65 °C (`lime_heat.py`); it can't boil it | it binds 16–22% of the water chemically; evaporation is [TO-MEASURE]; watch for late slaking |
 | Driving bars in at mid-depth for the no-dig lift (v0.3: "~15 kN·m, enough") | earth-limited capacity is only 1.1–2.0× the demand; bars near mid-depth have almost no lever arm | press the grid into the top face and lift at ~0.6 |
+| Melt the soil into rock (in-situ vitrification, cast basalt, microwave sintering) for walls | energy: 0.72–1.0 MWh/t and ~3.5 MW for in-situ melting, 1–2 years to cool; 6–12 MWh per house even at 3 in (`rock_options.py`); lab microwave sintering 69–98 MJ/kg | fire clay at ~1000 °C instead: 0.9–3.0 MJ/kg from farm waste |
+| Fire the whole house in place (Khalili's Geltaftan) | tried in Iran in the 1970s–80s and abandoned: fuel cost and pollution; heating a room from inside wastes most of the heat and fires unevenly | fire small units in an insulated kiln, then assemble |
+| Sulfur concrete walls | melts at 115–120 °C, burns to SO₂; forbids swelling clay in the aggregate (ACI 548.2R) | not for homes; maybe plinths, tanks, drains |
+| Bio-cement (MICP/EICP) as the general route | sands only; about 1 kg of ammonium chloride waste per kg of calcite; 2–6 t of reagents per house | niche for sandy sites |
+| Concrete from clayey site soil | clay fines: 10–14% cement on clay soil gave only 1.5–3.4 MPa | only with screened sand/gravel |
 
 ## Overturned (kills that were wrong)
 

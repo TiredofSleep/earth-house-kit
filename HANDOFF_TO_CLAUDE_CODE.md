@@ -39,6 +39,20 @@ The wall is **cast flat in a pit dug from the site's own soil and tilted up.** T
 - Lift checks use the **moist** panel, a 1.5 margin on cracking, and a separate breakaway
   (suction) case. Lift from the steel, never from the earth. Openings go between panels.
 
+## The rock direction (v0.4 candidate — read `rock/ROCK_OPTIONS.md`, `making-system/BRICK_PANEL.md`)
+The founder wants **solid rock, not compressed or printed earth**. The lead is printed, fired
+cellular clay units, ground flat, dry-stacked with no mortar, clamped by post-tensioned rods into
+panels, and tilted up. The compacted-earth kit below stays as the fallback until Phase R decides.
+- R0. **Phase R bench tests** (BRICK_PANEL.md §9): fire home clay; print, fire, grind units;
+  dry-stack column seating loss; one panel tilted and broken; thermal test.
+- R1. **Dome/cone roof** of fired units over a 16–20-gon: thrust, ring beam, rain skin. Extend
+  `form_check.py` with thrust.
+- R2. **Unit geometry files:** parametric print paths (universal, rod-end, insert, corner,
+  sill, lintel) with per-axis shrinkage scaling; a die design for the universal unit.
+- R3. **Fibre-hood kiln + husk burner** sized for 0.5–1 t per firing (merges with task 12).
+- R4. **Grinding jig:** reach ±0.5 mm and 0.2 mm flatness; field rate per unit.
+- R5. **Polygon connections:** panel-to-panel at the folds, ring beam, plinth for a round plan.
+
 ## Task list (priority order)
 0. ~~**Tilt-up detailing**~~ — v0.1 done: `making-system/TILTUP_DETAILING.md`; `tiltup_check.py`
    now covers breakaway suction, openings, hoist/setting loads and wind while braced. Remaining:

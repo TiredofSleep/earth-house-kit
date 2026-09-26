@@ -14,7 +14,9 @@ sys.path.insert(0, os.path.join(HERE, "printer"))
 
 SCRIPTS = ["system_sizing.py", "shipping_manifest.py", "costs_estimate.py", "tiltup_check.py",
            "build_timeline.py", "site_profile.py", "lime_heat.py", "nodig_check.py",
-           "printer/print_check.py", "earth-panel/energy_estimate.py"]
+           "printer/print_check.py", "earth-panel/energy_estimate.py",
+           "rock_options.py", "brick_panel_check.py",
+           "thermal_check.py", "form_check.py"]
 
 
 def run_all():

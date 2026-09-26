@@ -23,6 +23,8 @@ Roman-style recipe), or 6–8% cement where that's simpler.
 | [MISSION.md](MISSION.md) | the whole plan: system, energy, costs, tests, kill-conditions |
 | [GRAVEYARD.md](GRAVEYARD.md) | ideas that were killed or corrected, with the arithmetic that killed them |
 | [making-system/TILTUP_DETAILING.md](making-system/TILTUP_DETAILING.md) | how a panel gets from the pit to a braced wall |
+| [rock/ROCK_OPTIONS.md](rock/ROCK_OPTIONS.md) | **every way to turn site soil into rock**, compared: firing, melting, chemistry, biology |
+| [making-system/BRICK_PANEL.md](making-system/BRICK_PANEL.md) | **the lead design:** printed fired units, dry-stacked, clamped by rods, tilted up |
 | [printer/PRINTER_CONCEPT.md](printer/PRINTER_CONCEPT.md) | a gantry that compacts panels flat instead of extruding wet mud |
 | [HANDOFF_TO_CLAUDE_CODE.md](HANDOFF_TO_CLAUDE_CODE.md) | the prioritized task list |
 
@@ -37,6 +39,10 @@ python check_numbers.py            # run everything, check MISSION.md against it
 python tiltup_check.py             # lift, breakaway, steel, openings, hoist, bracing
 python costs_estimate.py           # per house, rig, power, village, Phase A
 python site_profile.py sites/hot_springs_ar.json   # soil + local materials -> binder recipes
+python rock_options.py             # every rock-making route: wall, energy, fuel, purchases, time
+python brick_panel_check.py        # printed fired units: panel, rods, kiln, throughput
+python thermal_check.py            # printed cross-sections: U-value, time lag (2-D heat flow)
+python form_check.py               # plan shape: floor per panel, wind, self-bracing
 ```
 
 A new site is a new JSON file in `sites/`, and a new material is an entry in

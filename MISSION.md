@@ -614,6 +614,19 @@ lifts of near-dry mix** — not by extruding wet mud upward — then the panel i
 
 ---
 
+## 16a. THE ROCK DIRECTION (candidate for v0.4)
+
+The founder's aim is **solid rock**, not compressed or printed earth. Every route we found for
+turning site soil into stone is compared in `rock/ROCK_OPTIONS.md`: firing, melting, geopolymer,
+cement, lime, sulfur and bio-cement. Melting, sulfur and whole-house firing are killed
+(GRAVEYARD). The lead is **printed, fired, cellular clay units, ground flat, dry-stacked without
+mortar, clamped by post-tensioned rods into panels, and tilted up** (`making-system/BRICK_PANEL.md`).
+Panels come out at a third of the weight, need no cure wait, burn farm-waste fuel, and the husk
+fill insulates. A polygon plan with a fired-unit dome is the long-life form. No tested system of
+this kind exists; Phase R bench tests decide it, and the compacted-earth kit stays the fallback.
+
+---
+
 ## 17. REPO STRUCTURE
 
 ```
@@ -632,9 +645,14 @@ earth-house-kit/
   site_profile.py         # portable site analysis: soil + local materials -> recipes, kiln fuel, hazards
   lime_heat.py            # quicklime slaking heat per panel vs grid cure energy
   nodig_check.py          # no-dig routes: electrokinetic time/voltage/energy, tilt with steel on top
+  rock_options.py         # every rock-making route compared (data/rock_routes.json)
+  brick_panel_check.py    # printed fired units: panel, rods, kiln, throughput
+  thermal_check.py        # printed cross-sections: 2-D heat flow, ISO 13786 time lag
+  form_check.py           # plan shape: floor per panel, wind, self-bracing
+  rock/                   # ROCK_OPTIONS.md, RESEARCH_NOTES.md
   data/materials.json     # materials library (soils rules, pozzolans, binders, kiln fuels)
   sites/*.json            # one file per site (home site + 8 examples)
-  making-system/          # TILTUP_DETAILING.md; kiln, mill, compaction, QA (planned)
+  making-system/          # TILTUP_DETAILING.md, BRICK_PANEL.md; kiln, mill, QA (planned)
   printer/                # print-and-tilt compaction printer: concept + print_check.py
   earth-panel/            # sibling research branch: in-situ grid firing (not the kit baseline)
   chemistry/              # (planned) Phase A protocol, lab results, binder choice per site

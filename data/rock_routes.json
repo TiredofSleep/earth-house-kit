@@ -1,0 +1,132 @@
+{
+  "_note": "Ways to turn site soil into rock. Ranges are (low, high); mor_mpa[0] sizes the wall in rock_options.py. Every value is sourced in 'src' or tagged UNSOURCED/TO-MEASURE. heat_mj_per_kg = fuel energy per kg of product; elec_kwh_per_kg = electricity per kg of product.",
+  "routes": {
+    "compacted_earth": {
+      "name": "compacted stabilized earth (baseline)", "family": "baseline", "status": "baseline",
+      "t_fixed_in": 6, "rho": [1900, 2000], "fc_mpa": [2, 4], "mor_mpa": [0.3, 1.0],
+      "heat_mj_per_kg": [0, 0], "elec_kwh_per_kg": [0.04, 0.13],
+      "bought_frac": {"cement or quicklime": [0.05, 0.08]},
+      "hours_to_lift": [168, 672], "peak_c": 20,
+      "soils": "most, blended", "rig": "kiln, mill, mixer, plate compactor",
+      "notes": ["not rock: the comparison point"],
+      "src": ["costs_estimate.py", "tiltup_check.py"]
+    },
+    "fired_brick_panel_drystack": {
+      "name": "printed fired units, dry-stack + rods", "family": "heat: sinter + post-tension", "status": "LEAD",
+      "t_fixed_in": 4.5, "rho": [800, 900], "fc_mpa": [4, 8], "mor_mpa": [0, 0],
+      "heat_mj_per_kg": [0.9, 2.4], "elec_kwh_per_kg": [0.01, 0.03],
+      "bought_frac": {"steel rods + end channels": [0.09, 0.10]},
+      "hours_to_lift": [48, 120], "peak_c": 1000,
+      "soils": "clayey (15-40% clay), or clay hauled for units only", "rig": "clay printer(s) and/or pug mill + die, fibre-hood kiln, casting bed, torque wrench, tilt gear",
+      "notes": ["rho = whole panel incl. husk-filled cells (brick_panel_check.py: ~282 kg per 8x4 ft)",
+                "fc = gross masonry f'm; fired clay units themselves 36-46 MPa average",
+                "heat per kg of PANEL: fired clay is ~80% of panel mass",
+                "hours: firing cycle + assembly; no mortar or grout cure",
+                "electricity: printer and pug mill, UNSOURCED"],
+      "src": ["brick_panel_check.py", "BIA TN 3A https://www.gobrick.com/media/file/TN_3A_Brick_Masonry_Material_Properties.pdf",
+              "kiln energy https://pmc.ncbi.nlm.nih.gov/articles/PMC11800390/", "BIA TN 9 https://www.gobrick.com/media/file/9-manufacturing-of-brick.pdf",
+              "BIA TN 40 https://www.gobrick.com/media/file/40-prefabricated-brick-masonry---introduction.pdf"]
+    },
+    "fired_brick_panel_grouted": {
+      "name": "printed fired units, grouted + bars", "family": "heat: sinter + steel in joints", "status": "strong",
+      "t_fixed_in": 4.5, "rho": [900, 1000], "fc_mpa": [4, 8], "mor_mpa": [0.35, 2.3],
+      "heat_mj_per_kg": [0.8, 2.1], "elec_kwh_per_kg": [0.01, 0.03],
+      "bought_frac": {"grout binder": [0.05, 0.07], "rebar": [0.015, 0.02]},
+      "hours_to_lift": [120, 672], "peak_c": 1000,
+      "soils": "clayey (15-40% clay), or clay hauled for units only", "rig": "clay printer and/or pug mill + die, fibre-hood kiln, casting bed, tilt gear",
+      "notes": ["~315 kg per 8x4 ft panel", "the grout cure sets the pace (3-28 days by binder)"],
+      "src": ["brick_panel_check.py", "BIA TN 3A (masonry MOR 0.35-2.3 MPa)"]
+    },
+    "fired_brick_laid": {
+      "name": "fired solid brick, laid on site", "family": "heat: sinter", "status": "proven fallback",
+      "rho": [1700, 1900], "fc_mpa": [5, 15], "mor_mpa": [0.35, 2.3], "t_min_in": 4.5, "laid_in_place": true,
+      "heat_mj_per_kg": [0.9, 3.0], "elec_kwh_per_kg": [0, 0],
+      "bought_frac": {"lime or cement for mortar": [0.02, 0.04]},
+      "hours_to_lift": [168, 480], "peak_c": 1000,
+      "soils": "clayey (15-40% clay)", "rig": "brick molds or press, kiln (hood or built from the first bricks)",
+      "notes": ["MOR = masonry flexural strength across mortar joints (the weak link), not the brick's",
+                "slow, skilled laying; confined masonry (tie columns + ring beam) for seismic zones"],
+      "src": ["BIA TN 3A", "kiln energy PMC11800390: VSBK 0.9, zigzag 1.1, clamp 3.0 MJ/kg"]
+    },
+    "fired_panel": {
+      "name": "fired single-piece ceramic panel", "family": "heat: sinter", "status": "risky",
+      "rho": [1800, 2000], "fc_mpa": [20, 40], "mor_mpa": [3.4, 10],
+      "heat_mj_per_kg": [1.1, 3.0], "elec_kwh_per_kg": [0, 0], "bought_frac": {},
+      "hours_to_lift": [120, 456], "peak_c": 1000,
+      "soils": "clayey", "rig": "panel-size kiln hood, burner",
+      "notes": ["industrial precedent is thin pressed slabs (1.6x3.2 m, 6-20 mm), not thick site clay",
+                "big slabs of site clay likely crack in drying and firing; kiln must be panel-sized"],
+      "src": ["unit MOR >3.4 MPa well-burned brick (NIST via Masonry Design & Detailing)", "porcelain slab sizes: xtone-surface.com"]
+    },
+    "melt_cast": {
+      "name": "melted and cast rock", "family": "heat: melt", "status": "killed for walls",
+      "rho": [2300, 3000], "fc_mpa": [100, 450], "mor_mpa": [10, 45],
+      "heat_mj_per_kg": [0, 0], "elec_kwh_per_kg": [0.72, 1.0], "bought_frac": {},
+      "hours_to_lift": [24, 72], "peak_c": 1400,
+      "soils": "most (basaltic best)", "rig": "induction or arc furnace, MW-class power",
+      "notes": ["in-situ vitrification: 0.72-1.0 MWh/t, ~3.5 MW, melts take 1-2 years to cool",
+                "cast basalt: >=300-450 MPa compressive, >=45 MPa bending",
+                "microwave sintering: 69-98 MJ/kg in the lab; lunar results rely on nanophase iron"],
+      "src": ["EPA SITE ISV https://semspub.epa.gov/work/HQ/189960.pdf", "EUTIT cast basalt https://m.eutit.com/files/ke_stazeni_aj/e01_basalt_en.pdf"]
+    },
+    "geopolymer_rock": {
+      "name": "geopolymer (soil + fired clay + activator)", "family": "chemistry", "status": "candidate",
+      "rho": [2000, 2200], "fc_mpa": [9, 38], "mor_mpa": [1.5, 4],
+      "heat_mj_per_kg": [0, 0], "elec_kwh_per_kg": [0.09, 0.26],
+      "bought_frac": {"activator solids": [0.03, 0.06]},
+      "hours_to_lift": [72, 672], "peak_c": 750,
+      "soils": "most; clay is the precursor after calcining", "rig": "kiln, mill, mixer",
+      "notes": ["soil geopolymer ~9-15 MPa; one-part metakaolin 38.8 MPa at 28 d",
+                "activator ~10% of precursor; heat cure raises compressive but cuts flexural 38-45%",
+                "MOR range UNSOURCED"],
+      "src": ["https://www.sciencedirect.com/science/article/abs/pii/S0959652622020893",
+              "https://www.sciencedirect.com/science/article/abs/pii/S0950061819330636", "https://doi.org/10.3390/ma16237460"]
+    },
+    "cement_concrete": {
+      "name": "concrete (screened site sand/gravel + cement)", "family": "chemistry", "status": "benchmark",
+      "rho": [2200, 2300], "fc_mpa": [20, 30], "mor_mpa": [2.5, 4],
+      "heat_mj_per_kg": [0, 0], "elec_kwh_per_kg": [0, 0],
+      "bought_frac": {"cement": [0.13, 0.17]},
+      "hours_to_lift": [72, 168], "peak_c": 20,
+      "soils": "sandy/gravelly only; clay fines must be screened or washed out",
+      "rig": "screen, mixer",
+      "notes": ["20 MPa needs >=300-400 kg cement/m3 with clean aggregate",
+                "clayey soil-cement at 10-14% cement reached only 1.5-3.4 MPa"],
+      "src": ["https://pubs.acs.org/doi/10.1021/acsomega.4c10911", "https://theconstructor.org/concrete/concrete-mix-design-calculation-procedure-example-m20-m25-m30/13020/"]
+    },
+    "lime_steam": {
+      "name": "lime-sand/pozzolan, steam cured (no autoclave)", "family": "chemistry + heat", "status": "candidate for sandy sites",
+      "rho": [1800, 2000], "fc_mpa": [3, 10], "mor_mpa": [0.5, 1.5],
+      "heat_mj_per_kg": [0.2, 0.5], "elec_kwh_per_kg": [0, 0],
+      "bought_frac": {"lime": [0.07, 0.12]},
+      "hours_to_lift": [12, 48], "peak_c": 95,
+      "soils": "sandy", "rig": "steam tent or insulated cover",
+      "notes": ["autoclaved sand-lime (170-200 C, 0.85-1.6 MPa steam) reaches ~10-30 MPa but needs a pressure vessel",
+                "non-autoclaved strength and all MOR values UNSOURCED"],
+      "src": ["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8778737/", "https://patents.google.com/patent/CN1381655A/en"]
+    },
+    "sulfur_concrete": {
+      "name": "sulfur concrete", "family": "chemistry (thermoplastic)", "status": "killed for dwellings",
+      "rho": [2200, 2400], "fc_mpa": [28, 62], "mor_mpa": [5.2, 8],
+      "heat_mj_per_kg": [0.15, 0.3], "elec_kwh_per_kg": [0, 0],
+      "bought_frac": {"sulfur cement": [0.15, 0.175]},
+      "hours_to_lift": [2, 24], "peak_c": 140,
+      "soils": "clean sand only: no swelling clay, absorption <2%", "rig": "heated mixer (127-141 C)",
+      "notes": ["melts at 115-120 C, ignites at 232 C, burns to SO2: not for occupied buildings",
+                "sulfur $165-531/t in 2025; plinths, tanks, drains maybe"],
+      "src": ["ACI 548.2R-93 http://civilwares.free.fr/ACI/MCP04/5482r_93.pdf", "argusmedia sulfur prices"]
+    },
+    "biocement": {
+      "name": "bio-cemented sandstone (EICP/MICP)", "family": "biology", "status": "niche: sandy sites",
+      "rho": [1800, 2000], "fc_mpa": [4, 10], "mor_mpa": [0.5, 1.5],
+      "heat_mj_per_kg": [0, 0], "elec_kwh_per_kg": [0, 0],
+      "bought_frac": {"urea": [0.05, 0.12], "calcium chloride": [0.09, 0.22]},
+      "hours_to_lift": [24, 168], "peak_c": 30,
+      "soils": "sands and gravels only (bacteria need >=0.4 um pores)", "rig": "tanks, pumps, soybean-powder urease",
+      "notes": ["8-20% CaCO3 -> 4-10+ MPa; per kg CaCO3: 0.60 kg urea + 1.11 kg CaCl2 in, 1.07 kg NH4Cl out (stoichiometry)",
+                "commercial Biolith tile 25 MPa, interior only", "MOR UNSOURCED"],
+      "src": ["https://www.sciencedirect.com/science/article/pii/S2949929123000074",
+              "https://www.front-materials.com/app/uploads/2024/04/FRONT-BioBasedTiles-Product-Datasheet.pdf"]
+    }
+  }
+}
