@@ -2,41 +2,50 @@
 
 > **[Read the founder packet →](https://claude.ai/artifact/S2nHEWyBa5oJ7Zsk9iFFoP)** the whole idea in plain words, a filterable matrix of every idea explored, and the step-by-step to-do list.
 
-**An open method and a small reusable kit for turning a site's own soil into reinforced,
-thermally massive walls, plus a solar system that powers the build and then stays behind as the
-village mini-grid.** It is a charity project, meant to be deployed through local partners.
+**Houses made from the ground they stand on, built to last for generations.** Local clay is
+fired into rock with rice-husk fuel and the sun, shaped into small interlocking parts, and
+assembled with no mortar into round homes with fired-clay domes. Every part can be replaced, and
+nothing hidden is left to fail.
 
-Each wall panel is **cast flat in a pit dug from the site's own soil**, around a steel grid. It
-cures in place and is then **tilted up**, borrowing concrete tilt-up practice. The binder is a
-small fraction of the wall, made from calcined local clay, rice-husk ash with lime (a
-Roman-style recipe), or 6–8% cement where that's simpler.
+It is meant to reach people two ways, and both matter:
+
+- **As a business:** a small factory near Malvern, Arkansas, where clay and rice husks meet.
+  Software designs each building, from a garden shed to a 5,000 ft² cluster of domes, and prices it
+  by tonnes and truckloads. The first product is a **certified above-ground storm shelter**.
+  Sales keep the lights on, pay local people fairly, and fund the testing that makes the method
+  trustworthy.
+- **As a gift:** the method stays **open**: the designs, the test data, the scripts and the
+  training. Anyone can build it, and partners and charities can take it wherever people need a safe,
+  lasting home and have clay underfoot, without asking permission.
+
+The business makes the gift real, and the gift is why the business exists.
 
 > ## ⚠ Status: research, not a building method yet
-> No wall has been built this way. Every number is first-order and tagged `[TO-VERIFY]` or
-> `[TO-MEASURE]` until the Phase A tests (MISSION §8) and a demonstration build measure it.
-> Structural earth needs review by a licensed engineer. Kilns (~700 °C), quicklime, caustic
-> activators, milling dust and suspended panels can cause serious injury. **Nothing here is
-> code-approved. Don't build from it.**
+> No house, panel or shelter has been built this way. Every number is computed from a model,
+> taken from a published source, or tagged `[TO-VERIFY]` / `[TO-MEASURE]`. The next step is to
+> fire Malvern clay and measure it. Structures need review by a licensed engineer. Kilns
+> (~1,000 °C), lime, silica dust, borates and suspended panels can cause serious injury.
+> **Nothing here is code-approved. Don't build from it.**
 
 ## Start here
 
 | read | why |
 |---|---|
-| [FOUNDER_PACKET.md](FOUNDER_PACKET.md) | **the whole thing in plain words + the staged to-do list, starting from Malvern clay and rice husks** |
-| [SYNTHESIS.md](SYNTHESIS.md) | **start here:** the whole house, layer by layer, and where each proven idea comes from |
-| [business/BUSINESS_CASE.md](business/BUSINESS_CASE.md) | the kit-factory business: costs, prices vs market, break-even, site, sequence |
-| [business/SHELTER_PLAN.md](business/SHELTER_PLAN.md) | the first product: a certified above-ground tornado safe room |
-| [MISSION.md](MISSION.md) | the whole plan: system, energy, costs, tests, kill-conditions |
+| [**the founder packet (page)**](https://claude.ai/artifact/S2nHEWyBa5oJ7Zsk9iFFoP) · [FOUNDER_PACKET.md](FOUNDER_PACKET.md) | **start here:** the whole thing in plain words, and the staged to-do list from Malvern clay and rice husks |
+| [SYNTHESIS.md](SYNTHESIS.md) | the winner design: the whole house, layer by layer, and where each proven idea comes from |
 | [IDEAS_MATRIX.md](IDEAS_MATRIX.md) | every idea explored in one chart: pros, cons, verdict (winner / adopt / test / fallback / niche / killed), and the file behind it |
 | [GRAVEYARD.md](GRAVEYARD.md) | ideas that were killed or corrected, with the arithmetic that killed them |
-| [making-system/TILTUP_DETAILING.md](making-system/TILTUP_DETAILING.md) | how a panel gets from the pit to a braced wall |
-| [rock/ROCK_OPTIONS.md](rock/ROCK_OPTIONS.md) | **every way to turn site soil into rock**, compared: firing, melting, chemistry, biology |
-| [making-system/BRICK_PANEL.md](making-system/BRICK_PANEL.md) | **the lead design:** printed fired units, dry-stacked, clamped by rods, tilted up |
-| [making-system/KIT_OF_PARTS.md](making-system/KIT_OF_PARTS.md) | **design houses from interlocking parts:** Japanese-joinery locking in fired clay, the dome, the house designer |
-| [making-system/ENVELOPE.md](making-system/ENVELOPE.md) | the coat (hung fired siding), the boots (fluted drainage foundation), units graded like bone |
+| [business/BUSINESS_CASE.md](business/BUSINESS_CASE.md) | the kit factory: costs, prices vs market, break-even, site, grants, and the open-method charity alongside it |
+| [business/SHELTER_PLAN.md](business/SHELTER_PLAN.md) | the first product: a certified above-ground tornado safe room |
+| [business/NSF_SBIR_PROJECT_PITCH.md](business/NSF_SBIR_PROJECT_PITCH.md) | the draft grant pitch |
+| [rock/ROCK_OPTIONS.md](rock/ROCK_OPTIONS.md) | every way to turn site soil into rock, compared: firing, melting, chemistry, biology |
+| [making-system/BRICK_PANEL.md](making-system/BRICK_PANEL.md) | the lead wall: cellular fired units, dry-stacked, clamped by rods, tilted up |
+| [making-system/KIT_OF_PARTS.md](making-system/KIT_OF_PARTS.md) | designing houses from interlocking parts: Japanese-joinery locking in fired clay, the ribbed dome, the house designer |
+| [making-system/ENVELOPE.md](making-system/ENVELOPE.md) | the coat (hung fired siding), the boots (fluted drainage foundation), units graded like bone, coatings |
+| [rock/BIO_MATERIALS.md](rock/BIO_MATERIALS.md) | hemp, bamboo, mycelium: where living materials fit (adopt / test / avoid), and the bio-lime interior walls |
 | [rock/BAMBOO_PROCESS.md](rock/BAMBOO_PROCESS.md) | feed at death, mineralize inside, seal: a lab process toward 50+ year bamboo |
-| [rock/BIO_MATERIALS.md](rock/BIO_MATERIALS.md) | hemp, bamboo, mycelium: where living materials fit, adopt / test / avoid |
-| [printer/PRINTER_CONCEPT.md](printer/PRINTER_CONCEPT.md) | a gantry that compacts panels flat instead of extruding wet mud |
+| [MISSION.md](MISSION.md) | the original plan and its history: system, energy, costs, tests, kill conditions |
+| [making-system/TILTUP_DETAILING.md](making-system/TILTUP_DETAILING.md) · [printer/PRINTER_CONCEPT.md](printer/PRINTER_CONCEPT.md) | the original compacted-earth panel branch, now the fallback: pit-cast tilt-up and a compaction gantry |
 | [HANDOFF_TO_CLAUDE_CODE.md](HANDOFF_TO_CLAUDE_CODE.md) | the prioritized task list |
 
 ## The numbers are code
@@ -61,6 +70,10 @@ python house_designer.py           # every design in houses/: full parts list + 
 python cladding_check.py           # hung fired siding: weight, wind lock, solar gain
 python drainage_check.py           # fluted drainage foundation vs NOAA design storms
 python business_model.py           # kit prices: plant size, utilization, lean vs baseline, freight, break-even
+python production_line.py          # labour per tonne, daylight robotics, payback
+python shelter_check.py            # storm-shelter shapes vs ICC 500 wind and missiles; keystone ring
+python world_check.py              # what wide adoption would mean: carbon, husks, homes
+python ideas_matrix.py             # rebuild IDEAS_MATRIX.md from data/ideas_matrix.json
 ```
 
 A new site is a new JSON file in `sites/`, and a new material is an entry in
@@ -72,6 +85,8 @@ A new site is a new JSON file in `sites/`, and a new material is an entry in
 - Every number is sourced, computed in a script, or tagged `[TO-VERIFY]` / `[TO-MEASURE]`.
 - Every failed gate goes to GRAVEYARD.md with the arithmetic that killed it.
 - No fundraising claim ahead of evidence. Say "we could not find it", never "first".
+- Build with care: for the people who will live inside, the people who make the parts, and the
+  ground the clay comes from.
 - Run `python check_numbers.py` before committing.
 
 ## License

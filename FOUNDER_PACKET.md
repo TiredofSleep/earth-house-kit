@@ -38,8 +38,13 @@
    - **treated bamboo** for posts and roof framing under cover.
 7. **First product: a storm shelter.** One clear standard, public money behind it, and exactly what
    heavy fired clay is good at.
-8. **Business:** a small factory where clay and husks meet, near Malvern. Software designs the
-   building, the price follows from tonnes and truckloads, and it starts tiny and grows on grants.
+8. **Business and gift, both:**
+   - **the business:** a small factory where clay and husks meet, near Malvern. Software designs the
+     building, the price follows from tonnes and truckloads, and it starts tiny and grows on grants.
+     Sales pay local people fairly and fund the testing;
+   - **the gift:** the method stays open (designs, test data, scripts, training), so charities and
+     partners can build it wherever people need a safe, lasting home. The business makes the gift
+     real; the gift is why the business exists.
 9. **The bigger picture:**
    - houses that are **assets for generations** instead of things rebuilt after every fire or storm;
    - **no cement** in the structure (cement is ~8% of global CO₂);
@@ -265,6 +270,9 @@ The biggest companies in this space failed by building factories before they had
 doing it the other way round: **one fired brick, measured honestly, then the next step.** Every
 dream in this packet becomes real one tested piece at a time. The very first piece is a small bar
 of Malvern clay, a kiln you borrow, and a press gauge that reads 20 MPa.
+
+Do it all with love: for the families who will sleep safe inside these walls, for the people who
+make the parts, and for the ground the clay comes from.
 
 *The full engineering lives in the repo: `README.md` is the map, `SYNTHESIS.md` is the whole house,
 `GRAVEYARD.md` is what didn't work, and `python check_numbers.py` checks that every number still agrees.*
