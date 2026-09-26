@@ -35,7 +35,7 @@ Kept on purpose so nobody rebuilds them. Each entry: the idea, what killed it, t
 | Arkansas residential safe-room rebates as the first funding | Arkansas's program ended in 2016; Arkansas FEMA money funds community safe rooms | community/school safe rooms in Arkansas; residential rebates in OK and MS |
 | Bamboo in place of steel rods, tendons or hoop bands | ~1/13 the stiffness of steel, creep and moisture movement can't hold prestress; joints ~30-50% of the culm | steel/stainless in tension; bamboo only as visible, replaceable roof framing (rock/BIO_MATERIALS.md) |
 | Mycelium or bacteria as self-healing agents inside the structure | dry-stacked fired clay has no mortar joints to heal; living agents need water and nutrients in walls meant to stay dry | replaceable parts + self-healing lime renders renewed on schedule |
-| 'Petrified' or ceramized whole bamboo | mineralization is lab-scale on small samples; silicate leaches; biomorphic SiC needs >1,400 C and is brittle | revisit when research reaches whole culms |
+| Ceramized bamboo (biomorphic SiC) and silicon-feeding living bamboo for durability | SiC needs >1,400 C and is brittle; no study shows Si fertilization improves decay resistance or strength | feed at death (Boucherie) + in-culm silica/calcite + silane seal: a lab route, rock/BAMBOO_PROCESS.md |
 | Concrete from clayey site soil | clay fines: 10–14% cement on clay soil gave only 1.5–3.4 MPa | only with screened sand/gravel |
 
 ## Overturned (kills that were wrong)
