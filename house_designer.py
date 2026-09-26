@@ -34,6 +34,57 @@ def load(path):
 
 KIT = load(os.path.join(HERE, "data", "kit_units.json"))
 JOINTS = load(os.path.join(HERE, "data", "joints.json"))
+BIO = load(os.path.join(HERE, "data", "biolime.json"))
+
+
+def interior_walls(spec, parts):
+    """precast bio-lime blocks between treated bamboo posts; returns a summary dict"""
+    walls = spec.get("interior", [])
+    if not walls:
+        return None
+    b = BIO["block"]
+    out = dict(area=0.0, volume=0.0, mass=[0.0, 0.0], co2=[0.0, 0.0], usd=[0.0, 0.0], posts=0, length=0.0,
+               binder=[0.0, 0.0], fibre=[0.0, 0.0], materials=set())
+    for w in walls:
+        m = BIO["materials"][w.get("material", "hemp_lime")]
+        L = w["length_ft"] * FT
+        H = w.get("height_ft", 8) * FT
+        area = L * H
+        vol = area * b["thick"]
+        blocks = ceil(area / (b["face_w"] * b["face_h"]))
+        posts = ceil(L / BIO["posts"]["spacing_m"]) + 1
+        parts.add_other(f"interior: {m['name']} {int(b['face_w']*1000)}x{int(b['face_h']*1000)}x{int(b['thick']*1000)}",
+                        blocks)
+        parts.add_other("interior: treated bamboo post", posts, f"x {H:.2f} m")
+        parts.add_other("interior: head plate tied to the outer wall", round(L, 1), "m")
+        out["area"] += area
+        out["volume"] += vol
+        out["posts"] += posts
+        out["length"] += L
+        out["materials"].add(m["name"])
+        for i in (0, 1):
+            mass = vol * m["rho"][i]
+            out["mass"][i] += mass
+            out["binder"][i] += mass * m["binder_frac"][i]
+            out["fibre"][i] += mass * m["fibre_frac"][i]
+            out["co2"][i] += vol * m["co2_stored_kg_m3"][i]
+            out["usd"][i] += vol * m["usd_m3"][i] + posts * BIO["posts"]["usd_each"][i] + L * BIO["head_plate_usd_m"][i]
+    # lateral check: blocks span between posts; posts span floor to head plate
+    q = BIO["lateral_pa"]
+    s = BIO["posts"]["spacing_m"]
+    M_block = q * s**2 / 8
+    sig_block = M_block / (b["thick"] ** 2 / 6) / 1e6
+    po = BIO["posts"]
+    D, t = po["od_m"], po["wall_m"]
+    I = 3.14159 / 64 * (D**4 - (D - 2 * t) ** 4)
+    H = 8 * FT
+    M_post = q * s * H**2 / 8
+    sig_post = M_post / (I / (D / 2)) / 1e6
+    free_w = min(BIO["materials"][w.get("material", "hemp_lime")]["rho"][0] for w in walls) * 9.81 * b["thick"] * H
+    out["check"] = dict(sig_block=sig_block, fc=min(BIO["materials"][w.get("material", "hemp_lime")]["fc_mpa"][0] for w in walls),
+                        sig_post=sig_post, mor_post=po["mor_mpa"],
+                        freestanding=(free_w * b["thick"] / 2) / (q * H**2 / 2))
+    return out
 
 
 def rows_for(height_m):
@@ -196,6 +247,7 @@ def design(spec):
     checks["panel"] = bp.drystack(bp.THERMAL_UNIT if "8in" in wall_unit else bp.UNITS["printed cellular brick"],
                                   t=(8 if "8in" in wall_unit else 4.5) * IN,
                                   lock=0.25 if "8in" in wall_unit else 0.30)
+    checks["interior"] = interior_walls(spec, parts)
     return parts, dict(area_ft2=area_ft2, span_m=2 * a, checks=checks)
 
 
@@ -274,6 +326,15 @@ def report(path):
         else:
             gsf_ok = "OK" if r["gsf"] >= dc.GSF_TARGET else f"UNDER {dc.GSF_TARGET}x -> deeper voussoir or smaller plan"
             print(f"  dome thickness: {r['gsf']:.1f}x the minimum for a masonry dome -> {gsf_ok}")
+        iw = c.get("interior")
+        if iw:
+            ck = iw["check"]
+            print(f"  interior bio-lime walls ({', '.join(sorted(iw['materials']))}): {iw['length']:.1f} m long,"
+                  f" {iw['area']:.1f} m2, {iw['mass'][0]/1e3:.2f}-{iw['mass'][1]/1e3:.2f} t, carbon held"
+                  f" {iw['co2'][0]:.0f}-{iw['co2'][1]:.0f} kg CO2, cost ${iw['usd'][0]:,.0f}-${iw['usd'][1]:,.0f}")
+            print(f"    blocks between bamboo posts at {BIO['posts']['spacing_m']} m: {ck['sig_block']:.4f} MPa vs"
+                  f" {ck['fc']} MPa ({ck['fc']/ck['sig_block']:.0f}x); posts {ck['sig_post']:.1f} MPa vs {ck['mor_post']} MPa;"
+                  f" free-standing without posts would resist only {ck['freestanding']*100:.0f}% of the 5 psf load")
         print(f"  dome dry-build: {r['keyed'][1]*100:.0f}-{r['keyed'][0]*100:.0f}% of the dome has beds too steep for dry friction"
               f" -> '{JOINTS['dome_course']['name']}' holds each voussoir until its course closes")
 

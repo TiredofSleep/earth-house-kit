@@ -26,5 +26,16 @@
     "skin": "tiled",
     "ribs": 8
   },
-  "notes": "322 ft^2; the smaller first build"
+  "notes": "322 ft^2; the smaller first build",
+  "interior": [
+    {
+      "length_ft": 16,
+      "material": "hemp_lime"
+    },
+    {
+      "length_ft": 8,
+      "material": "husk_lime"
+    }
+  ],
+  "interior_note": "non-structural partitions: precast bio-lime blocks slotted between treated bamboo posts"
 }

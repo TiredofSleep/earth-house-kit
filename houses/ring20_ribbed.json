@@ -31,5 +31,20 @@
     "skin": "tiled",
     "ribs": 10
   },
-  "notes": "505 ft^2 from the same 20 modules as a 20x20 ft square; oculus for stack ventilation"
+  "notes": "505 ft^2 from the same 20 modules as a 20x20 ft square; oculus for stack ventilation",
+  "interior": [
+    {
+      "length_ft": 20,
+      "material": "hemp_lime"
+    },
+    {
+      "length_ft": 12,
+      "material": "husk_lime"
+    },
+    {
+      "length_ft": 8,
+      "material": "husk_lime"
+    }
+  ],
+  "interior_note": "non-structural partitions: precast bio-lime blocks slotted between treated bamboo posts"
 }

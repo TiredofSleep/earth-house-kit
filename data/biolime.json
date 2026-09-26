@@ -1,0 +1,17 @@
+{
+  "_note": "Precast bio-lime blocks for NON-STRUCTURAL interior partitions, slotted between treated bamboo posts (rock/BIO_MATERIALS.md). DRAFT values pending the literature review; every value [TO-VERIFY].",
+  "block": {"face_w": 0.50, "face_h": 0.25, "thick": 0.20},
+  "materials": {
+    "hemp_lime": {"name": "hemp-lime block", "rho": [300, 400], "lambda": [0.07, 0.11], "fc_mpa": [0.3, 1.0],
+                  "binder_frac": [0.55, 0.65], "fibre_frac": [0.35, 0.45], "co2_stored_kg_m3": [80, 150],
+                  "usd_m3": [180, 350], "mbv": [2.0, 2.5]},
+    "husk_lime": {"name": "rice-husk-lime block (husk ash pozzolan)", "rho": [450, 650], "lambda": [0.09, 0.15], "fc_mpa": [0.5, 2.0],
+                  "binder_frac": [0.55, 0.70], "fibre_frac": [0.30, 0.45], "co2_stored_kg_m3": [40, 100],
+                  "usd_m3": [120, 250], "mbv": [1.5, 2.5]}
+  },
+  "posts": {"spacing_m": 1.2, "od_m": 0.09, "wall_m": 0.009, "mor_mpa": 50, "usd_each": [15, 35],
+            "_note": "treated whole bamboo (borate + oil heat), dry, visible, replaceable; slotted blocks between posts"},
+  "head_plate_usd_m": [4, 10],
+  "lateral_pa": 240,
+  "_lateral_src": "IBC 1607.15: interior walls 5 psf lateral"
+}

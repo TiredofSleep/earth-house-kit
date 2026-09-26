@@ -97,7 +97,10 @@ def kit(path):
     for kind, count in parts.units.items():
         g = group(kind)
         by_group[g] = by_group.get(g, 0) + count * hd.KIT[kind]["clay_kg"] / 1000
+    iw = info["checks"].get("interior") if isinstance(info["checks"], dict) else None
+    interior = dict(usd=tuple(iw["usd"]), t=tuple(m / 1000 for m in iw["mass"])) if iw else dict(usd=(0, 0), t=(0, 0))
     return dict(name=spec["name"], area_ft2=info["area_ft2"], fired_t=s["clay_kg"] / 1000, by_group=by_group,
+                interior=interior,
                 husk_t=(s["husks"][0] / 1000, s["husks"][1] / 1000), printed=printed, ground=ground,
                 steel=steel, checks=info["checks"])
 
@@ -143,11 +146,12 @@ def price(k, stage, i, tonnes_sold, miles, stainless=False):
                   + st["rail_m"] * h["siding rail ($/m)"][i] + st["batten_m"] * h["siding batten ($/m)"][i]
                   + st["tendon_m"] * h["rib tendon, stainless wire rope ($/m)"][i]
                   + st["tendons"] * h["rib tendon terminals + nuts ($ per tendon)"][i])
+    parts += k.get("interior", {}).get("usd", (0, 0))[i]          # precast bio-lime partitions + bamboo posts
     _, fixed_yr = annual_fixed(stage, i)
     fixed = ft * fixed_yr / tonnes_sold
     ex_works = (parts + fixed) * (1 + B["margin"])
     f = B["freight"]
-    trucks = ceil((ft + (st["rod_kg"] + st["channel_kg"]) / 1000) / f["payload_t"])
+    trucks = ceil((ft + k.get("interior", {}).get("t", (0, 0))[1] + (st["rod_kg"] + st["channel_kg"]) / 1000) / f["payload_t"])
     freight = trucks * max(f["min_charge_per_truck"], miles * f["rate_per_mile"][i]) + trucks * f["loading_per_truck"]
     return dict(parts=parts, fixed=fixed, ex_works=ex_works, trucks=trucks, freight=freight,
                 delivered=ex_works + freight, fired_t=ft, steel=steel_cost)
