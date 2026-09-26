@@ -127,3 +127,46 @@ if __name__ == "__main__":
     print("  siding) + cavity + structural core with GROUTED cells around rods and joints (not sand), staggered")
     print("  joints, optional interior spall liner. 4 in of solid brick alone shattered at 76 mph (9 lb missile).")
     print("- every shape needs ties: local suction (11-22 kPa) far exceeds the units' own weight.")
+
+
+# ---------------------------------------------------------------------------------------------
+# KEYSTONE RING: round units, tapered wider OUTSIDE than inside, slid in radially from outside.
+# Pushed inward (the missile's direction) a unit wedges between its neighbours like a keystone, so
+# the ring resists as a whole; a vertical rod / an interior pin stops it moving back OUT (suction).
+# Wedging only works if the ring is squeezed: hoop tendons (stainless bands, barrel hoops) every
+# couple of courses, inside the siding cavity where they can be inspected.
+# Static first-order check [UNSOURCED -> the missile test decides]:
+#   push-in resistance per unit F = 2 N (sin a + mu cos a), N = hoop compression in the course,
+#   a = half the taper angle of the unit's side faces.
+# ---------------------------------------------------------------------------------------------
+from math import atan2
+HOOP_N = (15e3, 30e3)          # hoop compression per course from a band tendon, N [design choice]
+MU_KEY = 0.5
+MISSILE_IMPULSE = MISSILE_KG * 100 * MPH       # N*s
+IMPACT_MS = (3, 10)            # contact duration for a 2x4 on masonry, ms [UNSOURCED]
+
+
+def keystone(rc, extra_taper_deg=0.0):
+    half = 0.5 * UNIT_LEN / rc + radians(extra_taper_deg)   # natural radial taper + any extra keystone taper
+    out = [2 * n * (sin(half) + MU_KEY * cos(half)) for n in HOOP_N]
+    return degrees(half), out
+
+
+if __name__ == "__main__":
+    rc = sqrt(FLOOR / pi)
+    print("\n" + "=" * 108)
+    print(f"KEYSTONE RING (drum radius {rc:.2f} m): round units slid in from outside, locked from inside")
+    print("=" * 108)
+    f_peak = [MISSILE_IMPULSE / (ms / 1000) for ms in IMPACT_MS]
+    print(f"  missile impulse {MISSILE_IMPULSE:.0f} N*s -> average contact force ~{f_peak[1]/1e3:.0f}-{f_peak[0]/1e3:.0f} kN"
+          f" over {IMPACT_MS[1]}-{IMPACT_MS[0]} ms [UNSOURCED contact time]")
+    for extra in (0, 5, 10):
+        half, F = keystone(rc, extra)
+        print(f"  taper half-angle {half:4.1f} deg ({'radial only' if extra == 0 else f'+{extra} deg keystone'}):"
+              f" static push-in resistance {F[0]/1e3:4.0f}-{F[1]/1e3:4.0f} kN per unit"
+              f" with {HOOP_N[0]/1e3:.0f}-{HOOP_N[1]/1e3:.0f} kN hoop compression")
+    print("  -> one unit alone would need to resist the whole hit; a keystone ring shares it with the ring and")
+    print("     the hoop tendons, and the outer siding skin has already absorbed part of it. Ranking only:")
+    print("     the certified answer comes from the missile test at the joints and at unit centres.")
+    print("  lock against sliding OUT (suction, rebound): vertical post-tensioned rods through the rod cells, or")
+    print("  a stainless pin dropped in from inside; pull the pin, push the unit out, slide a new one in.")

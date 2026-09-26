@@ -58,8 +58,24 @@ core. Our system already has that shape:
 | steel | post-tensioned rods to the footing | continuous load path, clamps the joints |
 | optional liner | 12-gauge steel or plywood inside | catches spall (witness-screen rule) |
 
-**The least proven elements go into the FIRST test panel:** dry head joints, and grouted cellular
-fired clay, since no test data exist for them. A cheap failure early is the goal.
+**Keystone units (the founder's idea).** Print the drum's units **round and tapered, wider outside
+than inside**, and slide them in radially from outside:
+- **Pushed inward** (the missile's direction), a unit wedges between its neighbours like a keystone,
+  and the ring shares the hit.
+- **A lock operated from inside** (vertical post-tensioned rods through the cells, or a stainless pin
+  dropped in from inside) stops it moving back out under suction or rebound.
+- **Pull the pin and push the unit out** to replace it.
+- **Wedging needs a squeezed ring:** stainless **hoop bands** (barrel hoops) every couple of courses,
+  in the siding cavity where they can be inspected.
+
+First-order check (`shelter_check.py`): ~18–45 kN of static push-in resistance per unit with 15–30 kN
+of hoop compression, against an average missile contact force of ~30–100 kN. That's the same order,
+so it's a real gain and not a guarantee. The siding skin, the grout and the ring's shared mass also
+act first. The test decides.
+
+**The least proven elements go into the FIRST test panel:** dry head joints, grouted cellular fired
+clay and **keystone units with and without hoop bands** (hit at a unit centre and at a joint), since
+no test data exist for them. A cheap failure early is the goal.
 
 ## 4. Test and certify (research estimate, UNSOURCED costs)
 1. **P.E. with ICC 500 experience:** design to ICC 500-2023 at 250 mph, GCpi ±0.55, foundation and
