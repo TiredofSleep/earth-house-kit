@@ -36,5 +36,10 @@
     "name": "closing key voussoir",
     "after": "keystone; recursive interlocking puzzles (one key part placed last locks the set)",
     "force_path": "the last unit of each course is slightly tapered and pressed in to close the ring; from then on hoop compression holds every unit of that course"
+  },
+  "ring_course_lock": {
+    "name": "keystone ring course: notch-hooked, chained, closed by a pinned key",
+    "after": "keystone arches; recursive interlocking puzzles (Song, Fu, Cohen-Or 2012) and DESIA (Wang, Song, Pauly 2018): one assembly order, the last part locks the set; Hydraform-style chunky locators",
+    "force_path": "units tapered wider outside slide in radially from outside; an inside-bottom groove drops over a thick tongue on the course below (seats the unit, stops it sliding out); each unit's leading-end radial tongue engages the previous unit's trailing-end radial groove, so units go in one after another in one direction; the closing key has no tongue and is pinned from inside. Clay only bears and shears on chunky keys; hoop tension goes to stainless bands, never to the tongues. Replacement: pull the key's pin, slide units out radially in reverse order back to the damaged one (or give each course 2-4 keys so any unit is at most a quarter-ring away)"
   }
 }

@@ -68,13 +68,29 @@ than inside**, and slide them in radially from outside:
 - **Wedging needs a squeezed ring:** stainless **hoop bands** (barrel hoops) every couple of courses,
   in the siding cavity where they can be inspected.
 
+**Hooked, chained, ordered (joint `ring_course_lock`).**
+- Each unit's **inside-bottom groove** drops over a chunky tongue on the course below. That seats it
+  and stops it sliding out, and courses are staggered so each unit hooks two below.
+- Each unit's **leading-end radial tongue** slides into the previous unit's **trailing-end radial
+  groove**, so units can only go in one after another, in one direction. That's foolproof assembly,
+  and the kit's order is its own manual.
+- The **closing key** of each course has no tongue and is **pinned from inside**. Until the pin comes
+  out, nothing in the course moves.
+- Because the tongues run radially, units still slide out the way they came in, so **every unit
+  stays replaceable**. With 2–4 keys per course, any unit is at most a quarter-ring from a key.
+- The rule stands: tongues and notches **locate, seat and share**. Hoop tension goes to the bands,
+  and the tongues stay chunky. A tongue root taking a missile hit is a **shear risk**, so it goes into
+  the first test panel.
+- The radial end tongues and grooves run vertically, along the extrusion, so **the die makes them**.
+  The inside-bottom groove and inside-top tongue run across it, so they're **wire-cut or printed**.
+
 First-order check (`shelter_check.py`): ~18–45 kN of static push-in resistance per unit with 15–30 kN
 of hoop compression, against an average missile contact force of ~30–100 kN. That's the same order,
 so it's a real gain and not a guarantee. The siding skin, the grout and the ring's shared mass also
 act first. The test decides.
 
 **The least proven elements go into the FIRST test panel:** dry head joints, grouted cellular fired
-clay and **keystone units with and without hoop bands** (hit at a unit centre and at a joint), since
+clay and **keystone units with and without hoop bands, and the chained tongue joints** (hit at a unit centre, at a joint and at a tongue), since
 no test data exist for them. A cheap failure early is the goal.
 
 ## 4. Test and certify (research estimate, UNSOURCED costs)

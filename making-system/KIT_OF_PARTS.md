@@ -63,6 +63,11 @@ key, never a stone hook.
 7. **Closing key (each dome course).** The last voussoir of a course is tapered and pressed in, like
    a keystone. Interlocking-puzzle research calls this the one key part that locks the set.
 
+8. **Keystone ring course** (drum shelter, round walls). Units tapered wider outside slide in
+   radially and hook, by an inside-bottom groove, over a tongue on the course below. Each engages the
+   previous unit's radial groove, so there is **one assembly order**, and the pinned closing key locks
+   the course. This is the recursive-interlock idea from the research, built in clay.
+
 **Key materials:** titanium or 316 stainless, or a large fired-clay block in pure compression.
 **Never carbon steel set tight.** Hardwood only where it stays dry and can be replaced: blackwood
 cramps lasted ~3,000 years, but only in Egypt's dry climate. Give metal keys clearance and a

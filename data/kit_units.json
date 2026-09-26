@@ -114,5 +114,15 @@
   "method": "die",
   "clay_kg": 4.1,
   "role": "web unit spanning rib to rib as a shallow arch; the 6 in graded wall section; one closing key per bay-course"
+ },
+ "shelter.keystone": {
+  "method": "die",
+  "clay_kg": 9.5,
+  "role": "drum unit tapered wider outside; radial tongue on the leading end, radial groove on the trailing end (vertical prisms: the die makes them); inside-bottom groove + inside-top tongue wire-cut or printed; grouted cells round the rods"
+ },
+ "shelter.course_key": {
+  "method": "print",
+  "clay_kg": 9.5,
+  "role": "closing key of each course: no tongue, pin hole from inside; 2-4 per course so any unit is a quarter-ring from a key"
  }
 }
