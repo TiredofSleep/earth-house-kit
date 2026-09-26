@@ -240,3 +240,17 @@ if __name__ == "__main__":
         print(f"LEAN Ring 16, {label} case: parts {money(p['parts'])} (steel {money(p['steel'])}, was {money(pb['steel'])}),"
               f" fixed {money(p['fixed'])}, margin {money((p['parts']+p['fixed'])*B['margin'])}, freight {money(p['freight'])}")
     SCEN["lean"] = False
+    print("\nLEAN BREAK-EVEN (Ring 16 ribbed), kits per year to cover the plant's fixed cost:")
+    SCEN["lean"] = True
+    for stage in B["plant_stages"]:
+        cap = B["plant_stages"][stage]["capacity_t_per_yr"]
+        for mkt in (35.0, 65.0):
+            out = []
+            for i in (0, 1):
+                parts = price(k16, stage, i, cap, 0)["parts"]
+                contrib = mkt * k16["area_ft2"] - parts
+                n = annual_fixed(stage, i)[1] / contrib if contrib > 0 else float("inf")
+                out.append((n, n * fired_t(k16) / cap * 100))
+            print(f"  {stage:10s} at ${mkt:.0f}/ft2 (${mkt*k16['area_ft2']:,.0f}): {out[0][0]:,.0f}-{out[1][0]:,.0f} kits/yr"
+                  f" ({out[0][1]:.0f}-{out[1][1]:.0f}% of capacity)")
+    SCEN["lean"] = False

@@ -27,23 +27,27 @@ STAGES = {
     "panel pre-assembly in the factory (optional)":    (2.0, 0.80, 0.30),
     "QA, maintenance, yard":                           (0.8, 0.60, 0.50),
 }
-# robotics that takes a stage from semi to robotic: (low, high) capex USD [UNSOURCED -> quotes]
+# robotics that takes a stage from semi to robotic: (low, high) capex USD, BUILT OR BOUGHT SMALL.
+# DIY 3-axis gantry ~$4-10k in parts + integration; used 100-315 kg palletizing robots $6-50k
+# (FANUC M-410, ABB IRB 660, KUKA KR 100 listings); conveyors $43-1,300/m by type; a DIY pass-through
+# grinder with two diamond cup wheels ~$15-40k vs an industrial calibrating line ~EUR 0.3-1M.
 ROBOTICS = {
     "auto cutter on the extruder":                      (10e3, 40e3),
-    "gantry setter (open-source cartesian, 15 kg)":     (40e3, 120e3),
-    "gantry unloader / sorter":                         (40e3, 120e3),
-    "continuous calibrating (grinding) line":           (50e3, 250e3),
-    "conveyors ~100 m":                                 (30e3, 80e3),
+    "gantry setter (DIY cartesian, LinuxCNC/PLC)":      (15e3, 50e3),
+    "gantry unloader / sorter (or a used palletizer)":  (15e3, 50e3),
+    "pass-through grinder, 2 diamond cup wheels":       (15e3, 40e3),
+    "conveyors ~100 m (gravity + belt + powered)":      (15e3, 60e3),
     "husk auger feed + kiln controls":                  (10e3, 30e3),
-    "kitting gantry reading the design file":           (40e3, 120e3),
-    "panel assembly gantry + tensioning station":       (40e3, 120e3),
-    "vision, safety, controls":                         (20e3, 60e3),
+    "kitting gantry reading the design file":           (15e3, 50e3),
+    "panel assembly gantry + tensioning station":       (20e3, 60e3),
+    "vision, safety, controls":                         (10e3, 40e3),
 }
 LABOR_RATE = (30, 36)            # $/h loaded (Arkansas durable goods $26.27/h + burden)
+# benchmarks: automated US brick plants ~0.2-0.9 h/t; artisanal 15-35 h/t; a bench/pilot yard 20-40 h/t
 DAYLIGHT_H = 8                   # machine hours per production day on solar
 DAYS = 300
 KWH_PER_T = (60, 150)            # extruder, grinding, robots, conveyors, fans
-PV_KWH_PER_KWP = 1400            # Arkansas, ~4.7 peak-sun hours [TO-VERIFY]
+PV_KWH_PER_KWP = 1430            # Little Rock PVWatts ~1,430-1,570 kWh/kWp/yr; commercial PV ~$1.77/W (2026)
 UNIT_KG = 7.0                    # average fired unit
 
 
@@ -90,6 +94,8 @@ if __name__ == "__main__":
         print(f"  {t:5,d} t/yr: line rate {rate:.2f} t/h = {units_min:.1f} units/min (one gantry at ~10 s/pick"
               f" handles 6/min); electricity {kwh[0]/1e3:.0f}-{kwh[1]/1e3:.0f} MWh/yr -> {kwp[0]:.0f}-{kwp[1]:.0f} kWp of PV")
     print("  green ware made by day buffers the kiln overnight; a day's drying stock decouples the two.")
+    print("  Arkansas industrial grid power is ~6 c/kWh, so a big battery never pays (~$24/yr per $500 kWh):")
+    print("  size PV to the daytime machine load, schedule motors 9am-3pm, keep a small battery for controls.")
 
     print("\nFACTORY PRE-ASSEMBLY also cuts SITE labor: panels arrive clamped and tested; the site crew only")
     print("  sets panels, drives the fold keys, and builds the dome -- days instead of weeks (TO-MEASURE).")

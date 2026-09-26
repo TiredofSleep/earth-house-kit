@@ -165,3 +165,103 @@ employer. The Arkansas factory proves the system and trains the people who take 
   cost of construction ($162/ft²), Monolithic Dome pricing.
 - ICC-ES rules of procedure; ADEQ air permitting guide; Arkansas Open-Cut Land Reclamation Act.
 - Katerra, Veev, Mighty Buildings coverage (failory, TechCrunch, 3DPrint).
+
+
+---
+
+## 8. Cutting labour and steel (`production_line.py`, lean scenario)
+
+**Labour: a daylight robotic line.** The machines run on the plant's solar in daylight, and the husk
+kiln fires through the night on a buffer of green ware made by day.
+
+| stage | manual h/t | semi h/t | robotic h/t | the robot |
+|---|---|---|---|---|
+| clay prep | 1.0 | 0.40 | 0.25 | loader + screen + pug feed |
+| extrusion + cutting | 1.0 | 0.30 | 0.10 | auto cutter |
+| setting onto kiln cars | 2.0 | 0.80 | 0.10 | DIY cartesian gantry (LinuxCNC/PLC), 15 kg |
+| kiln + dryer, husk feed | 1.0 | 0.50 | 0.30 | auger feed, thermocouple control |
+| unloading + sorting | 1.5 | 0.60 | 0.10 | gantry or a used palletizing robot ($6–50k) |
+| grinding bed faces | 1.5 | 0.50 | 0.15 | DIY pass-through grinder, 2 diamond cup wheels |
+| kitting by house order | 1.0 | 0.40 | 0.10 | gantry reads the design file, palletizes in assembly order |
+| **panel pre-assembly** | 2.0 | 0.80 | 0.30 | gantry lays units in the bed jig; rods tensioned |
+| QA, maintenance, yard | 0.8 | 0.60 | 0.50 | |
+| **total** | **11.8** | **4.9** | **1.9** | benchmarks: automated brick plants 0.2–0.9 h/t; pilot yards 20–40 |
+
+- **Robotics, built or bought small: $125k–420k.** DIY gantry ~$4–10k in parts, used palletizing
+  robots $6–50k, DIY grinder $15–40k.
+- **Payback: 1.2–4.7 years at 1,000 t/yr, 0.2–0.8 years at 6,000 t/yr.** So start semi-automated
+  and add a robot each time volume justifies it. At 6,000 t/yr the day shift drops from ~12 people
+  to ~5.
+- **Pre-assembling panels in the factory** also cuts the buyer's site labour. Panels arrive clamped
+  and tested; the crew sets them, drives the fold keys and builds the dome.
+- **Power:** Arkansas industrial grid power is ~6 ¢/kWh, so a large battery never pays. Size PV to
+  the daytime machine load (~43–107 kWp at 1,000 t/yr), run motors 9am–3pm, keep a small battery
+  for controls. The 30% solar ITC needs the system in service by 31 Dec 2027 if construction starts
+  after 4 July 2026.
+
+**Steel: −60% per kit** (Ring 16: $3.8k → $1.6k low case, $8.6k → $3.2k high case)
+- **60×8 mm galvanized flat bars instead of C100 channels.** The dome's ~20 kN ring tension is carried ~6×.
+- **One wedged key per fold instead of three.** The bolted top bar and the base slider tie the rest.
+- **Extruded fired-clay siding rails** stand on the plinth in compression, with boards hung on
+  notches cut into them. That replaces ~78 m of steel rail and ~291 m of battens per house.
+- Bulk-bought disc springs, nuts and plates; rib tendons priced at $6–12/m of stainless rope plus terminals.
+
+**Result, lean, production plant running full:**
+
+| kit | lean ex-works | $/ft² | delivered (300 mi) |
+|---|---|---|---|
+| Studio 12 (179 ft²) | $4.1k | **23** | $5.2k–11.2k |
+| **Ring 16 ribbed (322 ft²)** | **$6.4k** | **20** | **$7.5k–16.5k** |
+| Ring 20 ribbed (505 ft²) | $8.5k | 17 | $9.6k–21.6k |
+| Hall 24 ribbed (729 ft²) | $10.8k | 15 | $12.9k–28.2k |
+| Compound, 13 pavilions (5,379 ft²) | $99k | **18** | $110k–248k |
+
+**Break-even, lean Ring 16:** at $65/ft², 16–51 kits a year for the pilot and 48–142 for the
+production plant. At an aggressive $35/ft² (undercutting SIP shells), 34–190 and 104–531.
+
+---
+
+## 9. Start very small, grow on grants — and is it scalable?
+
+**Yes, it scales**, for four reasons:
+1. **Labour per tonne falls with size** (pilot ~5–12 h/t, mid ~1.5–4, full-scale brickworks 0.3–1).
+2. **Robotics pays back faster the bigger the plant.**
+3. **The plant replicates.** Each factory serves a ~300–600-mile truck radius, and the same design
+   sits wherever clay and rice husk meet: Arkansas, Louisiana, Mississippi, Missouri, Texas, California.
+4. **The method is open**, so partners can build their own plants, and the charity side can send
+   mobile plants abroad.
+
+What doesn't scale is **certification and trust**. Those are earned one tested product at a time.
+
+**The staged path** (research, Sep 2026; amounts marked UNSOURCED are estimates):
+
+| stage | money | likely sources | proves |
+|---|---|---|---|
+| **1. Bench** (months 0–6) | $10–50k | founders; Innovate Arkansas / ARise coaching; a subsidized **Arkansas MEP** scoping visit; a university partner via **Arkansas Research Alliance AR-NETWORK**; file the NSF Project Pitch | clay fires to ≥20 MPa; printed/extruded units; a dry-stack column; a 2 m test dome |
+| **2. Proof of concept** (months 6–18) | $150–400k | **NSF SBIR Phase I** (up to $305k; deadlines 4 Nov 2026, 4 Mar 2027) + **Arkansas SBIR match** (up to $50k); or **EPA SBIR** ($100k, open to 8 Nov 2026: circular economy / sustainable materials); **USDA RBDG** ($10–500k, no match) through a nonprofit or local development partner, for feasibility and equipment | a full panel tilted and broken; the pilot line designed |
+| **3. Pilot line, 1,000–3,000 t/yr** (years 2–3) | $1–2M | **NSF SBIR Phase II** (~$1.25M) + Arkansas match (up to $100k); **HUD PD&R** building-technology / robotics research with a university; 30% solar ITC; used robots; **pre-sold** farm buildings, studios, and safe rooms through FEMA mitigation projects | yield, cost per tonne, first customers, the certification file |
+| **4. Production plant** (years 3–5) | $3–10M | **USDA Business & Industry guaranteed loan** (80–85% guarantee); **Reg CF crowdfunding** $1–5M (Hempitecture raised $4.6M this way and built its factory); AEDC Advantage Arkansas / Create Rebate; NSF Strategic Breakthrough (long shot) | volume |
+
+**The closest precedent:** Watershed Materials, a low-cement masonry block company, won NSF SBIR
+Phase I ($150k, 2013) and then Phase II (~$750k, 2014). The pattern that worked across building
+materials: SBIR or university grants de-risk the technology, private or crowd equity builds the first
+plant, and large federal grants come last or not at all.
+
+**Plan around these (2025–2026 changes):**
+- **The Delta Regional Authority does not cover Hot Spring County.** Grant, Dallas and Pulaski
+  counties next door are covered, so a site just over the line would open DRA grants.
+- **USDA REAP solar grants are paused** (since 31 Mar 2026); REAP guaranteed loans continue.
+- **DOE decarbonization awards are unreliable.** $3.7B was cancelled in May 2025, including
+  Brimstone's $189M. Don't build the plan on them.
+- **FEMA BRIC** was cancelled, then restored by court order (Dec 2025 / Mar 2026). Applicants are
+  states and localities; the company is the supplier of safe rooms.
+- **SBIR requires a for-profit, US-owned company.** RBDG goes through nonprofits and public bodies.
+  The two-part structure fits both: an open-method charity plus an arm's-length kit company
+  (MISSION §5).
+- The Walton Family Foundation's Home Region focus is narrowing to Northwest Arkansas and the
+  Delta, so Malvern is a poor fit.
+
+**First three moves:**
+1. Fire Malvern clay bars in the test kiln.
+2. Book the free Arkansas MEP visit and a university partner.
+3. Submit the NSF SBIR Project Pitch ahead of the 4 Nov 2026 or 4 Mar 2027 deadline.

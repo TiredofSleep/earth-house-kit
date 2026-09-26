@@ -74,9 +74,9 @@
  },
  "extra_capex": {
   "production": [
-   280000,
-   940000
+   125000,
+   420000
   ]
  },
- "extra_capex_src": "robotics semi -> robotic (production_line.py)"
+ "extra_capex_src": "robotics semi -> robotic, built/bought small (production_line.py)"
 }
