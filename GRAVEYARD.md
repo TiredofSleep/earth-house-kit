@@ -24,6 +24,9 @@ Kept on purpose so nobody rebuilds them. Each entry: the idea, what killed it, t
 | Guastavino/timbrel 'no formwork' for dry units | the trick is fast-setting gypsum gluing each tile; dry units have no glue | seat steps + closing keys, course by course, light guide arches |
 | Earth tubes / evaporative cooling / night flushing as the summer plan in Arkansas | humid air: condensation and mold in tubes, evaporative cooling collapses at 80–90% RH, night air too wet | shade, fans, cross-ventilation, a small solar dehumidifier |
 | Salt-glazed units | needs ~1,250–1,300 °C and releases HCl; field kilns reach ~1,000–1,100 °C | engobe the outer face, or fire exterior units hotter |
+| A 'hydrophobic' fired outer face as the rain barrier | fired ceramics are hydrophilic; real water beading needs siloxane that lasts 10–15 years | dense (cullet/engobe) skin for durability, hung replaceable siding as the rain barrier |
+| Siding hung on nibs alone | BS 5534 won't accept nibs against wind suction | each board locks into the one below (2–5% of strength at 50 m/s) |
+| Husk ash as a flux for a vitrified skin | it's ~90–97% silica: refractory at 1,000 °C, forms cristobalite | glass cullet as the skin flux; husk as the core pore former |
 | Concrete from clayey site soil | clay fines: 10–14% cement on clay soil gave only 1.5–3.4 MPa | only with screened sand/gravel |
 
 ## Overturned (kills that were wrong)

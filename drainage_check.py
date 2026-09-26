@@ -21,12 +21,13 @@ from form_check import polygon
 
 FT = 0.3048
 EAVE_OVERHANG = 0.30              # corbelled eave projects beyond the wall face, m
-INTENSITY_MM_H = (150, 260)       # 10-yr / 100-yr 5-minute rain intensity, Hot Springs [TO-VERIFY NOAA Atlas 14]
+INTENSITY_MM_H = (214, 300)       # 10-yr / 100-yr 5-minute intensity, Hot Springs (NOAA Atlas 14, 34.50N 93.06W);
+                                  # Machu Picchu's drains were designed for ~200 mm/h (Wright & Valencia)
 N_CLAY = 0.013                    # Manning n, smooth fired clay
 FLUTE = dict(w=0.030, d=0.015, pitch=0.060)     # apron flute: 30 mm wide, 15 mm deep, every 60 mm
 APRON = dict(width=0.90, fall=0.05)             # 0.9 m wide, 5% outward
 CHANNEL = dict(w=0.10, d=0.075, fall=0.01)      # collector ring: 100 x 75 mm, 1% to the cistern
-PAD_FALL = 0.05                   # crowned pad falls 5% outward (IRC R401.3: 6 in in the first 10 ft)
+PAD_FALL = 0.05                   # ground falls 5% outward for 3 m (IRC R401.3); hard surfaces >= 2%
 RAIN_YEAR_M = 1.30                # annual rain, Hot Springs
 RUNOFF = 0.8                      # tiled dome runoff coefficient [TO-VERIFY]
 FIRST_FLUSH_L_M2 = (1.0, 2.0)

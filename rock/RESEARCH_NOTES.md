@@ -171,3 +171,41 @@ calculation. Many publisher pages were paywalled.
 - LFP 4,000–6,000 cycles to 80%; heat shortens life. https://www.okrasolar.com/blog/a-better-way-to-estimate-battery-lifetime
 - Mini-grids: Sundarbans plants abandoned (no O&M); Chhattisgarh 1,400+ succeeded.
   https://link.springer.com/article/10.1186/s13705-018-0185-9
+
+## Envelope: siding, drainage, graded units
+- Vertical tile hanging: 265x165 mm tiles on 38x25 battens over counterbattens; headlap >=37.5 mm,
+  gauge <=114 mm (BS 5534); twice-fixed against suction; centuries of use, fixings fail first.
+  https://www.dreadnought-tiles.co.uk/res/vertical%20tiling%20guide1.pdf
+- Terracotta rainscreens: 30-40 mm, ~50 kg/m2 (NBK, Argeton); Argeton clips hold the tile above
+  and hook the tile below; boil absorption <=8%; Boston Valley MOR 15.4-25.6 MPa, 300 freeze-thaw
+  cycles, +/-45 psf, single-panel replacement without tools.
+  https://bostonvalley.com/downloads/08-2013-TerraClad%20Panel%20Spec.pdf
+- Rainscreen: >=3 mm capillary break, ~19 mm+ for drying; true pressure equalization rare.
+  https://buildingscience.com/documents/digests/bsd030-rain-control-theory
+- Ventilated facades: 30-70% less summer solar gain (most east/west), up to 27% lower cooling in
+  hot-humid (review); ~21% annual saving measured in Almeria. https://doi.org/10.3390/pr13072275
+- Printed clay cladding: Emerging Objects cabin (4,500 overlapping printed tiles); Studio RAP
+  Ceramic House (printed bricks in stainless cassettes); no published wind/frost test data.
+- IRC R401.3: fall 6 in in 10 ft; hard surfaces >=2%. IRC R317: siding >=6 in above grade.
+- Machu Picchu: ~60% of construction underground; 1,940 mm/yr; 129 outlets; design ~200 mm/h,
+  C=0.8. https://www.waterhistory.org/histories/machupicchu/machupicchu.pdf
+- Clay field tile: Johnston 1838, still working a century later; ASTM C4 absorption <=11-13%.
+- Compaction >=95% standard Proctor; presumed bearing 1,500 psf for clays (IRC R401.4.1);
+  PI >35 = high swell; Porters Creek Clay outcrops Malvern to Batesville.
+  https://geology.arkansas.gov/geohazards/expansive-soils.html
+- NOAA Atlas 14, Hot Springs (34.5037, -93.0552), 5-min: 10-yr 214 mm/h, 100-yr 300 mm/h;
+  60-min: 65 / 92 mm/h. https://hdsc.nws.noaa.gov/pfds/
+- Drip-line trench 18 in wide x >=8 in deep, stone, fabric-lined. https://www.pwd.org/sites/default/files/dripline_trench.pdf
+- Porous fired clay: rice husk 5-15 vol% took lambda 0.548 -> 0.173, 7-10 MPa at 5-10% (Gorhan &
+  Simsek); sawdust -0.017 W/mK per wt%; Poroton bodies ~0.25 at 800 kg/m3 with up to 35 vol% pore
+  former; unit lambda 0.07-0.12 comes mostly from geometry + infill.
+  https://www.sciencedirect.com/science/article/abs/pii/S095006181200788X
+- Engobe on brick: absorption 14.8 -> 3.2%, frost 15 -> 65 cycles; engobe/body shrinkage and CTE
+  within 10%; glass cullet 10-20% densifies at 900-1,000 C; ash glazes need ~1,170 C+.
+  https://journals.uran.ua/eejet/article/view/279918
+- Fired ceramics are hydrophilic; siloxane repellents last ~10-15 years.
+  https://www.gobrick.com/media/file/6a-colorless-coatings-for-brick-masonry.pdf
+- Clay co-extrusion printing: two clays with matched flow/shrinkage co-printed without cracks
+  (Ceramics 2023, 6(4):136); graded FGMs deform with abrupt steps.
+- Husk ash -> cristobalite above ~850 C; 0.7% jump near 220 C: cool slowly 250-180 C.
+- Moisture buffering: unfired clay 1.1-3.7 g/(m2 %RH); firing destroys most of it; clay plaster 1.67.

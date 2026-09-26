@@ -170,9 +170,11 @@ CASES = [
     ("8 in: 3-row truss, husk",               [(truss, 200, "husk", dict(n=3))]),
     ("8 in: truss husk OUT + staggered sand IN", [(truss, 100, "husk", dict(n=2)),
                                                   (staggered, 100, "sand", dict(n=3))]),
-    ("8 in GRADED: dense skins, porous 0.30 core", [(staggered, 200, "husk", dict(n=6, graded=(1.0, 0.30, 0.8)))]),
-    ("8 in GRADED: dense skins, porous 0.20 core", [(staggered, 200, "husk", dict(n=6, graded=(1.0, 0.20, 0.8)))]),
-    ("6 in GRADED: dense skins, porous 0.20 core", [(staggered, 152, "husk", dict(n=5, graded=(1.0, 0.20, 0.8)))]),
+    # graded prints (same site clay in every zone): outer skin + 10-20% glass cullet (lam ~0.6-0.8),
+    # core + 10-15 vol% rice husk (lam 0.17-0.30, 4-10 MPa; Gorhan & Simsek), interior ~5% pore former
+    ("8 in GRADED: cullet skin, 15% husk core",   [(staggered, 200, "husk", dict(n=6, graded=(0.8, 0.25, 0.6)))]),
+    ("8 in GRADED: cullet skin, optimised core",  [(staggered, 200, "husk", dict(n=6, graded=(0.8, 0.18, 0.6)))]),
+    ("6 in GRADED: cullet skin, 15% husk core",   [(staggered, 152, "husk", dict(n=5, graded=(0.8, 0.25, 0.6)))]),
 ]
 
 

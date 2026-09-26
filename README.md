@@ -27,6 +27,7 @@ Roman-style recipe), or 6–8% cement where that's simpler.
 | [rock/ROCK_OPTIONS.md](rock/ROCK_OPTIONS.md) | **every way to turn site soil into rock**, compared: firing, melting, chemistry, biology |
 | [making-system/BRICK_PANEL.md](making-system/BRICK_PANEL.md) | **the lead design:** printed fired units, dry-stacked, clamped by rods, tilted up |
 | [making-system/KIT_OF_PARTS.md](making-system/KIT_OF_PARTS.md) | **design houses from interlocking parts:** Japanese-joinery locking in fired clay, the dome, the house designer |
+| [making-system/ENVELOPE.md](making-system/ENVELOPE.md) | the coat (hung fired siding), the boots (fluted drainage foundation), units graded like bone |
 | [printer/PRINTER_CONCEPT.md](printer/PRINTER_CONCEPT.md) | a gantry that compacts panels flat instead of extruding wet mud |
 | [HANDOFF_TO_CLAUDE_CODE.md](HANDOFF_TO_CLAUDE_CODE.md) | the prioritized task list |
 
@@ -48,6 +49,8 @@ python form_check.py               # plan shape: floor per panel, wind, self-bra
 python dome_check.py               # fired-unit dome: thrust, ring, thickness, dry build
 python dome_thrust.py              # dome under half snow, wind, earthquake (thrust lines, sliding)
 python house_designer.py           # every design in houses/: full parts list + checks
+python cladding_check.py           # hung fired siding: weight, wind lock, solar gain
+python drainage_check.py           # fluted drainage foundation vs NOAA design storms
 ```
 
 A new site is a new JSON file in `sites/`, and a new material is an entry in

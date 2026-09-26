@@ -17,13 +17,15 @@ All board geometry and fixing values [TO-VERIFY] against rainscreen practice (re
 import sys
 
 # ---------- board (extruded, cored) ----------
-BOARD = dict(length=1.20, height=0.200, gauge=0.150, thick=0.022, core_share=0.45)   # m [TO-VERIFY]
+BOARD = dict(length=1.20, height=0.200, gauge=0.150, thick=0.025, core_share=0.40)   # m; double-leaf extrusion
+# benchmarks: terracotta rainscreens 30-40 mm, ~50 kg/m2 (NBK, Argeton); headlap >= 37.5 mm (BS 5534); IRC lap >= 32 mm
 RHO_FIRED = 1900                  # boards fired hotter/denser than wall units (severe-weathering grade)
-MOR_BOARD = (8.0, 15.0)           # extruded terracotta flexural strength, MPa [TO-VERIFY vs data sheets]
+MOR_BOARD = (8.0, 15.0)           # conservative; Boston Valley TerraClad reports 15.4-25.6 MPa (2,231-3,717 psi)
 LOCK = dict(thick=0.008, reach=0.010)      # lock lip thickness and lever arm, m
 Q_WIND = 0.613 * 50**2            # Pa
 CP_SUCTION = (-1.4, -2.0)         # wall field / corner zone local suction [TO-VERIFY ASCE 7 / EN 1991-1-4]
-PRESSURE_EQUALIZED = 0.5          # share of suction that an open-jointed, vented rainscreen still sees [TO-VERIFY]
+PRESSURE_EQUALIZED = 0.5          # vented rainscreens are pressure-MODERATED, rarely equalized (BSD-030) [TO-VERIFY]
+CAVITY_MM = 20                    # >= 3 mm capillary break; ~19 mm+ for drying (BSC); 10 mm Canadian baseline
 WALL_M2 = {"16-gon": 13 * 1.219 * 2.438, "20-gon": 17 * 1.219 * 2.438}
 
 # ---------- sun on the wall (steady, per m2) ----------
@@ -94,7 +96,8 @@ if __name__ == "__main__":
         print(f"  {label:15s} (alpha {alpha}): bare wall surface +{bT:4.1f} C, {bq:4.1f} W/m2 into the room;"
               f" behind a ventilated rainscreen +{cT:4.1f} C, {cq:4.1f} W/m2 -> {100*(1-cq/bq):.0f}% less")
     bq, cq, _, _ = solar_gain(ALPHA)
-    print("  -> the cavity shades the wall and vents the heat; combine with a light outer face for the most.")
+    print("  -> the cavity shades the wall and vents the heat; published: 30-70% less summer solar gain")
+    print("     (most on east/west faces), up to 27% lower annual cooling load in hot-humid climates.")
 
     print("\nWATER: every drop that hits the wall runs down the board faces and off the drip edges;")
     print("  the few that pass an open joint drain down the cavity to a weep at the plinth and out.")

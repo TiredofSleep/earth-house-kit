@@ -48,6 +48,8 @@ panels, and tilted up. The compacted-earth kit below stays as the fallback until
 - R1. ~~Dome~~ v0.1 done: `dome_check.py`, `KIT_OF_PARTS.md` §3 (51.8° cap, 16 in deep voussoirs,
   seat steps, channel ring); uneven loads done in `dome_thrust.py` (16-gon passes with the tiled skin).
   Remaining: 3-D thrust network / discrete-element check for the 20-gon; site wind Cp values.
+- R9. **Envelope** (`making-system/ENVELOPE.md`): board die + lock geometry; apron/collector segment
+  hose test; graded bilayer bars; add boards, pavers, drain tile to `house_designer.py`.
 - R8. **Synthesis items** (`SYNTHESIS.md` §1): rubble-trench/gabion foundation + plinth ring detail;
   optional sliding isolation layer; rain-capped cupola; dehumidifier sizing on the array; cistern;
   husk-gasifier fibre kiln with flue-heat dryer; satellite-dome expansion rules; certification path.
