@@ -25,6 +25,7 @@ Roman-style recipe), or 6–8% cement where that's simpler.
 | [business/BUSINESS_CASE.md](business/BUSINESS_CASE.md) | the kit-factory business: costs, prices vs market, break-even, site, sequence |
 | [business/SHELTER_PLAN.md](business/SHELTER_PLAN.md) | the first product: a certified above-ground tornado safe room |
 | [MISSION.md](MISSION.md) | the whole plan: system, energy, costs, tests, kill-conditions |
+| [IDEAS_MATRIX.md](IDEAS_MATRIX.md) | every idea explored in one chart: pros, cons, verdict (winner / adopt / test / fallback / niche / killed), and the file behind it |
 | [GRAVEYARD.md](GRAVEYARD.md) | ideas that were killed or corrected, with the arithmetic that killed them |
 | [making-system/TILTUP_DETAILING.md](making-system/TILTUP_DETAILING.md) | how a panel gets from the pit to a braced wall |
 | [rock/ROCK_OPTIONS.md](rock/ROCK_OPTIONS.md) | **every way to turn site soil into rock**, compared: firing, melting, chemistry, biology |

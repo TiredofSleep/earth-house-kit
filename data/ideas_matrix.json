@@ -1,0 +1,653 @@
+{
+ "_about": "Every idea explored for the Earth House-Kit, with pros, cons and a verdict. Rendered to IDEAS_MATRIX.md by ideas_matrix.py. Verdicts: winner = in the lead design; adopt = in the kit as a supporting part; test = promising, waiting on a measurement; fallback = proven backup; niche = only for certain sites or uses; killed = failed its numbers (see GRAVEYARD.md).",
+ "verdicts": [
+  "winner",
+  "adopt",
+  "test",
+  "fallback",
+  "niche",
+  "killed"
+ ],
+ "ideas": [
+  {
+   "cat": "Making rock",
+   "idea": "Fire site clay into small units (~1,000 °C)",
+   "pros": "0.9–3.0 MJ/kg from farm waste; 36–46 MPa typical brick; a century of Malvern practice; doesn't rot, burn or rust",
+   "cons": "needs a kiln and fuel; 5–8% total shrinkage; each clay bed must be tested",
+   "verdict": "winner",
+   "where": "rock/ROCK_OPTIONS.md, rock_options.py"
+  },
+  {
+   "cat": "Making rock",
+   "idea": "Compacted earth tilt-up panels (the original project)",
+   "pros": "no firing; tilt-up lift checks out (3.0–5.7× with rebar)",
+   "cons": "not rock: 0.3–1 MPa; 6 in + steel; ~900 kg panels; 7–28 day cure",
+   "verdict": "fallback",
+   "where": "earth-panel/SPEC.md, tiltup_check.py"
+  },
+  {
+   "cat": "Making rock",
+   "idea": "Melt the soil into rock (vitrification, cast basalt, microwave)",
+   "pros": "superb stone (cast basalt ≥300 MPa)",
+   "cons": "6–12 MWh per house; ~3.5 MW power; big melts cool for 1–2 years",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Making rock",
+   "idea": "Fire the whole house in place (Geltaftan)",
+   "pros": "no assembly; monolithic",
+   "cons": "tried in Iran and abandoned: fuel cost, pollution, uneven firing",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Making rock",
+   "idea": "Fire the whole wall, or only its binder, in place",
+   "pros": "no kiln to ship",
+   "cons": "~12,600 kWh per house; heats a whole wall to fire 15% of it; shrinkage cracking",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Making rock",
+   "idea": "Geopolymer (soil + fired clay + activator)",
+   "pros": "actually uses the clay; no cement",
+   "cons": "0.3–0.7 t caustic activator per house; ~665 kg panels; handling hazards",
+   "verdict": "test",
+   "where": "rock/ROCK_OPTIONS.md"
+  },
+  {
+   "cat": "Making rock",
+   "idea": "Concrete from screened sand and gravel",
+   "pros": "the known benchmark; 1–3 day lift",
+   "cons": "1.1–1.5 t cement per house; fails on clay fines (1.5–3.4 MPa)",
+   "verdict": "niche",
+   "where": "rock/ROCK_OPTIONS.md"
+  },
+  {
+   "cat": "Making rock",
+   "idea": "Lime-sand steam-cured blocks",
+   "pros": "12–48 h cure; proven industrially",
+   "cons": "sandy sites only; 1.1–2.0 t lime; heavy 6.5 in walls",
+   "verdict": "niche",
+   "where": "rock/ROCK_OPTIONS.md"
+  },
+  {
+   "cat": "Making rock",
+   "idea": "Sulfur concrete walls",
+   "pros": "sets in hours; no water",
+   "cons": "melts at 115–120 °C and burns to SO₂; can't take swelling clay",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md (maybe plinths, tanks, drains)"
+  },
+  {
+   "cat": "Making rock",
+   "idea": "Bio-cemented sandstone (MICP/EICP)",
+   "pros": "room-temperature 'grown' stone",
+   "cons": "sand only; ~1 kg ammonium chloride waste per kg calcite; 2–6 t reagents per house",
+   "verdict": "niche",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Making rock",
+   "idea": "Single-piece fired ceramic wall panel",
+   "pros": "3 in wall, no joints, no steel",
+   "cons": "thick site-clay slabs very likely crack in a field kiln; industry only does 6–20 mm pressed slabs",
+   "verdict": "killed",
+   "where": "rock/ROCK_OPTIONS.md"
+  },
+  {
+   "cat": "Making rock",
+   "idea": "Solid fired brick laid on site",
+   "pros": "the proven method everyone trusts",
+   "cons": "7.5 in walls, 16–18 t; slow wet trade; mortar",
+   "verdict": "fallback",
+   "where": "rock/ROCK_OPTIONS.md"
+  },
+  {
+   "cat": "Units & bricks",
+   "idea": "Cellular unit: staggered 6-row webs, husk-filled",
+   "pros": "U 0.62 and 9 h lag at 8 in; 6–8 mm webs dry in hours; ~32–40% clay",
+   "cons": "thin webs must survive handling and grinding; impact untested",
+   "verdict": "winner",
+   "where": "making-system/BRICK_PANEL.md, thermal_check.py"
+  },
+  {
+   "cat": "Units & bricks",
+   "idea": "Straight-through, diamond or truss web patterns",
+   "pros": "simpler dies",
+   "cons": "each web is a heat highway: U 0.76–1.75",
+   "verdict": "killed",
+   "where": "thermal_check.py"
+  },
+  {
+   "cat": "Units & bricks",
+   "idea": "Extrude the bulk through a die",
+   "pros": "fast, uniform, the brick industry's method; one die for all dome voussoirs",
+   "cons": "a die per cross-section; fixed shapes",
+   "verdict": "winner",
+   "where": "SYNTHESIS.md, production_line.py"
+  },
+  {
+   "cat": "Units & bricks",
+   "idea": "3D-print clay units (bead-built ribs)",
+   "pros": "any shape; less clay; custom corners, keys and one-offs",
+   "cons": "slow; warping and layer-line cracking unknown",
+   "verdict": "test",
+   "where": "printer/, making-system/BRICK_PANEL.md"
+  },
+  {
+   "cat": "Units & bricks",
+   "idea": "Graded units: glass-cullet skin, husk-pored core, dense rims",
+   "pros": "8 in U ≈ 0.42; engobes cut absorption 14.8% → 3.2%; bone-like logic",
+   "cons": "zones must shrink together; co-extrusion not yet tried",
+   "verdict": "test",
+   "where": "making-system/ENVELOPE.md"
+  },
+  {
+   "cat": "Units & bricks",
+   "idea": "Grind bed faces flat after firing",
+   "pros": "±0.5 mm, ≤0.2 mm flat makes mortarless work (Poroton Dryfix)",
+   "cons": "a grinder station and dust control",
+   "verdict": "winner",
+   "where": "SYNTHESIS.md"
+  },
+  {
+   "cat": "Units & bricks",
+   "idea": "Husk ash as a flux for a glassy skin",
+   "pros": "free, on site",
+   "cons": "90–97% silica: refractory at 1,000 °C and makes cristobalite",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Units & bricks",
+   "idea": "Salt-glazed units",
+   "pros": "classic waterproof face",
+   "cons": "needs 1,250–1,300 °C; releases HCl",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Walls & panels",
+   "idea": "Dry-stacked panels clamped by 2 rods, tilted up",
+   "pros": "~282–413 kg panels; no cure wait; rods carry 11.7–18.8× the lift if joints open; demountable",
+   "cons": "joints must stay tight (20–35% prestress loss assumed); untested at full size",
+   "verdict": "winner",
+   "where": "making-system/BRICK_PANEL.md, brick_panel_check.py"
+  },
+  {
+   "cat": "Walls & panels",
+   "idea": "Grouted panels with bars",
+   "pros": "stronger; the proven path for storm walls",
+   "cons": "5–28 day cure; not demountable",
+   "verdict": "fallback",
+   "where": "rock/ROCK_OPTIONS.md, business/SHELTER_PLAN.md"
+  },
+  {
+   "cat": "Walls & panels",
+   "idea": "On-site brick building (laying units by hand)",
+   "pros": "no hoist; familiar",
+   "cons": "slower than panels; more site labour",
+   "verdict": "fallback",
+   "where": "rock/ROCK_OPTIONS.md"
+  },
+  {
+   "cat": "Walls & panels",
+   "idea": "Openings as module-wide gaps with sill and lintel panels",
+   "pros": "never cut a panel; short lintels (Inca logic)",
+   "cons": "window sizes follow the module",
+   "verdict": "adopt",
+   "where": "tiltup_check.py"
+  },
+  {
+   "cat": "Walls & panels",
+   "idea": "Carbon steel set tight in the masonry",
+   "pros": "cheap",
+   "cons": "rust expands and splits it (the Acropolis's 20th-century repairs)",
+   "verdict": "killed",
+   "where": "SYNTHESIS.md §3"
+  },
+  {
+   "cat": "Joints & interlocks",
+   "idea": "Japanese joinery rules: clay only presses; wedges and rods lock",
+   "pros": "no mortar, no glue; every joint re-driven or opened",
+   "cons": "precision required; steel wedges and rods still bought",
+   "verdict": "winner",
+   "where": "making-system/KIT_OF_PARTS.md"
+  },
+  {
+   "cat": "Joints & interlocks",
+   "idea": "Wedged fired key blocks at the polygon folds (shachi-sen)",
+   "pros": "draws panels together with spare travel to re-drive",
+   "cons": "untested",
+   "verdict": "test",
+   "where": "data/joints.json"
+  },
+  {
+   "cat": "Joints & interlocks",
+   "idea": "Clay hooks or tabs that carry tension",
+   "pros": "no steel",
+   "cons": "fired clay is weak in tension; Greek masons used separate cramps for this reason",
+   "verdict": "killed",
+   "where": "making-system/KIT_OF_PARTS.md"
+  },
+  {
+   "cat": "Joints & interlocks",
+   "idea": "Keystone ring: slide in from outside, hook the notch below, lock to a neighbour, pinned key last",
+   "pros": "can't be pushed through; one assembly order; last piece is the lock",
+   "cons": "every unit numbered; one broken unit holds up the course",
+   "verdict": "test",
+   "where": "business/SHELTER_PLAN.md, data/joints.json"
+  },
+  {
+   "cat": "Joints & interlocks",
+   "idea": "Guastavino/timbrel 'no formwork' vaulting",
+   "pros": "famous and fast",
+   "cons": "works only because gypsum glues each tile; dry units have none",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Plan & form",
+   "idea": "16–20-sided round plan",
+   "pros": "26% more floor per panel than a square; half the wind drag; self-bracing",
+   "cons": "curved furniture walls; the 20-gon's dome margins are thin without ribs",
+   "verdict": "winner",
+   "where": "form_check.py"
+  },
+  {
+   "cat": "Plan & form",
+   "idea": "Square or box plan",
+   "pros": "familiar furniture and codes",
+   "cons": "corner suction zones; Cd 1.2–1.4; needs bracing",
+   "verdict": "fallback",
+   "where": "form_check.py"
+  },
+  {
+   "cat": "Plan & form",
+   "idea": "Clusters of domes around courtyards (a 5k ft² 'mansion')",
+   "pros": "big homes from proven small spans; grow one dome at a time (Elemental)",
+   "cons": "more wall per floor; links and gutters between domes",
+   "verdict": "adopt",
+   "where": "houses/compound_5k.json, house_designer.py"
+  },
+  {
+   "cat": "Plan & form",
+   "idea": "One huge single span",
+   "pros": "open plan",
+   "cons": "the 24-gon hall passes at GSF 2.2 but big spans eat margin fast",
+   "verdict": "niche",
+   "where": "houses/hall24.json"
+  },
+  {
+   "cat": "Plan & form",
+   "idea": "Owners extend a closed dome ad hoc",
+   "pros": "freedom",
+   "cons": "Iquique's fires and flimsy add-ons",
+   "verdict": "killed",
+   "where": "SYNTHESIS.md §3"
+  },
+  {
+   "cat": "Roof",
+   "idea": "Ribbed dome: post-tensioned 16 in ribs + 6 in graded webs",
+   "pros": "35% less clay; rib GSF 4.2 (16-gon), 2.9 (20-gon); passes wind, snow, quake",
+   "cons": "stainless tendons to buy and re-check; a central mast to build it",
+   "verdict": "winner",
+   "where": "dome_ribbed.py, making-system/KIT_OF_PARTS.md"
+  },
+  {
+   "cat": "Roof",
+   "idea": "Solid 16 in cellular voussoir dome to 51.8°",
+   "pros": "all compression; one die; GSF 1.62 in wind (16-gon)",
+   "cons": "heavier; 20-gon margins only 1.29–1.31",
+   "verdict": "fallback",
+   "where": "dome_check.py, dome_thrust.py"
+  },
+  {
+   "cat": "Roof",
+   "idea": "12 in dome voussoirs",
+   "pros": "less clay",
+   "cons": "no thrust line fits in 50 m/s wind; joints slide",
+   "verdict": "killed",
+   "where": "dome_thrust.py"
+  },
+  {
+   "cat": "Roof",
+   "idea": "Plain (unstressed) dry ribs",
+   "pros": "no steel",
+   "cons": "GSF ~1.2 in wind; joints slide",
+   "verdict": "killed",
+   "where": "dome_ribbed.py"
+  },
+  {
+   "cat": "Roof",
+   "idea": "Full hemisphere",
+   "pros": "taller room",
+   "cons": "hoop tension beyond 51.8° cracks the meridians (Pantheon, St Peter's)",
+   "verdict": "killed",
+   "where": "making-system/KIT_OF_PARTS.md"
+  },
+  {
+   "cat": "Roof",
+   "idea": "Seat-step voussoirs + closing keys, course by course",
+   "pros": "builds without formwork or mortar; only compression on the clay",
+   "cons": "slow hand-setting; a cord guide per unit",
+   "verdict": "adopt",
+   "where": "making-system/KIT_OF_PARTS.md"
+  },
+  {
+   "cat": "Roof",
+   "idea": "Cocciopesto skin under overlapping fired scale tiles",
+   "pros": "Roman 2,000-year record; its weight is what makes the dome pass wind",
+   "cons": "limewash every 1–3 years",
+   "verdict": "winner",
+   "where": "SYNTHESIS.md"
+  },
+  {
+   "cat": "Envelope",
+   "idea": "Hung, interlocking fired siding over a vented cavity",
+   "pros": "~60% less solar gain; each board lifts out; lock uses only 2–5% of strength",
+   "cons": "battens and hangers to buy; more parts",
+   "verdict": "adopt",
+   "where": "cladding_check.py, making-system/ENVELOPE.md"
+  },
+  {
+   "cat": "Envelope",
+   "idea": "Siding hung on nibs alone",
+   "pros": "simplest",
+   "cons": "BS 5534 won't accept nibs against wind suction",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Envelope",
+   "idea": "Fluted drainage bricks on a crowned compacted-earth pad",
+   "pros": "moves roof water to a cistern and away from walls (Machu Picchu logic)",
+   "cons": "pad compaction and PI testing on site",
+   "verdict": "adopt",
+   "where": "drainage_check.py"
+  },
+  {
+   "cat": "Envelope",
+   "idea": "A 'hydrophobic' fired face as the rain barrier",
+   "pros": "one fewer layer",
+   "cons": "fired ceramic is hydrophilic; beading needs siloxane that lasts 10–15 years",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Envelope",
+   "idea": "Spray coatings (carbon-fibre epoxy, polyurea, elastomerics)",
+   "pros": "modern, fast",
+   "cons": "trap vapour and salts; hide cracks; 7–20 year recoats; none pass ICC 500 on masonry",
+   "verdict": "killed",
+   "where": "making-system/ENVELOPE.md"
+  },
+  {
+   "cat": "Envelope",
+   "idea": "Silicate mineral paint; light engobed tiles",
+   "pros": "vapour-open, UV-stable; reflectance 0.5 cut cooling ~30%",
+   "cons": "colour choices limited",
+   "verdict": "adopt",
+   "where": "making-system/ENVELOPE.md"
+  },
+  {
+   "cat": "Envelope",
+   "idea": "Siloxane repellent on the plinth only",
+   "pros": "≥0.98 perm; ~10+ years",
+   "cons": "never on siding, dome or interiors",
+   "verdict": "niche",
+   "where": "making-system/ENVELOPE.md"
+  },
+  {
+   "cat": "Envelope",
+   "idea": "Lime textile-reinforced mortar",
+   "pros": "+100–536% in-plane strength; reversible, breathable",
+   "cons": "a repair, not a default",
+   "verdict": "niche",
+   "where": "making-system/ENVELOPE.md"
+  },
+  {
+   "cat": "Envelope",
+   "idea": "Earth tubes, evaporative cooling or night flushing in Arkansas",
+   "pros": "passive cooling",
+   "cons": "humid air: mould in tubes; evaporative cooling collapses at 80–90% RH",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Storm shelter",
+   "idea": "Round drum + cap under 30°",
+   "pros": "no corners; peak suction 9.4 kPa; roof takes only the 67 mph missile; dome coefficients exist",
+   "cons": "44 kN uplift to tie down",
+   "verdict": "winner",
+   "where": "shelter_check.py, business/SHELTER_PLAN.md"
+  },
+  {
+   "cat": "Storm shelter",
+   "idea": "Pyramid or steep cone that 'deflects' debris",
+   "pros": "looks strong",
+   "cons": "ICC 500 fires the missile perpendicular; faces ≥30° take the full 100 mph; no ASCE 7 coefficients",
+   "verdict": "killed",
+   "where": "shelter_check.py"
+  },
+  {
+   "cat": "Storm shelter",
+   "idea": "Box with flat roof",
+   "pros": "standard product",
+   "cons": "21.8 kPa corner suction; 64 kN tie-down",
+   "verdict": "fallback",
+   "where": "shelter_check.py"
+  },
+  {
+   "cat": "Storm shelter",
+   "idea": "Sacrificial fired skin + cavity + grouted cellular core",
+   "pros": "copies walls that already passed 100 mph",
+   "cons": "grout cure; needs lab testing ($75–175k)",
+   "verdict": "test",
+   "where": "business/SHELTER_PLAN.md"
+  },
+  {
+   "cat": "Storm shelter",
+   "idea": "Dry-stacked or sand-filled clay alone as a shelter wall",
+   "pros": "cheapest",
+   "cons": "4 in solid brick shattered at ~76 mph",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Living materials",
+   "idea": "Hemp-lime or husk-lime blocks for interior walls",
+   "pros": "MBV 2–3.3; carbon store; quiet; code-listed as infill (IRC BL)",
+   "cons": "0.15–0.4 MPa (non-load-bearing); 6–10 weeks to dry",
+   "verdict": "adopt",
+   "where": "rock/BIO_MATERIALS.md, data/biolime.json, house_designer.py"
+  },
+  {
+   "cat": "Living materials",
+   "idea": "Bio-lime infill in outer walls behind the siding",
+   "pros": "~80% less wall clay; U ≈ 0.25–0.35",
+   "cons": "not for the shelter core; weather and missile untested",
+   "verdict": "test",
+   "where": "rock/BIO_MATERIALS.md"
+  },
+  {
+   "cat": "Living materials",
+   "idea": "Hempcrete cast in the shell",
+   "pros": "well-known",
+   "cons": "cast-in, not removable; a second wall system",
+   "verdict": "killed",
+   "where": "rock/BIO_MATERIALS.md"
+  },
+  {
+   "cat": "Living materials",
+   "idea": "Hemp shiv briquettes as kiln fuel",
+   "pros": "~18 MJ/kg, 2–4% ash vs husk's 15–20%",
+   "cons": "needs a supply",
+   "verdict": "adopt",
+   "where": "rock/BIO_MATERIALS.md"
+  },
+  {
+   "cat": "Living materials",
+   "idea": "Hemp cover crop on worked-out pit benches",
+   "pros": "builds soil; ~13 t/ha reported on mine soil",
+   "cons": "dislikes wet compacted acid clay; licence needed",
+   "verdict": "test",
+   "where": "rock/BIO_MATERIALS.md"
+  },
+  {
+   "cat": "Living materials",
+   "idea": "Treated whole bamboo: roof framing, posts, verandahs under cover",
+   "pros": "25 years treated, 100+ kept dry (minka, guadua)",
+   "cons": "borates are reproductive toxins; must stay covered and replaceable",
+   "verdict": "test",
+   "where": "rock/BAMBOO_PROCESS.md"
+  },
+  {
+   "cat": "Living materials",
+   "idea": "Feed bamboo at death, mineralize inside, plasma + silicate 'ionized dip'",
+   "pros": "lab: silica + silane cut absorption 84.5%, MOE +15%",
+   "cons": "frontier on whole culms; toughness rarely measured",
+   "verdict": "test",
+   "where": "rock/BAMBOO_PROCESS.md"
+  },
+  {
+   "cat": "Living materials",
+   "idea": "Bamboo in place of steel rods or tendons",
+   "pros": "grown, cheap",
+   "cons": "~1/13 the stiffness of steel; creeps; can't hold prestress",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Living materials",
+   "idea": "Ceramized bamboo (SiC) or silicon-fed living bamboo",
+   "pros": "sounds permanent",
+   "cons": "SiC needs >1,400 °C and is brittle; no evidence Si feeding helps",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Living materials",
+   "idea": "Mycelium or bacteria for self-healing structure",
+   "pros": "self-repair",
+   "cons": "no mortar joints to heal; puts organisms and water in dry walls",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Living materials",
+   "idea": "Mycelium interior acoustic panels",
+   "pros": "light; λ 0.03–0.05",
+   "cons": "weak, absorbs water, combustible",
+   "verdict": "niche",
+   "where": "rock/BIO_MATERIALS.md"
+  },
+  {
+   "cat": "Energy, kiln & sourcing",
+   "idea": "Fibre-lined kiln fired by a husk gasifier",
+   "pros": "near-free fuel; ~80% less soot than old kilns; flue heat dries ware",
+   "cons": "firing control to learn",
+   "verdict": "winner",
+   "where": "SYNTHESIS.md"
+  },
+  {
+   "cat": "Energy, kiln & sourcing",
+   "idea": "Separate husk-ash burner at 600–700 °C",
+   "pros": "makes reactive ash (the pozzolan) instead of cristobalite; waste heat to the dryer",
+   "cons": "XRD testing every batch; a silica dust hazard",
+   "verdict": "adopt",
+   "where": "rock/BIO_MATERIALS.md"
+  },
+  {
+   "cat": "Energy, kiln & sourcing",
+   "idea": "Solar + battery runs the build, then the homes",
+   "pros": "renewable; outlives the build",
+   "cons": "capital; battery kept cool",
+   "verdict": "adopt",
+   "where": "SYNTHESIS.md"
+  },
+  {
+   "cat": "Energy, kiln & sourcing",
+   "idea": "'The fired wall powers the house'",
+   "pros": "—",
+   "cons": "firing energy is spent as heat; a wall stores nothing recoverable",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Energy, kiln & sourcing",
+   "idea": "River sand-bar harvesting on the Ouachita",
+   "pros": "a self-refilling sand supply",
+   "cons": "~98% of the watershed is dammed; downstream bed incision; 404/401/ESA permits",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Energy, kiln & sourcing",
+   "idea": "Wilcox pit sand + grog from kiln rejects + Jones Mill quarry sand",
+   "pros": "local, permitted, cheap",
+   "cons": "haul distance for quarry sand",
+   "verdict": "adopt",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Business & scale",
+   "idea": "A factory where clay meets rice husks (Malvern), shipping kits by truckload",
+   "pros": "costs mostly fixed; price scales with tonnes and trucks; lean shells ~$20–25/ft²",
+   "cons": "real costs and scrap unknown until a pilot runs",
+   "verdict": "winner",
+   "where": "business/BUSINESS_CASE.md, business_model.py"
+  },
+  {
+   "cat": "Business & scale",
+   "idea": "Storm shelter as the first certified product",
+   "pros": "one clear standard; public funding; plays to heavy clay",
+   "cons": "$75–175k and 12–18 months to certify",
+   "verdict": "winner",
+   "where": "business/SHELTER_PLAN.md"
+  },
+  {
+   "cat": "Business & scale",
+   "idea": "Own daylight robotics (gantry stacking, pre-assembly)",
+   "pros": "labour from 11.8 to 1.9 h/t; runs on solar hours",
+   "cons": "$125–420k; pays back only at volume",
+   "verdict": "test",
+   "where": "production_line.py"
+  },
+  {
+   "cat": "Business & scale",
+   "idea": "Start tiny, grow on grants (NSF SBIR, EPA, USDA)",
+   "pros": "capital-light; each stage proves the next",
+   "cons": "grant timing; don't build the plan on one grant",
+   "verdict": "adopt",
+   "where": "business/BUSINESS_CASE.md, business/NSF_SBIR_PROJECT_PITCH.md"
+  },
+  {
+   "cat": "Business & scale",
+   "idea": "Open-method charity instead of a company (early view)",
+   "pros": "no moat needed",
+   "cons": "superseded once the factory-and-kit model gave a real price edge",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md (Overturned)"
+  },
+  {
+   "cat": "Business & scale",
+   "idea": "Arkansas residential safe-room rebates as first funding",
+   "pros": "would pay buyers directly",
+   "cons": "Arkansas's program ended in 2016; FEMA money there goes to community safe rooms",
+   "verdict": "killed",
+   "where": "GRAVEYARD.md"
+  },
+  {
+   "cat": "Business & scale",
+   "idea": "Build 50 machines before one finished house",
+   "pros": "—",
+   "cons": "Open Source Ecology's scope creep",
+   "verdict": "killed",
+   "where": "SYNTHESIS.md §3"
+  }
+ ]
+}

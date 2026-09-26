@@ -16,7 +16,7 @@ SCRIPTS = ["system_sizing.py", "shipping_manifest.py", "costs_estimate.py", "til
            "build_timeline.py", "site_profile.py", "lime_heat.py", "nodig_check.py",
            "printer/print_check.py", "earth-panel/energy_estimate.py",
            "rock_options.py", "brick_panel_check.py",
-           "thermal_check.py", "form_check.py",
+           "thermal_check.py", "form_check.py", "ideas_matrix.py",
            "dome_check.py", "dome_thrust.py", "house_designer.py",
            "cladding_check.py", "drainage_check.py", "business_model.py", "dome_ribbed.py", "production_line.py",
            "business/pitch_check.py", "shelter_check.py", "world_check.py"]
