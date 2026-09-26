@@ -1,12 +1,12 @@
 {
-  "name": "Compound -- 3 great rooms (Ring 20) + 10 rooms (Ring 16) round a courtyard, 12 galleries",
+  "name": "Compound -- 3 great rooms (Ring 20) + 10 rooms (Ring 16), ribbed domes, 12 galleries",
   "cluster": [
     {
-      "design": "ring20_dome.json",
+      "design": "ring20_ribbed.json",
       "count": 3
     },
     {
-      "design": "ring16_dome.json",
+      "design": "ring16_ribbed.json",
       "count": 10
     }
   ],

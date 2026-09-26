@@ -111,6 +111,32 @@ governs**, because crown suction nearly cancels a light dome's weight. With the 
 but with thin margins (1.29 wind, 1.31 quake) and waits for a 3-D analysis. The 12 in dome fails. Full
 table in `SYNTHESIS.md` §2.
 
+### The ribbed dome (`dome_ribbed.py`) — the default roof from v0.1 of the kit
+A thrust line needs depth only where the thrust goes, so put the depth in **ribs** and let **thin webs** span between them (Gothic ribbed vaults; ETH's Rippmann floor; Dieste's prestressed brick vaults).
+
+- **Ribs:** 16 in deep units along the meridians, **one on every second wall fold** (8 on the 16-gon,
+  10 on the 20-gon), meeting a compression ring at the oculus. The section is constant, with skewback
+  seats on both sides for the webs, so **one die** makes them all.
+- **Webs:** the **6 in graded wall unit** (U ≈ 0.56 by itself), spanning rib to rib as shallow arches,
+  built course by course on the skewbacks. Each bay-course closes with a key unit.
+- **One tendon per rib:** a **10 mm stainless wire rope** with swaged threaded ends, nut-tensioned at
+  the oculus to 20 kN, and checked at 13 kN after 35% loss. It clamps every rib joint shut, and its
+  curve pulls the rib inward (P/R) against wind suction. That puts only **~1.2 MPa** on the rib clay,
+  with the rope at 36% of its breaking load. It's the same rod-clamp idea as the wall panels, curved.
+- **Results** (half snow, 50 m/s wind, 0.3 g quake, ribs alone with no hoop help):
+
+| house | dome clay vs 16 in cellular | worst rib GSF | worst sliding | webs |
+|---|---|---|---|---|
+| 16-gon, 8 ribs | **−35%** (3.2 vs 4.9 t) | **4.2** | 0.46 | GSF ≥ 14, net load stays downward |
+| 20-gon, 10 ribs | **−35%** (5.0 vs 7.7 t) | **2.9** | 0.53 | GSF ≥ 18 |
+| 24-gon hall, 12 ribs | — | 2.2 | 0.58 | — |
+
+- **Without the tendons the ribs fail in wind** (GSF ~1.2, joints slide): a rib and its light web
+  are pushed around by suction. **With them, the 20-gon passes every case**, which the solid dome
+  never did. Webs stay loaded downward only because the tiled skin is heavy, so the skin stays.
+- Build order: a temporary central mast holds the oculus ring; ribs go up and are tensioned; webs
+  are laid course by course between them; the mast comes out.
+
 ## 4. The designer (`house_designer.py`)
 
 ```

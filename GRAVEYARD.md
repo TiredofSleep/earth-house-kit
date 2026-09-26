@@ -28,6 +28,8 @@ Kept on purpose so nobody rebuilds them. Each entry: the idea, what killed it, t
 | Siding hung on nibs alone | BS 5534 won't accept nibs against wind suction | each board locks into the one below (2–5% of strength at 50 m/s) |
 | Husk ash as a flux for a vitrified skin | it's ~90–97% silica: refractory at 1,000 °C, forms cristobalite | glass cullet as the skin flux; husk as the core pore former |
 | Spray coatings on the masonry (carbon-fibre epoxy, polyurea, elastomerics, BaSO4 paint) | trap vapour and salts (BIA TN 6A), hide cracks, 7–20 year recoat cycles, irreversible; radiative cooling fades in humid air; none passes ICC 500 missile tests on masonry | light engobed tiles, silicate paint, siloxane on the plinth only, lime TRM kept as a repair, one ICC 500 safe room |
+| A river 'sand-bar harvesting' structure on the Ouachita at Malvern | ~98% of the watershed above Malvern is behind three dams that trap sand; harvesting a sediment-starved reach causes bed incision downstream (Kondolf, 'Hungry Water'); 404/401/ESA/State Lands permits | screen the Wilcox sand beds in the clay pit, grog from kiln rejects, buy quarry sand at Jones Mill |
+| Plain dry (unstressed) dome ribs | wind: GSF ~1.2 and joints slide (`dome_ribbed.py`) | one stainless tendon per rib, 20 kN |
 | Concrete from clayey site soil | clay fines: 10–14% cement on clay soil gave only 1.5–3.4 MPa | only with screened sand/gravel |
 
 ## Overturned (kills that were wrong)

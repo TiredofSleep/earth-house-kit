@@ -104,5 +104,15 @@
   "method": "die",
   "clay_kg": 3.5,
   "role": "300 mm fired drain tile at the bottom of the rubble trench (ASTM C4 practice)"
+ },
+ "dome.rib 16 in (skewback seats)": {
+  "method": "die",
+  "clay_kg": 9.2,
+  "role": "rib unit, 305 mm long along the meridian; constant section with skewback seats both sides; a cell carries the rib tendon"
+ },
+ "dome.web 6 in graded": {
+  "method": "die",
+  "clay_kg": 4.1,
+  "role": "web unit spanning rib to rib as a shallow arch; the 6 in graded wall section; one closing key per bay-course"
  }
 }

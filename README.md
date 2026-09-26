@@ -49,6 +49,7 @@ python thermal_check.py            # printed cross-sections: U-value, time lag (
 python form_check.py               # plan shape: floor per panel, wind, self-bracing
 python dome_check.py               # fired-unit dome: thrust, ring, thickness, dry build
 python dome_thrust.py              # dome under half snow, wind, earthquake (thrust lines, sliding)
+python dome_ribbed.py              # ribbed dome: post-tensioned ribs + thin webs, 35% less clay
 python house_designer.py           # every design in houses/: full parts list + checks
 python cladding_check.py           # hung fired siding: weight, wind lock, solar gain
 python drainage_check.py           # fluted drainage foundation vs NOAA design storms

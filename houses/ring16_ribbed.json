@@ -1,8 +1,8 @@
 {
-  "name": "Hall 24 -- 24-gon barn / hall, ribbed dome (12 post-tensioned ribs)",
+  "name": "Ring 16 -- 16-gon, 8 in thermal walls, RIBBED dome (8 post-tensioned ribs + 6 in webs)",
   "plan": {
     "type": "polygon",
-    "modules": 24
+    "modules": 16
   },
   "wall": {
     "unit": "wall8in",
@@ -11,14 +11,6 @@
   "openings": [
     {
       "type": "door"
-    },
-    {
-      "type": "door"
-    },
-    {
-      "type": "window",
-      "sill_ft": 3,
-      "head_ft": 6.67
     },
     {
       "type": "window",
@@ -30,9 +22,9 @@
     "type": "dome_cap",
     "phi0_deg": 51.8,
     "unit_name": "16 in deep dome",
-    "oculus_m": 0.8,
+    "oculus_m": 0.5,
     "skin": "tiled",
-    "ribs": 12
+    "ribs": 8
   },
-  "notes": "729 ft^2; double door = two adjacent door modules"
+  "notes": "322 ft^2; the smaller first build"
 }

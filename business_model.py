@@ -32,9 +32,13 @@ def val(section, key):
 
 
 def group(kind):
-    for g in ("wall", "dome", "siding", "plinth"):
+    if kind.startswith("dome.voussoir"):
+        return "dome"                  # a solid-cellular dome: lean replaces it with the ribbed design
+    for g in ("wall", "siding", "plinth"):
         if kind.startswith(g):
             return g
+    if kind.startswith("dome."):
+        return "dome_other"            # ribs, webs, eaves, tiles, oculus: kept as designed
     return "drainage"
 
 
@@ -183,7 +187,7 @@ if __name__ == "__main__":
     print("\n" + "=" * 110)
     print("LEAN vs BASELINE (production plant, 90% full, 300 miles): same kits, less clay, less handling")
     print("=" * 110)
-    print("lean = graded 6 in walls (-35%), ribbed dome (-40%, TO-DESIGN), gravel drip trench instead of fired")
+    print("lean = graded 6 in walls (-35%), solid domes swapped for the ribbed design (-35%, dome_ribbed.py), gravel trench for fired")
     print("       drainage parts, extrusion-first labor 1.5-4 h/t, capital-light plant (capex x0.5, fixed x0.8)")
     print(f"  {'kit':44s} {'tonnes':>13} {'ex-works (low case)':>23} {'$/ft2':>11} {'lean delivered':>21}")
     for k in kits:

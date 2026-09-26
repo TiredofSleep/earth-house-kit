@@ -19,6 +19,7 @@ from form_check import polygon
 import brick_panel_check as bp
 import dome_check as dc
 import dome_thrust as dt
+import dome_ribbed as dr
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 MODULE = 4 * FT
@@ -163,7 +164,15 @@ def design(spec):
             voussoirs -= ceil(pi * (oculus / 2) ** 2 / per_course_face)
             parts.add("dome.oculus_ring", ceil(pi * oculus / 0.193))
             parts.add_other("oculus cap / skylight", 1)
-        parts.add(f"dome.voussoir {roof.get('unit_name', '8 in thermal')}", voussoirs)
+        if roof.get("ribs"):
+            nrib = roof["ribs"]
+            rib_len = nrib * r["R"] * radians(roof.get("phi0_deg", 51.8))
+            parts.add("dome.rib 16 in (skewback seats)", ceil(rib_len / 0.305))
+            web_m2 = r["area"] - rib_len * dr.RIB["width"]
+            parts.add("dome.web 6 in graded", ceil(web_m2 / (0.295 * dc.COURSE)))
+            parts.add_other("rib tendon: " + dr.TENDON["name"], nrib, f"x {r['R'] * radians(roof.get('phi0_deg', 51.8)):.2f} m")
+        else:
+            parts.add(f"dome.voussoir {roof.get('unit_name', '8 in thermal')}", voussoirs)
         parts.add("dome.eave (corbelled drip course)", ceil(n * MODULE / UNIT_W))
         dj = JOINTS["dome_course"]
         parts.add_other(f"dome joint: {dj['name']}", 1, "(every voussoir)")
@@ -175,7 +184,11 @@ def design(spec):
         A = dt.arch(r["R"], radians(roof.get("phi0_deg", 51.8)), unit["t"], unit["kg_m2"] * G + skin_pa)
         worst = []
         for name, case in dt.CASES:
-            res = dt.solve(A, dt.loads(A, case))
+            if roof.get("ribs"):
+                Ar, Fr = dr.rib_arch(r["R"], roof["ribs"], case)
+                res = dr.solve_pt(Ar, Fr, dr.P_DESIGN)
+            else:
+                res = dt.solve(A, dt.loads(A, case))
             worst.append((res["gsf"], res["slide"] / dt.MU_ALLOW, name))
         checks["uneven"] = worst
         checks["dome"] = r
@@ -256,8 +269,11 @@ def report(path):
         verdict = "OK" if g_min[0] >= 1.5 and sl_max <= 1 else ("STANDS, thin margin -> 3-D analysis first" if g_min[0] >= 1 else "FAILS")
         print(f"  uneven loads (half snow, wind 50 m/s, quake 0.3 g; slices only, no hoop help): worst GSF"
               f" {g_min[0]:.2f} ({g_min[2]}), worst sliding {sl_max:.2f} of allowed -> {verdict}")
-        gsf_ok = "OK" if r["gsf"] >= dc.GSF_TARGET else f"UNDER {dc.GSF_TARGET}x -> deeper voussoir or smaller plan"
-        print(f"  dome thickness: {r['gsf']:.1f}x the minimum for a masonry dome -> {gsf_ok}")
+        if spec.get("roof", {}).get("ribs"):
+            print("  dome thickness: ribbed -- the rib thrust-line check above governs (16 in ribs, post-tensioned)")
+        else:
+            gsf_ok = "OK" if r["gsf"] >= dc.GSF_TARGET else f"UNDER {dc.GSF_TARGET}x -> deeper voussoir or smaller plan"
+            print(f"  dome thickness: {r['gsf']:.1f}x the minimum for a masonry dome -> {gsf_ok}")
         print(f"  dome dry-build: {r['keyed'][1]*100:.0f}-{r['keyed'][0]*100:.0f}% of the dome has beds too steep for dry friction"
               f" -> '{JOINTS['dome_course']['name']}' holds each voussoir until its course closes")
 

@@ -226,3 +226,19 @@ calculation. Many publisher pages were paywalled.
 - Keim silicate paint: patented 1878; 1891 facades reported never repainted. https://www.keim.com/company/history/
 - ICC 500 / FEMA P-361: 15 lb 2x4 at 100 mph; grouted reinforced masonry passes; no polyurea-on-masonry pass found.
   https://www.structuremag.org/article/tornado-debris-impact-testing-and-masonry/
+
+## Sand at Malvern
+- Ouachita above Malvern: Blakely Mountain (Lake Ouachita, 1,105 sq mi), Carpenter (Lake Hamilton,
+  1,459), Remmel (Lake Catherine, 1,549) vs 1,585 sq mi at Malvern: ~98% of the watershed is behind dams.
+  https://waterdata.usgs.gov/monitoring-location/USGS-07359500/
+- Kondolf 1997 "Hungry Water": mining at replenishment still starves downstream; documented 3-7 m
+  incision and bridge damage. https://people.wou.edu/~taylors/g407/kondolf_97.pdf
+- NMFS 2005 gravel guidance: prefer upland/terrace sources, pits outside the channel migration zone.
+  https://media.fisheries.noaa.gov/dam-migration/03-401-11.pdf
+- Iowa vanes (Odgaard) and bendway weirs redistribute moving sediment; they don't create it.
+- Arkansas Rule 15 streambed definition excludes the Ouachita from the Louisiana line to Remmel Dam
+  (confirm with DEQ); Commissioner of State Lands permits and royalties for navigable beds.
+- Malvern/Perla brick clays: Wilcox Group, mostly sand with clay beds.
+  https://geology.arkansas.gov/minerals/industrial/clay.html ; Acme plants 1921, 1967, 1980 ("Brick
+  Capital of the World"). https://encyclopediaofarkansas.net/entries/brick-industry-2144/
+- Grog 20-30% in plastic bodies; 10% sand optimum in one clay-brick study; BIA: culls ground as grog.

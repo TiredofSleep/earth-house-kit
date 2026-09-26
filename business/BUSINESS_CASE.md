@@ -28,13 +28,14 @@
 
 **Our kits, production plant (6,000 t/yr) running 90% full, 300 miles** (`business_model.py`):
 
-| kit | ft² | fired t | trucks | baseline $/ft² | **lean $/ft²** | lean delivered |
-|---|---|---|---|---|---|---|
-| Shed 8 | 77 | 7.5 → 4.5 | 1 | 77 | **42** | $4.3k–8.8k |
-| Studio 12 | 179 | 12.3 → 7.5 | 1 | 53 | **29** | $6.2k–13.3k |
-| **Ring 16** | 322 | 18.1 → 11.1 | 1 | 42 | **22** | **$8.3k–18.2k** |
-| Ring 20 | 505 | 24.4 → 15.1 | 2 → 1 | 35 | **19** | $10.5k–23.5k |
-| Compound (13 pavilions, 5,379 ft²) | 5,379 | 279 → 172 | 14 → 9 | 39 | **21** | $122k–273k |
+| kit | ft² | fired t (baseline → lean) | baseline $/ft² | **lean $/ft²** | lean delivered |
+|---|---|---|---|---|---|
+| Shed 8 | 77 | 7.5 → 4.9 | 77 | **43** | $4.4k–9.1k |
+| Studio 12 | 179 | 12.3 → 8.3 | 53 | **30** | $6.5k–13.9k |
+| **Ring 16, ribbed dome** | 322 | 16.4 → 12.4 | 39 | **23** | **$8.5k–18.7k** |
+| Ring 20, ribbed dome | 505 | 21.8 → 16.9 | 32 | **19** | $10.9k–24.2k |
+| Hall 24, ribbed dome | 729 | 27.6 → 22.0 | 28 | **17** | $14.3k–31.1k |
+| Compound (13 ribbed pavilions) | 5,379 | 254 → 191 | 36 | **21** | $126k–282k |
 
 *(Low-case costs shown for $/ft²; delivered prices give the full low–high range. Every kit is a
 **shell**: walls, dome, tiled skin, siding, plinth. Site work, doors, windows, services, finishes
@@ -42,15 +43,16 @@ and assembly are extra.)*
 
 **What makes "lean":**
 1. **Graded 6 in walls** instead of 8 in: they meet the insulation target with ~35% less clay (`thermal_check.py`).
-2. **A ribbed dome**: deep ribs and a thin shell between, ~40% less clay. **Not designed yet.** It
-   has to pass `dome_thrust.py` before this number means anything.
+2. **The ribbed dome** (designed and checked, `dome_ribbed.py`): 8–10 post-tensioned ribs plus
+   6 in graded webs, **35% less dome clay**, and it passes every load case. It also makes the 20-gon
+   and the 24-gon hall pass.
 3. **A gravel drip trench dug on site** instead of fired apron, collector and drain-tile parts.
 4. **Extrusion-first production**: 1.5–4 labour-hours per tonne instead of 4–12. Automated US
    plants run 60–200 kt/yr with 20–30 people, a fraction of an hour per tonne.
 5. **A capital-light plant**: used extruders and forklifts, open sheds, and a zigzag or Hoffmann
    kiln built from the plant's own bricks, the way brickmakers do (capex ×0.5, UNSOURCED).
 
-**Where the money goes (lean Ring 16, low case):** parts $4.1k, fixed $1.7k, margin $1.4k,
+**Where the money goes (lean Ring 16 ribbed, low case):** parts $4.1k, fixed $1.9k, margin $1.5k,
 freight $1.1k. **Clay and husk are a few percent of it.** The levers are handling labour, steel
 hardware, and keeping the plant full. That is why the lean list is about less clay and less
 handling, not cheaper earth: the earth is already nearly free.
@@ -89,6 +91,14 @@ flat land, good roads, and a market within ~300–600 miles.
   ~0.8 Mt of hulls, at **$5–8 per ton FOB mill** (USDA AMS). Big mills gasify their own hulls, but
   the smaller ones sell. Land is $2.4–3.7k/acre (USDA NASS 2025). Delta soils are often expansive
   alluvial clays, so test them for firing before buying.
+- **Sand** (tempering 10–25%, rims, beds, mortar): **not from the river.** About 98% of the Ouachita's
+  watershed above Malvern is behind Blakely, Carpenter and Remmel dams, which trap its sand, so
+  harvesting there would starve the reach downstream (Kondolf, "Hungry Water") and needs
+  404/401/ESA/State Lands permits. Instead:
+  - **screen the sand beds of the clay itself.** Malvern/Perla brick clays are the Wilcox Group,
+    mostly sand interbedded with clay (Arkansas Geological Survey), under the same open-cut permit;
+  - **grog**: crush kiln rejects, as the brick industry does ("virtually no waste", BIA TN 9);
+  - **buy** quarry fines at Martin Marietta Jones Mill in Malvern if needed [TO-VERIFY availability].
 - **The likely answer:** a clay site near Malvern, trucking hulls ~90 miles, or a Delta site on a
   tested clay. Industrial power is 7.3 ¢/kWh (EIA); plant solar covers fans, extruders and printers.
 

@@ -48,8 +48,8 @@ panels, and tilted up. The compacted-earth kit below stays as the fallback until
 - R1. ~~Dome~~ v0.1 done: `dome_check.py`, `KIT_OF_PARTS.md` §3 (51.8° cap, 16 in deep voussoirs,
   seat steps, channel ring); uneven loads done in `dome_thrust.py` (16-gon passes with the tiled skin).
   Remaining: 3-D thrust network / discrete-element check for the 20-gon; site wind Cp values.
-- R10. **Lean design** (business case §1): ribbed dome (design + `dome_thrust.py` pass), graded 6 in
-  wall unit, cheaper keys/rails; then real quotes into `data/business.json`.
+- R10. **Lean design** (business case §1): ~~ribbed dome~~ done (`dome_ribbed.py`: 8-10 PT ribs, -35%);
+  graded 6 in wall unit, cheaper keys/rails; then real quotes into `data/business.json`.
 - R11. **Clusters**: gallery/link vault design and check (`house_designer.py` LINK is a placeholder).
 - R9. **Envelope** (`making-system/ENVELOPE.md`): board die + lock geometry; apron/collector segment
   hose test; graded bilayer bars; add boards, pavers, drain tile to `house_designer.py`.
