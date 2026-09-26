@@ -27,7 +27,8 @@
     "type": "dome_cap",
     "phi0_deg": 51.8,
     "unit_name": "16 in deep dome",
-    "oculus_m": 0.6
+    "oculus_m": 0.6,
+    "skin": "tiled"
   },
   "notes": "505 ft^2 from the same 20 modules as a 20x20 ft square; oculus for stack ventilation"
 }

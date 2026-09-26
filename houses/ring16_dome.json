@@ -22,7 +22,8 @@
     "type": "dome_cap",
     "phi0_deg": 51.8,
     "unit_name": "16 in deep dome",
-    "oculus_m": 0.5
+    "oculus_m": 0.5,
+    "skin": "tiled"
   },
   "notes": "322 ft^2; the smaller first build"
 }

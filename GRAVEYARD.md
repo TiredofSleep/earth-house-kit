@@ -20,6 +20,10 @@ Kept on purpose so nobody rebuilds them. Each entry: the idea, what killed it, t
 | Fire the whole house in place (Khalili's Geltaftan) | tried in Iran in the 1970s–80s and abandoned: fuel cost and pollution; heating a room from inside wastes most of the heat and fires unevenly | fire small units in an insulated kiln, then assemble |
 | Sulfur concrete walls | melts at 115–120 °C, burns to SO₂; forbids swelling clay in the aggregate (ACI 548.2R) | not for homes; maybe plinths, tanks, drains |
 | Bio-cement (MICP/EICP) as the general route | sands only; about 1 kg of ammonium chloride waste per kg of calcite; 2–6 t of reagents per house | niche for sandy sites |
+| 12 in deep dome voussoirs | `dome_thrust.py`: under 50 m/s wind no thrust line fits and dry joints slide | 16 in deep voussoirs + the heavier tiled skin |
+| Guastavino/timbrel 'no formwork' for dry units | the trick is fast-setting gypsum gluing each tile; dry units have no glue | seat steps + closing keys, course by course, light guide arches |
+| Earth tubes / evaporative cooling / night flushing as the summer plan in Arkansas | humid air: condensation and mold in tubes, evaporative cooling collapses at 80–90% RH, night air too wet | shade, fans, cross-ventilation, a small solar dehumidifier |
+| Salt-glazed units | needs ~1,250–1,300 °C and releases HCl; field kilns reach ~1,000–1,100 °C | engobe the outer face, or fire exterior units hotter |
 | Concrete from clayey site soil | clay fines: 10–14% cement on clay soil gave only 1.5–3.4 MPa | only with screened sand/gravel |
 
 ## Overturned (kills that were wrong)

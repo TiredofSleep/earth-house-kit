@@ -74,5 +74,10 @@
   "method": "die",
   "clay_kg": 7.4,
   "role": "spherical dome: every course subtends the same angle, so ONE die section (wedge + seat step) serves every course; only the hoop end-cut angle changes per course (jig, leather-hard)"
+ },
+ "dome.scale_tile": {
+  "method": "die",
+  "clay_kg": 1.3,
+  "role": "overlapping fired scale tile, fired hotter (1,050-1,100 C) or engobed outer face; waterproofs AND weighs the crown down against wind suction"
  }
 }

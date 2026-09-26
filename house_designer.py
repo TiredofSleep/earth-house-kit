@@ -18,6 +18,7 @@ from common import FT, IN, G, PANEL_H
 from form_check import polygon
 import brick_panel_check as bp
 import dome_check as dc
+import dome_thrust as dt
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 MODULE = 4 * FT
@@ -123,6 +124,16 @@ def design(spec):
         dj = JOINTS["dome_course"]
         parts.add_other(f"dome joint: {dj['name']}", 1, "(every voussoir)")
         parts.add_other(f"  {JOINTS['dome_key_course']['name']}", courses, "(one closing key per course)")
+        if roof.get("skin") == "tiled":
+            parts.add("dome.scale_tile", ceil(r["area"] / 0.03))          # ~0.03 m2 exposed per tile [TO-MEASURE]
+            parts.add_other("cocciopesto render (lime + crushed kiln rejects), 20 mm", round(r["area"] * 0.02, 1), "m3")
+        skin_pa = 1.15e3 if roof.get("skin") == "tiled" else dc.SKIN_KPA * 1e3
+        A = dt.arch(r["R"], radians(roof.get("phi0_deg", 51.8)), unit["t"], unit["kg_m2"] * G + skin_pa)
+        worst = []
+        for name, case in dt.CASES:
+            res = dt.solve(A, dt.loads(A, case))
+            worst.append((res["gsf"], res["slide"] / dt.MU_ALLOW, name))
+        checks["uneven"] = worst
         checks["dome"] = r
         checks["dome_courses"] = courses
     checks["panel"] = bp.drystack(bp.THERMAL_UNIT if "8in" in wall_unit else bp.UNITS["printed cellular brick"],
@@ -165,7 +176,8 @@ def report(path):
     print(f"  {total:6,d}  total: {s['by_method']['die']:,} die-extruded, {s['by_method']['print']:,} printed")
     print("\nSTEEL, KEYS, FRAMES")
     for (kind, unit), count in parts.other.items():
-        print(f"  {count:6,d}  {kind} {unit}")
+        num = f"{count:6,d}" if isinstance(count, int) else f"{count:6.1f}"
+        print(f"  {num}  {kind} {unit}")
     print("\nMAKING IT")
     print(f"  fired clay {s['clay_kg']/1e3:.1f} t -> husks {s['husks'][0]/1e3:.2f}-{s['husks'][1]/1e3:.2f} t,"
           f" kiln firings {s['firings'][0]:.0f}-{s['firings'][1]:.0f} (0.5-1 t hood)")
@@ -184,6 +196,11 @@ def report(path):
         print(f"  dome: rise {r['rise']:.2f} m, {c['dome_courses']} courses, shell stress {r['sigma']:.3f} MPa,"
               f" rim thrust {r['H']/1e3:.2f} kN/m, ring tension {r['T']/1e3:.1f} kN"
               f" (channel ring {ring/r['T']:.0f}x) -> OK")
+        g_min = min(worst := c["uneven"])
+        sl_max = max(w[1] for w in worst)
+        verdict = "OK" if g_min[0] >= 1.5 and sl_max <= 1 else ("STANDS, thin margin -> 3-D analysis first" if g_min[0] >= 1 else "FAILS")
+        print(f"  uneven loads (half snow, wind 50 m/s, quake 0.3 g; slices only, no hoop help): worst GSF"
+              f" {g_min[0]:.2f} ({g_min[2]}), worst sliding {sl_max:.2f} of allowed -> {verdict}")
         gsf_ok = "OK" if r["gsf"] >= dc.GSF_TARGET else f"UNDER {dc.GSF_TARGET}x -> deeper voussoir or smaller plan"
         print(f"  dome thickness: {r['gsf']:.1f}x the minimum for a masonry dome -> {gsf_ok}")
         print(f"  dome dry-build: {r['keyed'][1]*100:.0f}-{r['keyed'][0]*100:.0f}% of the dome has beds too steep for dry friction"

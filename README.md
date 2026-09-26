@@ -20,6 +20,7 @@ Roman-style recipe), or 6–8% cement where that's simpler.
 
 | read | why |
 |---|---|
+| [SYNTHESIS.md](SYNTHESIS.md) | **start here:** the whole house, layer by layer, and where each proven idea comes from |
 | [MISSION.md](MISSION.md) | the whole plan: system, energy, costs, tests, kill-conditions |
 | [GRAVEYARD.md](GRAVEYARD.md) | ideas that were killed or corrected, with the arithmetic that killed them |
 | [making-system/TILTUP_DETAILING.md](making-system/TILTUP_DETAILING.md) | how a panel gets from the pit to a braced wall |
@@ -45,6 +46,7 @@ python brick_panel_check.py        # printed fired units: panel, rods, kiln, thr
 python thermal_check.py            # printed cross-sections: U-value, time lag (2-D heat flow)
 python form_check.py               # plan shape: floor per panel, wind, self-bracing
 python dome_check.py               # fired-unit dome: thrust, ring, thickness, dry build
+python dome_thrust.py              # dome under half snow, wind, earthquake (thrust lines, sliding)
 python house_designer.py           # every design in houses/: full parts list + checks
 ```
 

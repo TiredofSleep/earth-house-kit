@@ -104,6 +104,13 @@ compliant bed. Stainless expands ~2× as much as fired clay with heat.
 
 ---
 
+### Uneven loads (`dome_thrust.py`)
+Half snow, 50 m/s wind and 0.15–0.3 g earthquake, orange-slice arches with no hoop help: **wind
+governs**, because crown suction nearly cancels a light dome's weight. With the tiled cocciopesto skin
+(~1.15 kPa) the 16-gon passes every case at ≥ 1.62 and no joint slides. The 20-gon stands everywhere
+but with thin margins (1.29 wind, 1.31 quake) and waits for a 3-D analysis. The 12 in dome fails. Full
+table in `SYNTHESIS.md` §2.
+
 ## 4. The designer (`house_designer.py`)
 
 ```

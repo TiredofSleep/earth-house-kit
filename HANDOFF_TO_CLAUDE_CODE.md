@@ -46,8 +46,11 @@ panels, and tilted up. The compacted-earth kit below stays as the fallback until
 - R0. **Phase R bench tests** (BRICK_PANEL.md §9): fire home clay; print, fire, grind units;
   dry-stack column seating loss; one panel tilted and broken; thermal test.
 - R1. ~~Dome~~ v0.1 done: `dome_check.py`, `KIT_OF_PARTS.md` §3 (51.8° cap, 16 in deep voussoirs,
-  seat steps, channel ring). Remaining: uneven-load analysis (thrust network / discrete elements),
-  rain skin.
+  seat steps, channel ring); uneven loads done in `dome_thrust.py` (16-gon passes with the tiled skin).
+  Remaining: 3-D thrust network / discrete-element check for the 20-gon; site wind Cp values.
+- R8. **Synthesis items** (`SYNTHESIS.md` §1): rubble-trench/gabion foundation + plinth ring detail;
+  optional sliding isolation layer; rain-capped cupola; dehumidifier sizing on the array; cistern;
+  husk-gasifier fibre kiln with flue-heat dryer; satellite-dome expansion rules; certification path.
 - R6. **Assembly order** (DESIA blocking graphs): one closing key per panel and per course; this
   becomes the build manual.
 - R7. **Joint tests:** wedged fold key (pre-compression, slip, re-drive), seat-step sliding, a 2 m

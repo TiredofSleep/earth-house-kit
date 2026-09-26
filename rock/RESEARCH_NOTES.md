@@ -119,3 +119,55 @@ calculation. Many publisher pages were paywalled.
   2018); topological interlocking assemblies (Wang et al. 2019). https://dl.acm.org/doi/10.1145/3272127.3275034
 - **Gaps:** no shake tests of Inca walls; no data on fired-clay interlocking keys; Armadillo and
   Striatus interface pads not confirmed (paywalled).
+
+## Building systems to synthesize (precedents)
+- Dieste reinforced ceramic: Gaussian vaults to ~45 m, 18–25 cm thick, steel in grouted joints,
+  prestressed lengthwise; movable formwork reused strip by strip. https://en.wikipedia.org/wiki/Gaussian_vault
+- Guastavino tile vaults: first layer set in fast-setting gypsum = no formwork (needs adhesion).
+  https://en.wikipedia.org/wiki/Guastavino_tile
+- SUDU (Addis Ababa 2010): 5.8 m floor vault <10 cm; diaphragms critical under asymmetric load;
+  double curvature more stable; waterproofing "very delicate"; build 2 prototypes, test 1 to failure.
+  https://block.arch.ethz.ch/brg/files/Block_2010_ATDF_tile-vaulted-systems-for%20africa_1425211564.pdf
+- Mapungubwe: ~200,000 site-pressed tiles (5 MPa), vaults 5–20 m, ~$110/m², 31 labour-h/m², ~30%
+  cheaper than an RC shell, 100+ trained; unskilled easier to train than relying on existing skills.
+  https://block.arch.ethz.ch/brg/files/Ramage_2010_ATDF_Mapungubwe_1425208976.pdf
+- Isler shells: light prestress "practically eliminates" cracking (secondary).
+- Segal self-build (Lewisham): dry, bolted, demountable, one grid; needed land + a sponsor.
+  https://world-habitat.org/awards/winners/walter-segal-self-build-housing-project-london/
+- WikiHouse: 0.1 mm CNC blocks, mortgageable after a 10-year structural warranty; each building
+  still needs engineer sign-off; the sawtooth roof leaked. https://www.wikihouse.cc/product
+- Open Source Ecology CEB press: 16 bricks/min in trials, ~0.5/min sustained by one shoveller.
+  https://www.opensourceecology.org/liberator-2-production-rate-calculations/
+- Elemental Quinta Monroy: 92 of 93 households expanded; welding-spark fires in add-ons.
+  http://www.scielo.br/j/urbe/a/ZCgQWz9QtCjQhSdxvxQQY6q/?lang=en
+- Confined masonry: 1–2 storey houses mostly undamaged in Maule 2010; wall density 2–5%.
+  https://www.confinedmasonry.org/wp-content/uploads/2009/09/ConfinedMasonryDesignGuide82011.pdf
+- Low-cost isolation: geotextile sliding plinth ~70% less roof acceleration, 50 mm slide (Nanda);
+  rubber-soil 40–50%; mostly lab/scale evidence.
+- Rubble trench, frost-protected shallow foundations, capillary breaks: see HUD FPSF guide,
+  https://buildingscience.com/documents/building-science-insights-newsletters/bsi-123-capillarity-sucks
+- Nubian Vault Association: 7,000+ houses, ~1,200 masons; plastic + ≥6 cm plaster in wetter climates.
+- Hydraform dry-stack house on a shake table: minor damage, 4.6 mm permanent shift.
+  https://scielo.org.za/scielo.php?script=sci_arttext&pid=S1021-20192011000100003
+
+## Climate, envelope, water, kilns, energy
+- Hot Springs July: 33.3 °C high / 21.5 °C low, dew point ≥18 °C: summer is humidity-limited.
+- Fans: comfort limit 25.6 → ~28.3 °C at 0.5 m/s. https://cbe-berkeley.gitbook.io/fans-guidebook/
+- Night flushing negligible in humid Kumasi. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3708435/
+- Earth tubes condense and mold in humid climates; radiant cooling needs dehumidification.
+- RH <50% vs ≥70% slows mold growth up to ~90%. https://www.epa.gov/mold/mold-course-chapter-2
+- Kahgel mud roofs need renewal every 1–2 years; Auroville domes: lime-alum-tannin top coat.
+  https://www.earth-auroville.com/stabilised_earth_waterproofing_en.php
+- Cocciopesto: lime + crushed fired brick, Roman cisterns.
+  https://www.unrv.com/articles/how-romans-waterproofed-buildings-baths-and-cisterns.php
+- ASTM C216 SW: 5-h boil ≤17% (avg), saturation coefficient ≤0.78, or cold absorption ≤8%.
+  https://s3.amazonaws.com/brickit-images/files/ASTM_C_216.pdf
+- Firing 1,000–1,100 °C: 13.8–18.2 MPa, 6–9% absorption; calcareous clays need ~1,100 °C.
+  https://nopr.niscpr.res.in/bitstream/123456789/4811/1/JSIR%2065(2)%20153-159.pdf
+- Efflorescence sources are mostly cement and soil contact. https://www.gobrick.com/media/file/23a-tn23a.pdf
+- VSBK 0.84, zigzag 1.16, FCBTK ~1.59 MJ/kg; zigzag −80% PM2.5 vs FCBTK.
+  https://www.osti.gov/pages/servlets/purl/3484616 ; https://pmc.ncbi.nlm.nih.gov/articles/PMC9447410/
+- First flush 1–2 L/m²; ferrocement tanks 50–100 year life.
+- LFP 4,000–6,000 cycles to 80%; heat shortens life. https://www.okrasolar.com/blog/a-better-way-to-estimate-battery-lifetime
+- Mini-grids: Sundarbans plants abandoned (no O&M); Chhattisgarh 1,400+ succeeded.
+  https://link.springer.com/article/10.1186/s13705-018-0185-9
