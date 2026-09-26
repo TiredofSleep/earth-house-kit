@@ -105,6 +105,21 @@ def design(spec):
     rj = JOINTS["ring_splice"]
     parts.add_other(f"ring splice: {rj['name']}", n)
 
+    # envelope: the coat (siding) and the boots (plinth, apron, collector, drain) -- ENVELOPE.md
+    if spec.get("envelope", True):
+        wall_m2 = n * MODULE * H
+        for o in openings:
+            wall_m2 -= MODULE * ((o.get("head_ft", 6.67) - (o.get("sill_ft", 0) if o["type"] != "door" else 0)) * FT)
+        parts.add("siding.board", ceil(wall_m2 / (1.20 * 0.150)))
+        parts.add_other("siding rail (clamps to panel channels)", 2 * n, f"x {H:.2f} m")
+        parts.add_other("siding batten", round(wall_m2 / 0.150, 0), "m")
+        parts.add("plinth.fluted", n * COLS * 2)
+        r_drip = a + 0.30
+        apron_m2 = pi * ((r_drip + 0.9) ** 2 - r_drip ** 2)
+        parts.add("apron.fluted_paver", ceil(apron_m2 / 0.06))
+        parts.add("collector.channel", ceil(2 * pi * (r_drip + 0.9) / 0.30))
+        parts.add("drain.tile", ceil(2 * pi * a / 0.30))
+
     # roof
     roof = spec.get("roof", {})
     checks = {}

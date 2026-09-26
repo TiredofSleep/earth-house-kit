@@ -1,0 +1,82 @@
+{
+  "_note": "Business-model assumptions for a clay + rice-husk kit factory. DRAFT: every value is a placeholder to be replaced by the sourced research (business/BUSINESS_CASE.md lists sources). USD 2026. Ranges are (low, high).",
+  "plant_stages": {
+    "pilot": {
+      "capacity_t_per_yr": 1000,
+      "capex": {
+        "land 20-40 acres with clay": [80000, 200000],
+        "open-sided production shed + drying shed": [150000, 400000],
+        "fibre-hood periodic kilns x4 + husk gasifier burners": [120000, 300000],
+        "de-airing pug mill / extruder + 6 dies": [80000, 250000],
+        "clay printers x3": [60000, 180000],
+        "surface grinders + jigs": [40000, 120000],
+        "clay prep: crusher, screen, mixer": [60000, 200000],
+        "forklift, loader, yard equipment": [80000, 200000],
+        "solar array + battery for the plant": [60000, 150000],
+        "lab + QA (compression frame, freeze-thaw, absorption)": [30000, 80000]
+      },
+      "fixed_annual": {
+        "salaried staff (manager, engineer, sales/admin)": [200000, 350000],
+        "certification, engineering, testing (amortized)": [60000, 150000],
+        "insurance incl. product liability": [40000, 120000],
+        "permits, compliance, software, overhead": [30000, 80000]
+      }
+    },
+    "production": {
+      "capacity_t_per_yr": 6000,
+      "capex": {
+        "land 40-80 acres with clay": [150000, 400000],
+        "production + drying buildings": [600000, 1500000],
+        "continuous kiln (small tunnel / VSBK-style) + husk gasifiers": [800000, 2500000],
+        "extrusion line x2 + dies": [300000, 800000],
+        "clay printers x8": [160000, 480000],
+        "grinding line": [150000, 400000],
+        "clay prep line": [250000, 700000],
+        "yard equipment + loading": [250000, 600000],
+        "plant solar + storage": [200000, 500000],
+        "lab + QA": [60000, 150000]
+      },
+      "fixed_annual": {
+        "salaried staff": [600000, 1000000],
+        "certification, engineering, testing (amortized)": [100000, 250000],
+        "insurance incl. product liability": [100000, 300000],
+        "permits, compliance, software, overhead": [80000, 200000]
+      }
+    }
+  },
+  "capital": {"life_yr": 12, "interest": 0.08},
+  "variable": {
+    "clay dig, haul, prep ($/t fired)": [8, 20],
+    "rice husk ($/t husk, delivered)": [0, 30],
+    "production labor (h per t fired)": [6, 14],
+    "labor rate ($/h, loaded)": [20, 28],
+    "electricity (kWh per t fired)": [60, 150],
+    "electricity ($/kWh)": [0.07, 0.10],
+    "kiln, die, printer wear + consumables ($/t fired)": [10, 30],
+    "pallets, strapping, loading ($/t)": [8, 20],
+    "rejects (share of fired mass)": [0.05, 0.12]
+  },
+  "per_part": {
+    "printed part extra ($ each: machine + labor)": [1.5, 4.0],
+    "ground unit extra ($ each)": [0.3, 1.0]
+  },
+  "hardware": {
+    "rod M16 8.8 galvanized ($/kg)": [3, 6],
+    "rod stainless 316 ($/kg)": [10, 18],
+    "steel channel C100 galvanized ($/kg)": [2.5, 5],
+    "hardware per panel (disc springs, nuts, plates, dowels) ($)": [25, 60],
+    "fold key + wedge pair, stainless ($ each)": [15, 40],
+    "ring splice plate + bolts ($ each)": [20, 50],
+    "siding rail ($/m)": [4, 10],
+    "siding batten ($/m)": [1.5, 4]
+  },
+  "freight": {"payload_t": 21.0, "rate_per_mile": [2.5, 3.5], "min_charge_per_truck": 800, "loading_per_truck": 150},
+  "margin": 0.25,
+  "compare_per_ft2": {
+    "prefab storage shed": [30, 60],
+    "cabin / ADU shell kit": [60, 150],
+    "barndominium / steel building shell": [20, 60],
+    "SIP or log home shell kit": [50, 120],
+    "site-built US house, total": [150, 300]
+  }
+}

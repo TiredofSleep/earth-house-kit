@@ -120,7 +120,24 @@ unit reaches the ~0.56 target on its own.
   and away from the parts that are hard to replace (clamped panels, dome).
 - Every drop has a planned path from the dome to the cistern or the drain tile. None depends on a sealant.
 
-## 5. Phase R additions
+## 5. Coatings: what a modern spray can and can't add
+**Rule: nothing film-forming on the masonry.** BIA Technical Note 6A says film-forming coatings
+"should not be applied to exterior brickwork" and asks for a vapour permeability ≥ 0.98 (ASTM E96);
+trapped salts and moisture spall the face. Sprayed polymers also hide cracks, which breaks the
+nothing-fails-unseen rule.
+
+| coating | verdict | where / why |
+|---|---|---|
+| **light or engobed fired tiles** (reflectance ~0.5–0.7) + vented space under them | **adopt** | dome: raising reflectance 0.08 → 0.5 cut cooling ~30% in Dallas/Miami; fired colour doesn't soil or chalk the way paint does |
+| **silicate mineral paint** (potassium / sol-silicate, Keim-type) | **adopt where colour is wanted** | renders and interiors: vapour-open, UV-stable, non-combustible; buildings from 1891 reported never repainted |
+| **siloxane water repellent** (≥ 0.98 perm, BIA) | only if tests demand it | plinth / splash zone only; wait 1 year; ~10+ year life; never on siding, dome or interiors |
+| **lime-based textile-reinforced mortar** (glass or basalt mesh) | **keep on file as a repair** | +100–536% in-plane, 2.5–3× out-of-plane on brick; breathable, works on damp masonry, reversible |
+| sprayed or bonded carbon/glass-fibre epoxy | avoid | 7.5× wall strength in one test, but brittle failure, traps vapour, weakens near 50–80 °C, irreversible |
+| polyurea, PU foam + hardcoat, acrylic or silicone elastomerics | avoid | 7–20 year life; Monolithic Domes recoat every 5–10 years; vapour barriers |
+| BaSO4 "whitest paint", aerogel, superhydrophobic, graphene paints | avoid | radiative cooling fades in humid air; aerogel paint ≈ R-0.02; superhydrophobic wears off; graphene unproven outdoors |
+| any spray for **tornado** protection | none passes ICC 500 on masonry | build one dedicated ICC 500 safe room (grouted, reinforced masonry or concrete) instead |
+
+## 6. Phase R additions
 - Boards: extrude, fire, test absorption and freeze-thaw (ASTM C67), and load the lock in wind
   suction. Hang a 2 m test wall and spray it (ASTM E331-style).
 - Apron and collector: build a 3 m segment and run a hose at the 10-yr and 100-yr flows.

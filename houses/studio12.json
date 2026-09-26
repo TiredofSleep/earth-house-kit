@@ -1,0 +1,29 @@
+{
+  "name": "Studio 12 -- 12-gon cabin / studio / ADU core",
+  "plan": {
+    "type": "polygon",
+    "modules": 12
+  },
+  "wall": {
+    "unit": "wall8in",
+    "height_ft": 8
+  },
+  "openings": [
+    {
+      "type": "door"
+    },
+    {
+      "type": "window",
+      "sill_ft": 3,
+      "head_ft": 6.67
+    }
+  ],
+  "roof": {
+    "type": "dome_cap",
+    "phi0_deg": 51.8,
+    "unit_name": "16 in deep dome",
+    "oculus_m": 0.4,
+    "skin": "tiled"
+  },
+  "notes": "179 ft^2"
+}

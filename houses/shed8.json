@@ -1,0 +1,24 @@
+{
+  "name": "Shed 8 -- 8-gon storage / tool house",
+  "plan": {
+    "type": "polygon",
+    "modules": 8
+  },
+  "wall": {
+    "unit": "wall8in",
+    "height_ft": 8
+  },
+  "openings": [
+    {
+      "type": "door"
+    }
+  ],
+  "roof": {
+    "type": "dome_cap",
+    "phi0_deg": 51.8,
+    "unit_name": "12 in deep dome",
+    "oculus_m": 0.3,
+    "skin": "tiled"
+  },
+  "notes": "77 ft^2 storm-proof storage"
+}

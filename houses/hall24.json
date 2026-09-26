@@ -1,0 +1,37 @@
+{
+  "name": "Hall 24 -- 24-gon barn / hall",
+  "plan": {
+    "type": "polygon",
+    "modules": 24
+  },
+  "wall": {
+    "unit": "wall8in",
+    "height_ft": 8
+  },
+  "openings": [
+    {
+      "type": "door"
+    },
+    {
+      "type": "door"
+    },
+    {
+      "type": "window",
+      "sill_ft": 3,
+      "head_ft": 6.67
+    },
+    {
+      "type": "window",
+      "sill_ft": 3,
+      "head_ft": 6.67
+    }
+  ],
+  "roof": {
+    "type": "dome_cap",
+    "phi0_deg": 51.8,
+    "unit_name": "16 in deep dome",
+    "oculus_m": 0.8,
+    "skin": "tiled"
+  },
+  "notes": "729 ft^2; double door = two adjacent door modules"
+}

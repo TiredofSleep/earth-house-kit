@@ -79,5 +79,30 @@
   "method": "die",
   "clay_kg": 1.3,
   "role": "overlapping fired scale tile, fired hotter (1,050-1,100 C) or engobed outer face; waterproofs AND weighs the crown down against wind suction"
+ },
+ "siding.board": {
+  "method": "die",
+  "clay_kg": 6.8,
+  "role": "hung rainscreen board 1200x200x25, double-leaf, locks into the board below (ENVELOPE.md)"
+ },
+ "plinth.fluted": {
+  "method": "die",
+  "clay_kg": 9.0,
+  "role": "plinth ring unit, severe-weathering grade, vertical flutes on the buried face = drainage plane"
+ },
+ "apron.fluted_paver": {
+  "method": "die",
+  "clay_kg": 4.1,
+  "role": "300x200x40 paver on the crowned pad, radial flutes falling 5% outward"
+ },
+ "collector.channel": {
+  "method": "die",
+  "clay_kg": 5.0,
+  "role": "300 mm channel unit, 100x75 mm flow section, 1% fall to the cistern"
+ },
+ "drain.tile": {
+  "method": "die",
+  "clay_kg": 3.5,
+  "role": "300 mm fired drain tile at the bottom of the rubble trench (ASTM C4 practice)"
  }
 }

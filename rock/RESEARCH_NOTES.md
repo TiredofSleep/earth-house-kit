@@ -209,3 +209,20 @@ calculation. Many publisher pages were paywalled.
   (Ceramics 2023, 6(4):136); graded FGMs deform with abrupt steps.
 - Husk ash -> cristobalite above ~850 C; 0.7% jump near 220 C: cool slowly 250-180 C.
 - Moisture buffering: unfired clay 1.1-3.7 g/(m2 %RH); firing destroys most of it; clay plaster 1.67.
+
+## Coatings
+- Sprayed GFRP on block wall: 44 -> 330 kN, more brittle (https://doi.org/10.1139/L10-074); epoxy blocks
+  vapour, low fire resistance, hygrothermal debonding.
+- TRM on clay brick: in-plane strength +102-536%; lime/basalt TRM out-of-plane 2.5-3x; lime TRM
+  vapour-open, reversible. https://link.springer.com/article/10.1007/s10518-023-01775-y
+- Monolithic Dome: recoat every 5-10 years. https://www.monolithic.org/coatings
+- Acrylic elastomeric 7-10 yr; silicone 10-20 yr.
+- BIA TN 6A: no film-forming coatings on exterior brick; permeability >=0.98; siloxane 10+ yr.
+  https://www.gobrick.com/media/file/6a-colorless-coatings-for-brick-masonry.pdf
+- BaSO4 paint 98.1% reflectance, -4.4 C at noon (Indiana); sub-ambient cooling marginal in humid air.
+  https://pubs.aip.org/aip/adv/article/8/5/055124/923064/
+- Cool roof reflectance 0.08 -> 0.5: ~30% cooling saving (Miami, Dallas).
+  https://www.sciencedirect.com/science/article/pii/S2666123321000209
+- Keim silicate paint: patented 1878; 1891 facades reported never repainted. https://www.keim.com/company/history/
+- ICC 500 / FEMA P-361: 15 lb 2x4 at 100 mph; grouted reinforced masonry passes; no polyurea-on-masonry pass found.
+  https://www.structuremag.org/article/tornado-debris-impact-testing-and-masonry/
