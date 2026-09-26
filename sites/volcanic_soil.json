@@ -1,0 +1,16 @@
+{
+ "name": "volcanic soil (example)",
+ "soil": {
+  "sand_gravel": 60,
+  "silt": 25,
+  "clay": 15,
+  "clay_type": "unknown",
+  "organic": false,
+  "sulfate_or_salt": false
+ },
+ "available": {
+  "volcanic_ash": "yes",
+  "quicklime": "yes"
+ },
+ "priorities": []
+}

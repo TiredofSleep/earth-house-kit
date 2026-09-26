@@ -1,0 +1,17 @@
+{
+ "name": "tropical laterite (example)",
+ "soil": {
+  "sand_gravel": 50,
+  "silt": 20,
+  "clay": 30,
+  "clay_type": "kaolinitic",
+  "organic": false,
+  "sulfate_or_salt": false
+ },
+ "available": {
+  "quicklime": "yes",
+  "cement": "yes",
+  "wood": "yes (sustainable only)"
+ },
+ "priorities": []
+}

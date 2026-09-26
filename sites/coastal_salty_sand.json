@@ -1,0 +1,17 @@
+{
+ "name": "coastal salty sand (example)",
+ "soil": {
+  "sand_gravel": 90,
+  "silt": 5,
+  "clay": 5,
+  "clay_type": "unknown",
+  "sulfate_or_salt": true,
+  "organic": false
+ },
+ "available": {
+  "kaolinitic_clay": "hauled",
+  "cement": "yes",
+  "quicklime": "yes"
+ },
+ "priorities": []
+}

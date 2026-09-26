@@ -1,0 +1,16 @@
+{
+ "name": "sandy desert (example)",
+ "soil": {
+  "sand_gravel": 85,
+  "silt": 10,
+  "clay": 5,
+  "clay_type": "unknown",
+  "organic": false,
+  "sulfate_or_salt": false
+ },
+ "available": {
+  "cement": "yes",
+  "quicklime": "yes"
+ },
+ "priorities": []
+}

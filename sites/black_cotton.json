@@ -1,0 +1,16 @@
+{
+ "name": "black cotton (example)",
+ "soil": {
+  "sand_gravel": 15,
+  "silt": 25,
+  "clay": 60,
+  "clay_type": "expansive",
+  "organic": false,
+  "sulfate_or_salt": false
+ },
+ "available": {
+  "quicklime": "yes",
+  "cement": "yes"
+ },
+ "priorities": []
+}

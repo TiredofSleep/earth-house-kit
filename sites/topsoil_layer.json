@@ -1,0 +1,12 @@
+{
+ "name": "topsoil layer (example)",
+ "soil": {
+  "sand_gravel": 40,
+  "silt": 40,
+  "clay": 20,
+  "organic": true,
+  "sulfate_or_salt": false
+ },
+ "available": {},
+ "priorities": []
+}

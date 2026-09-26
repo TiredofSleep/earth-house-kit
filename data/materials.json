@@ -1,0 +1,25 @@
+{
+  "_note": "Portable materials library. Numbers are first-order; everything tagged TO-VERIFY/TO-MEASURE in the site outputs. Add a material here and every site can use it.",
+  "wall_kg_per_house": 13846,
+  "soil_rules": {"sandy_below_clay_pct": 8, "ideal_max_clay_pct": 20, "clayey_max_clay_pct": 35, "silty_above_pct": 40},
+  "pozzolans": {
+    "volcanic_ash":  {"rank": 1, "firing": "none", "note": "natural pozzolan; the original Roman ingredient"},
+    "rice_husk_ash": {"rank": 2, "firing_c": [500, 700], "note": "reactive when burned ~500-700 C: grey/white ash good, black = unburned carbon, overburned (>~800 C) = crystalline silica (lung hazard, less reactive)"},
+    "calcined_clay": {"rank": 3, "firing_c": [650, 800], "ideal_kwh_per_kg": 0.30, "min_kaolinite": 0.40, "note": "needs kaolinite-rich clay (threshold TO-VERIFY); only 5-15% of wall mass, can be hauled"},
+    "fly_ash":       {"rank": 4, "firing": "none", "note": "coal-plant byproduct; supply shrinking as plants close (TO-VERIFY)"},
+    "bagasse_ash":   {"rank": 5, "firing_c": [600, 800], "note": "sugarcane regions; quality varies"}
+  },
+  "binders": {
+    "quicklime_hot_mix": {"dose": [0.05, 0.07], "needs_pozzolan": true, "hazard": "caustic, exothermic, can spit steam; goggles, gloves, respirator"},
+    "hydrated_lime":     {"dose": [0.05, 0.10], "needs_pozzolan": false, "note": "safer, no heat; works on clayey soils, better with a pozzolan"},
+    "cement":            {"dose": [0.06, 0.08], "best_on": "sandy", "note": "simplest; attacked by sulfates"},
+    "geopolymer_activator": {"dose_of_pozzolan": [0.10, 0.20], "needs_pozzolan": true, "hazard": "caustic; gloves and eye protection"}
+  },
+  "pozzolan_frac_of_wall": [0.05, 0.08],
+  "kiln_fuels": {
+    "rice_husk":      {"kwh_per_kg": [3.6, 4.4], "kiln_efficiency": [0.15, 0.35], "ash_fraction": [0.15, 0.22], "bulk_density": [100, 150], "byproduct": "rice_husk_ash"},
+    "bagasse":        {"kwh_per_kg": [2.0, 2.6], "kiln_efficiency": [0.15, 0.35], "ash_fraction": [0.02, 0.05], "bulk_density": [120, 160], "byproduct": "bagasse_ash"},
+    "wood":           {"kwh_per_kg": [4.0, 5.0], "kiln_efficiency": [0.15, 0.35], "ash_fraction": [0.005, 0.02], "bulk_density": [300, 500], "caution": "only from sustainable sources"},
+    "solar_electric": {"kwh_per_kg_clay_incl_losses": [0.43, 0.85], "note": "needs ~20 kW array for the build; weather-limited"}
+  }
+}

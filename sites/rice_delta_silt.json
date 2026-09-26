@@ -1,0 +1,16 @@
+{
+ "name": "rice delta silt (example)",
+ "soil": {
+  "sand_gravel": 20,
+  "silt": 55,
+  "clay": 25,
+  "clay_type": "unknown",
+  "organic": false,
+  "sulfate_or_salt": false
+ },
+ "available": {
+  "rice_husk": "yes",
+  "quicklime": "yes"
+ },
+ "priorities": []
+}

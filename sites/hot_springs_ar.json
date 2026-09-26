@@ -1,0 +1,6 @@
+{"name": "Hot Springs, AR (home site, UNTESTED placeholder)",
+ "soil": {"sand_gravel": 45, "silt": 25, "clay": 30, "clay_type": "unknown", "organic": false, "sulfate_or_salt": false,
+          "_note": "placeholder red-clay values -- replace with jar test + XRD"},
+ "available": {"rice_husk": "yes: eastern Arkansas rice mills (supply/price TO-VERIFY)", "quicklime": "yes (regional, TO-VERIFY)",
+               "cement": "yes", "volcanic_ash": "no", "fly_ash": "unknown", "kaolinitic_clay": "self, if XRD confirms"},
+ "priorities": ["cement_free"]}
