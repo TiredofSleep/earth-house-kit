@@ -136,7 +136,7 @@ employer. The Arkansas factory proves the system and trains the people who take 
 |---|---|---|---|
 | **0. Phase R** ($5–15k) | fire the clay; print, fire, grind units; dry-stack column; a 2 m test dome | nothing yet | kills or confirms the idea cheaply |
 | **1. Pilot yard** (~$0.3–1M, used gear) | 2–4 kilns, one extruder, 2 printers | **agricultural buildings, storage, studios**, which are often exempt from the residential code | revenue, yield data, a showroom |
-| **2. Safe rooms** | ICC 500 / FEMA P-361 missile testing of a fired-unit safe room | tornado shelters ($3–12k installed; FEMA grants cover up to 75%) | a storm-proof, fireproof product in tornado country; needs a pass first |
+| **2. Safe rooms** (`business/SHELTER_PLAN.md`) | round drum + shallow cap; sacrificial fired skin + grouted core; listed door; tests at Intertek/UL (~$75–175k, 12–18 months) | cash sales in Arkansas; **community safe rooms** through Arkansas cities and counties (HMGP); rebate sales in OK (SoonerSafe) and MS | a certified product and the test data the house kit reuses |
 | **3. Certified houses** | ICC-ES report, stamped designs | Ring 16 / Studio 12 shells, then compounds | the premium market |
 | **4. Production plant or mobile plants** | continuous kiln, or site plants for compounds and villages | volume | only after demand is proven |
 

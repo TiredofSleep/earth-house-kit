@@ -242,3 +242,21 @@ calculation. Many publisher pages were paywalled.
   https://geology.arkansas.gov/minerals/industrial/clay.html ; Acme plants 1921, 1967, 1980 ("Brick
   Capital of the World"). https://encyclopediaofarkansas.net/entries/brick-industry-2144/
 - Grog 20-30% in plastic bodies; 10% sand optimum in one clay-brick study; BIA: culls ground as grog.
+
+## Storm shelters (ICC 500 / FEMA P-361, P-320)
+- FEMA-funded residential safe rooms: 250 mph design wind everywhere; Kd 1.0; GCpi +/-0.55 (or +/-0.18 with
+  venting). https://www.fema.gov/sites/default/files/documents/fema_foundation-and-anchoring-criteria-for-safe-rooms_12-24.pdf
+- Missile 15 lb 2x4: 100 mph on surfaces >= 30 deg from horizontal, 67 mph below 30 deg; fired perpendicular;
+  pass = no perforation, <3 in deflection, no spall past the witness screen.
+  https://up.codes/viewer/texas/icc-500-2014/chapter/3/structural-design-criteria
+- Texas Tech no longer tests commercially; Intertek, UL, ICC-ES do.
+  https://www.depts.ttu.edu/nwi/research/debrisimpact/index.php
+- Passed: 6 in CMU fully grouted #4 @ 36 in; 8 in grouted #5 @ 48 in; 6 in RC wall; 4 in brick + 2 in cavity +
+  partially grouted 8 in CMU (brick shattered, absorbed). https://www.structuremag.org/article/tornado-debris-impact-testing-and-masonry/
+- Failed: 4 in solid face brick shattered ~76 mph (9 lb); hollow 8 in CMU perforated at 60 mph.
+  https://brick.com/wp-content/uploads/2025/01/technical_service_digest-222_0.pdf
+- Dome C&C GCp -0.9 whole surface (ASCE 7-16 Fig 30.3-7); no coefficients for steep cones.
+- Arkansas residential rebate ended 2016; 180+ community safe rooms funded.
+  https://dps.arkansas.gov/emergency-management/adem/plan-prepare/community-safe-rooms/
+- Oklahoma SoonerSafe $3,000 or 75%; Mississippi 75% up to $3,500; Alabama credit $3,000/50%; Kansas inactive.
+- Competitors: Atlas steel $4,995-7,795; Torshel 4x8 $8,699; Texas above-ground $4-7.5k installed.

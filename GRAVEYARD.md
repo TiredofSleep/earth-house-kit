@@ -30,6 +30,9 @@ Kept on purpose so nobody rebuilds them. Each entry: the idea, what killed it, t
 | Spray coatings on the masonry (carbon-fibre epoxy, polyurea, elastomerics, BaSO4 paint) | trap vapour and salts (BIA TN 6A), hide cracks, 7–20 year recoat cycles, irreversible; radiative cooling fades in humid air; none passes ICC 500 missile tests on masonry | light engobed tiles, silicate paint, siloxane on the plinth only, lime TRM kept as a repair, one ICC 500 safe room |
 | A river 'sand-bar harvesting' structure on the Ouachita at Malvern | ~98% of the watershed above Malvern is behind three dams that trap sand; harvesting a sediment-starved reach causes bed incision downstream (Kondolf, 'Hungry Water'); 404/401/ESA/State Lands permits | screen the Wilcox sand beds in the clay pit, grog from kiln rejects, buy quarry sand at Jones Mill |
 | Plain dry (unstressed) dome ribs | wind: GSF ~1.2 and joints slide (`dome_ribbed.py`) | one stainless tendon per rib, 20 kN |
+| A steep cone/pyramid shelter 'deflects' the debris missile | ICC 500 fires the 2x4 perpendicular, and every surface >= 30 deg takes the full 100 mph missile; ASCE 7 has no coefficients for steep cones | round drum + shallow cap under 30 deg (`shelter_check.py`) |
+| Dry-stacked or sand-filled clay alone as a shelter wall | 4 in solid brick shattered at ~76 mph (9 lb missile); only grouted/reinforced masonry and cavity walls have passed 100 mph | sacrificial fired skin + cavity + grouted cellular core (SHELTER_PLAN.md) |
+| Arkansas residential safe-room rebates as the first funding | Arkansas's program ended in 2016; Arkansas FEMA money funds community safe rooms | community/school safe rooms in Arkansas; residential rebates in OK and MS |
 | Concrete from clayey site soil | clay fines: 10–14% cement on clay soil gave only 1.5–3.4 MPa | only with screened sand/gravel |
 
 ## Overturned (kills that were wrong)
