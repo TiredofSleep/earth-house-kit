@@ -1,0 +1,40 @@
+{
+  "_note": "Joint catalog for the fired-unit kit. Rule 1: fired clay only ever bears in compression -- no clay hook ever carries tension (Japanese joints turn tension into bearing on a hooked face, and the hook's neck is where timber splits; in clay it would shatter). Rule 2: small, replaceable, non-rusting keys and wedges do the locking and the pulling-tight, and can be re-driven. Sources: rock/RESEARCH_NOTES.md (joinery section). All sizes [TO-MEASURE] in Phase R.",
+  "unit_locator": {
+    "name": "shallow drafted locator keys",
+    "after": "Hydraform shoulders; Greek anathyrosis",
+    "force_path": "keys stand ~1 mm short of bearing, so they only stop units sliding while stacking; load bears on ground rim bands of the shells and webs; shear by friction under the rod clamp (mu 0.48-0.62)"
+  },
+  "panel_clamp": {
+    "name": "rod clamp (komisen / shachi-sen draw, in steel)",
+    "after": "komisen draw-pin: pulls the joint shut and can be driven out",
+    "force_path": "2 rods in open cells pre-compress every bed joint; disc springs hold the force as joints seat; re-torque from the top channel at any time; rods sit loose in 60 mm cells so rust can never burst the clay (the lesson of the Acropolis's steel-in-concrete repairs); 316 stainless for a long-life build"
+  },
+  "panel_fold": {
+    "name": "wedged key at the fold (shachi-sen style)",
+    "after": "shachi-sen paired wedges; kanawa-tsugi wedge pre-compression; nuki wedges 1-2 mm oversize",
+    "keys_per_joint": 3,
+    "key": "fired-clay key block (large, compression only) + tapered wedge pair (316 stainless or titanium; hardwood only if dry and replaceable), 3 per fold",
+    "force_path": "the wedge pair draws the two panels' edge units onto the key block: clay in compression only; wedges driven 1-2 mm oversize to pre-compress, with ~3 mm of travel left to re-drive later; in an earthquake the joint slips by friction and re-seats (energy out by friction, never by breaking clay)"
+  },
+  "base_slider": {
+    "name": "friction slider with dowel stops at the plinth",
+    "after": "Greek column-drum dowels and empolia (shake tests: rocking and sliding, little residual offset)",
+    "force_path": "panel bears on the plinth through the bottom channel; stainless dowels in oversized sockets stop large slip; small slip dissipates energy"
+  },
+  "ring_splice": {
+    "name": "bolted splice plate across each fold",
+    "after": "Poleni's iron hoops on St Peter's; the Armadillo Vault's tension ties",
+    "force_path": "the dome's rim thrust becomes ring tension in the panels' top channels; it crosses each fold through a bolted plate: in plain sight, re-tightenable"
+  },
+  "dome_course": {
+    "name": "seat step + radial bearing faces",
+    "after": "Brunelleschi's herringbone (stops inward sliding ring by ring); Inca through-wall keying",
+    "force_path": "each voussoir's lower bed has a small ledge whose seat is no steeper than atan(mu/1.5) ~18-22 deg, so a dry unit rests on it in compression and friction; the main joint faces are radial, carrying the dome's thrust in compression; no clay hooks"
+  },
+  "dome_key_course": {
+    "name": "closing key voussoir",
+    "after": "keystone; recursive interlocking puzzles (one key part placed last locks the set)",
+    "force_path": "the last unit of each course is slightly tapered and pressed in to close the ring; from then on hoop compression holds every unit of that course"
+  }
+}

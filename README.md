@@ -25,6 +25,7 @@ Roman-style recipe), or 6–8% cement where that's simpler.
 | [making-system/TILTUP_DETAILING.md](making-system/TILTUP_DETAILING.md) | how a panel gets from the pit to a braced wall |
 | [rock/ROCK_OPTIONS.md](rock/ROCK_OPTIONS.md) | **every way to turn site soil into rock**, compared: firing, melting, chemistry, biology |
 | [making-system/BRICK_PANEL.md](making-system/BRICK_PANEL.md) | **the lead design:** printed fired units, dry-stacked, clamped by rods, tilted up |
+| [making-system/KIT_OF_PARTS.md](making-system/KIT_OF_PARTS.md) | **design houses from interlocking parts:** Japanese-joinery locking in fired clay, the dome, the house designer |
 | [printer/PRINTER_CONCEPT.md](printer/PRINTER_CONCEPT.md) | a gantry that compacts panels flat instead of extruding wet mud |
 | [HANDOFF_TO_CLAUDE_CODE.md](HANDOFF_TO_CLAUDE_CODE.md) | the prioritized task list |
 
@@ -43,6 +44,8 @@ python rock_options.py             # every rock-making route: wall, energy, fuel
 python brick_panel_check.py        # printed fired units: panel, rods, kiln, throughput
 python thermal_check.py            # printed cross-sections: U-value, time lag (2-D heat flow)
 python form_check.py               # plan shape: floor per panel, wind, self-bracing
+python dome_check.py               # fired-unit dome: thrust, ring, thickness, dry build
+python house_designer.py           # every design in houses/: full parts list + checks
 ```
 
 A new site is a new JSON file in `sites/`, and a new material is an entry in

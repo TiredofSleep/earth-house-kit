@@ -77,3 +77,45 @@ calculation. Many publisher pages were paywalled.
   https://www.3dwasp.com/wp-content/uploads/2024/01/WASP-40100-LDM-Technical-Sheet.pdf
 - HKU Ceramic Constellation: ~2,000 printed bricks, 2–3 min per brick, fired at 1025 °C.
 - **Gap:** no tested printed, fired, dry-stack, load-bearing clay wall system was found.
+
+## Joinery, stone keys and dry domes
+- Kanawa-tsugi: the wedge (sen) goes in last and pre-compresses the stepped bearing faces; tension
+  becomes bearing; beats okkake-daisen-tsugi in a carpenter's comparison (snip).
+  https://www.kyoto-araki.jp/kyomachiya/kigumi/kanawa.html
+- Shachi-sen paired wedges draw the tenon tight, with ~3 mm spare travel to re-drive after
+  shrinkage; komisen draw-pins through offset holes pull the joint shut and can be driven out.
+  https://www.quaggadesigns.com/blog/yato-hozo-shachi-sen-shiguchi-japanese-joinery-explained
+- Nuki wedges 1–2 mm oversize raise stiffness and capacity; loops pinch after embedment (Chang,
+  Komatsu et al., Eng. Struct. 2008).
+  https://www.sciencedirect.com/science/article/abs/pii/S0141029608000114
+- Dougong fails by splitting at the tenon's section change: the brittle-mode warning.
+  https://www.sciencedirect.com/science/article/abs/pii/S2352012422009596
+- Inca dry walls came through the 1650 and 1950 Cusco quakes with minor fractures; poured bronze
+  I/T cramps at some sites. https://en.wikipedia.org/wiki/Inca_architecture
+- Greek anathyrosis (contact only on a dressed rim band); iron cramps set in lead lasted ~2,400
+  years; Balanos's steel-in-concrete repairs rusted and split the marble; titanium since, fine for
+  30+ years. https://en.wikipedia.org/wiki/Anathyrosis ;
+  https://www.ysma.gr/en/monuments/parthenon/completed-interventions/
+- Multi-drum columns on shake tables rock and slide with little permanent offset.
+  https://link.springer.com/article/10.1007/s10518-014-9608-y
+- Egyptian dovetail cramps of African blackwood (Medinet Habu). https://www.blackwoodconservation.org/5000-year-history/
+- Armadillo Vault (Venice 2016): 399 dry limestone blocks, ~16 m span, 5 cm at the crown to
+  8–12 cm at the supports, funicular, ties take the thrust.
+  https://www.istructe.org/structural-awards/projects/2017/armadillo-vault/
+- Striatus (2021): dry-assembled printed concrete blocks, layers aligned with the compression flow,
+  demountable. https://www.zha.com/design/striatus/
+- Nubian vaults: courses lean ~60°, held by earth-mortar suction until closed; ~3.2 m span.
+  https://www.earth-auroville.com/la_voute_nubienne_en.php
+- Auroville Dhyanalinga dome: 22.16 m, fired brick, no formwork, 53 → 21 cm thick.
+  https://dev.earth-auroville.com/dhyanalinga-dome/
+- Dome minimum thickness: hemisphere t/R ≈ 0.042 (Heyman), 0.0428 (Coccia et al. 2016); segmental
+  ≈ 0.04 (Zessin, Lau & Ochsendorf); hoop tension below 51.8° from the crown in membrane theory.
+  https://link.springer.com/article/10.1007/s00707-016-1630-5 ; https://www.mdpi.com/2075-5309/11/6/241
+- St Peter's cracked despite iron hoops; Poleni added five more in the 1740s.
+  https://www.sciencedirect.com/science/article/pii/S2095263522000784
+- Corner confinement of dry-stack walls: +64% lateral load, +288% drift (snip).
+  https://www.sciencedirect.com/science/article/abs/pii/S0267726122005553
+- Interlocking assemblies: recursive puzzles (Song, Fu, Cohen-Or 2012); DESIA (Wang, Song, Pauly
+  2018); topological interlocking assemblies (Wang et al. 2019). https://dl.acm.org/doi/10.1145/3272127.3275034
+- **Gaps:** no shake tests of Inca walls; no data on fired-clay interlocking keys; Armadillo and
+  Striatus interface pads not confirmed (paywalled).

@@ -169,7 +169,11 @@ The same 20 panels enclose **26% more floor** as a 20-gon. There is 20% less wal
 to gain or lose heat, and roughly half the wind drag [TO-VERIFY Cd]. A closed ring **braces
 itself**: every joint is a fold, so temporary braces come off as soon as the ring closes.
 
-### The roof: compression only
+### The roof: compression only (worked out in `dome_check.py` and `KIT_OF_PARTS.md` §3)
+**Result:** a spherical cap stopped at 51.8° is all compression. Use 16 in deep cellular voussoirs
+(2.0–2.6× the minimum masonry-dome thickness), cut from one die, each with a seat step. The rim
+thrust becomes ~14–24 kN of ring tension in the panels' bolted top channels, which carry it 11–18×.
+
 The structures that have stood for centuries in fired brick are compression shapes: vaults and
 domes. A fired-unit **dome or cone** over a polygon removes the steel roof, this kit's biggest
 per-house cost, and the last short-lived part. It needs its outward thrust taken by the ring beam

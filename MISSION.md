@@ -649,10 +649,13 @@ earth-house-kit/
   brick_panel_check.py    # printed fired units: panel, rods, kiln, throughput
   thermal_check.py        # printed cross-sections: 2-D heat flow, ISO 13786 time lag
   form_check.py           # plan shape: floor per panel, wind, self-bracing
+  dome_check.py           # fired-unit dome: thrust, ring, minimum thickness, dry build
+  house_designer.py       # houses/*.json -> parts list + checks (kit: data/kit_units.json, data/joints.json)
   rock/                   # ROCK_OPTIONS.md, RESEARCH_NOTES.md
   data/materials.json     # materials library (soils rules, pozzolans, binders, kiln fuels)
   sites/*.json            # one file per site (home site + 8 examples)
-  making-system/          # TILTUP_DETAILING.md, BRICK_PANEL.md; kiln, mill, QA (planned)
+  making-system/          # TILTUP_DETAILING.md, BRICK_PANEL.md, KIT_OF_PARTS.md; kiln, QA (planned)
+  houses/                 # house designs as data
   printer/                # print-and-tilt compaction printer: concept + print_check.py
   earth-panel/            # sibling research branch: in-situ grid firing (not the kit baseline)
   chemistry/              # (planned) Phase A protocol, lab results, binder choice per site

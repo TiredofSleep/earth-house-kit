@@ -1,0 +1,78 @@
+{
+ "_note": "Kit of fired parts. clay_kg = fired clay per unit (husk fill extra). method: die = constant section, pug mill + die; print = shape varies, clay printer. Masses [TO-MEASURE] on printed samples. Wall unit envelope 295 x 193 mm x depth; the 8 in unit is ~32% clay (thermal_check.py).",
+ "wall8in.universal": {
+  "method": "die",
+  "clay_kg": 6.6,
+  "role": "6-row staggered cellular section, husk-filled; the bulk of every wall"
+ },
+ "wall8in.edge": {
+  "method": "die",
+  "clay_kg": 7.4,
+  "role": "panel edge: trapezoid section at the half-fold angle (constant along the cells -> a second die)"
+ },
+ "wall8in.rod_end": {
+  "method": "print",
+  "clay_kg": 9.2,
+  "role": "top/bottom of a rod column: solid bearing seat under the end channel, thick webs round the rod cell"
+ },
+ "wall8in.insert": {
+  "method": "print",
+  "clay_kg": 8.2,
+  "role": "face slot for a tilting insert hooked round the rod"
+ },
+ "wall4in.universal": {
+  "method": "die",
+  "clay_kg": 4.7,
+  "role": "4.5 in cellular section (mild climates, partitions)"
+ },
+ "wall4in.edge": {
+  "method": "die",
+  "clay_kg": 5.2,
+  "role": "panel edge: trapezoid section at the half-fold angle (constant along the cells -> a second die)"
+ },
+ "wall4in.rod_end": {
+  "method": "print",
+  "clay_kg": 6.5,
+  "role": "4.5 in rod-column end, bearing seat"
+ },
+ "wall4in.insert": {
+  "method": "print",
+  "clay_kg": 5.8,
+  "role": "4.5 in tilting-insert unit"
+ },
+ "dome.eave (corbelled drip course)": {
+  "method": "print",
+  "clay_kg": 8.0,
+  "role": "first course: seats on the steel ring, overhangs the wall face with a drip edge (the 'good hat')"
+ },
+ "dome.oculus_ring": {
+  "method": "print",
+  "clay_kg": 7.0,
+  "role": "compression ring round the crown opening; seat for the skylight/vent cap"
+ },
+ "wall8in.key_seat": {
+  "method": "print",
+  "clay_kg": 8.0,
+  "role": "edge unit with the fold-joint key seat and wedge slot (3 per panel edge)"
+ },
+ "wall4in.key_seat": {
+  "method": "print",
+  "clay_kg": 5.6,
+  "role": "edge unit with the fold-joint key seat and wedge slot (3 per panel edge)"
+ },
+ "dome.voussoir 8 in thermal": {
+  "method": "die",
+  "clay_kg": 6.5,
+  "role": "spherical dome: every course subtends the same angle, so ONE die section (wedge + seat step) serves every course; only the hoop end-cut angle changes per course (jig, leather-hard)"
+ },
+ "dome.voussoir 12 in deep dome": {
+  "method": "die",
+  "clay_kg": 6.8,
+  "role": "spherical dome: every course subtends the same angle, so ONE die section (wedge + seat step) serves every course; only the hoop end-cut angle changes per course (jig, leather-hard)"
+ },
+ "dome.voussoir 16 in deep dome": {
+  "method": "die",
+  "clay_kg": 7.4,
+  "role": "spherical dome: every course subtends the same angle, so ONE die section (wedge + seat step) serves every course; only the hoop end-cut angle changes per course (jig, leather-hard)"
+ }
+}

@@ -45,8 +45,13 @@ cellular clay units, ground flat, dry-stacked with no mortar, clamped by post-te
 panels, and tilted up. The compacted-earth kit below stays as the fallback until Phase R decides.
 - R0. **Phase R bench tests** (BRICK_PANEL.md §9): fire home clay; print, fire, grind units;
   dry-stack column seating loss; one panel tilted and broken; thermal test.
-- R1. **Dome/cone roof** of fired units over a 16–20-gon: thrust, ring beam, rain skin. Extend
-  `form_check.py` with thrust.
+- R1. ~~Dome~~ v0.1 done: `dome_check.py`, `KIT_OF_PARTS.md` §3 (51.8° cap, 16 in deep voussoirs,
+  seat steps, channel ring). Remaining: uneven-load analysis (thrust network / discrete elements),
+  rain skin.
+- R6. **Assembly order** (DESIA blocking graphs): one closing key per panel and per course; this
+  becomes the build manual.
+- R7. **Joint tests:** wedged fold key (pre-compression, slip, re-drive), seat-step sliding, a 2 m
+  dry test dome.
 - R2. **Unit geometry files:** parametric print paths (universal, rod-end, insert, corner,
   sill, lintel) with per-axis shrinkage scaling; a die design for the universal unit.
 - R3. **Fibre-hood kiln + husk burner** sized for 0.5–1 t per firing (merges with task 12).

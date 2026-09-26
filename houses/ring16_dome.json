@@ -1,0 +1,28 @@
+{
+  "name": "Ring 16 -- 16-gon, 8 in thermal walls, fired dome (16 in deep voussoirs)",
+  "plan": {
+    "type": "polygon",
+    "modules": 16
+  },
+  "wall": {
+    "unit": "wall8in",
+    "height_ft": 8
+  },
+  "openings": [
+    {
+      "type": "door"
+    },
+    {
+      "type": "window",
+      "sill_ft": 3,
+      "head_ft": 6.67
+    }
+  ],
+  "roof": {
+    "type": "dome_cap",
+    "phi0_deg": 51.8,
+    "unit_name": "16 in deep dome",
+    "oculus_m": 0.5
+  },
+  "notes": "322 ft^2; the smaller first build"
+}
