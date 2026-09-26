@@ -1,5 +1,7 @@
 # Earth House-Kit
 
+> **[Read the founder packet →](https://claude.ai/artifact/S2nHEWyBa5oJ7Zsk9iFFoP)** the whole idea in plain words, a filterable matrix of every idea explored, and the step-by-step to-do list.
+
 **An open method and a small reusable kit for turning a site's own soil into reinforced,
 thermally massive walls, plus a solar system that powers the build and then stays behind as the
 village mini-grid.** It is a charity project, meant to be deployed through local partners.
